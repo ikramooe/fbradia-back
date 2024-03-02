@@ -8,6 +8,7 @@ use Laravel\Nova\Fields\Gravatar;
 use Laravel\Nova\Fields\ID;
 use Laravel\Nova\Fields\Password;
 use Laravel\Nova\Fields\Text;
+use Laravel\Nova\Fields\BelongsTo;
 use Laravel\Nova\Http\Requests\NovaRequest;
 
 class User extends Resource
@@ -51,6 +52,8 @@ class User extends Resource
             Text::make('Name')
                 ->sortable()
                 ->rules('required', 'max:255'),
+
+            BelongsTo::make('event'),
 
             Text::make('Email')
                 ->sortable()
