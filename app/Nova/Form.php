@@ -48,6 +48,7 @@ class Form extends Resource
             ID::make()->sortable(),
             Text::make('Titre'),
             Textarea::make('Description'),
+            Textarea::make('Description bas de page','description_bas'),
             BelongsTo::make('Event'),
             
             
