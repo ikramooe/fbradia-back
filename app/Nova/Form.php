@@ -82,6 +82,14 @@ class Form extends Resource
                 ]),
                
             ])
+            ->addLayout('Champ pays', 'pays', [
+                Text::make('Label'),
+               
+            ])
+            ->addLayout('Champ wilaya', 'wilaya', [
+                Text::make('Label'),
+               
+            ])
             ->addLayout('Champ radio', 'radio', [
                 Text::make('Label'),
                 Text::make('Name'),
