@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use Laravel\Nova\Fields\ID;
 use Laravel\Nova\Fields\Select;
 use Laravel\Nova\Fields\Text;
+use Laravel\Nova\Fields\Trix;
 use Laravel\Nova\Fields\BelongsTo;
 use Laravel\Nova\Fields\Textarea;
 use Whitecube\NovaFlexibleContent\Flexible;
@@ -47,7 +48,7 @@ class Form extends Resource
         return [
             ID::make()->sortable(),
             Text::make('Titre'),
-            Textarea::make('Description'),
+            Trix::make('Description'),
             Textarea::make('Description bas de page','description_bas'),
             BelongsTo::make('Event'),
             
