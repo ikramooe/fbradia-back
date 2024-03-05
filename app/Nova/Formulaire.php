@@ -7,12 +7,13 @@ use Laravel\Nova\Fields\ID;
 use Laravel\Nova\Fields\Select;
 use Laravel\Nova\Fields\Text;
 use Laravel\Nova\Fields\Trix;
+use Laravel\Nova\Fields\Image;
 use Laravel\Nova\Fields\BelongsTo;
 use Laravel\Nova\Fields\Textarea;
 use Whitecube\NovaFlexibleContent\Flexible;
 use Laravel\Nova\Http\Requests\NovaRequest;
 
-class Form extends Resource
+class Formulaire extends Resource
 {
     /**
      * The model the resource corresponds to.
@@ -48,6 +49,7 @@ class Form extends Resource
         return [
             ID::make()->sortable(),
             Text::make('Titre'),
+            Image::make('Image'),
             Trix::make('Description'),
             Textarea::make('Description bas de page','description_bas'),
             BelongsTo::make('Event'),
