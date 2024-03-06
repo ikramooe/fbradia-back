@@ -58,7 +58,7 @@ class User extends Resource
 
             MultiSelect::make('forms')->options(function(){
 
-                $forms = Form::pluck('id','titre')->get();
+                $forms = Form::pluck('id','titre');
                 return $forms;
             }
                
