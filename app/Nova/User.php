@@ -10,6 +10,7 @@ use Laravel\Nova\Fields\Password;
 use Laravel\Nova\Fields\Text;
 use Laravel\Nova\Fields\BelongsTo;
 use Laravel\Nova\Http\Requests\NovaRequest;
+use Laravel\Nova\Fields\MultiSelect;
 
 class User extends Resource
 {
@@ -54,6 +55,16 @@ class User extends Resource
                 ->rules('required', 'max:255'),
 
             BelongsTo::make('event'),
+
+            MultiSelect::make('forms')->options(function(){
+
+                $forms = Form::pluck('id','titre')->get();
+                return $forms;
+            }
+               
+            ),
+
+            
 
             Text::make('Email')
                 ->sortable()
