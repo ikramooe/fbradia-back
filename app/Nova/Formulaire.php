@@ -35,7 +35,7 @@ class Formulaire extends Resource
      * @var array
      */
     public static $search = [
-        'id',
+        'id','titre'
     ];
 
     /**
