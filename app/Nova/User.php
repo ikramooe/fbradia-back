@@ -11,7 +11,7 @@ use Laravel\Nova\Fields\Text;
 use Laravel\Nova\Fields\BelongsTo;
 use Laravel\Nova\Http\Requests\NovaRequest;
 use Laravel\Nova\Fields\MultiSelect;
-
+use App\Models\Form;
 class User extends Resource
 {
     /**
