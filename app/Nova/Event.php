@@ -5,6 +5,7 @@ namespace App\Nova;
 use Illuminate\Http\Request;
 use Laravel\Nova\Fields\ID;
 use Laravel\Nova\Fields\Text;
+use Laravel\Nova\Fields\Image;
 use Laravel\Nova\Http\Requests\NovaRequest;
 
 class Event extends Resource
@@ -44,6 +45,11 @@ class Event extends Resource
             ID::make()->sortable(),
 
             Text::make('Titre'),
+            Text::make('Organisateur'),
+            Text::make('Date'),
+            Text::make('Heure'),
+            Text::make('Lieu'),
+            Image::make('Image')
             
         ];
     }
