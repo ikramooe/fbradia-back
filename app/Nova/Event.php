@@ -5,6 +5,7 @@ namespace App\Nova;
 use Illuminate\Http\Request;
 use Laravel\Nova\Fields\ID;
 use Laravel\Nova\Fields\Text;
+use Laravel\Nova\Fields\Trix;
 use Laravel\Nova\Fields\Image;
 use Laravel\Nova\Http\Requests\NovaRequest;
 
@@ -49,6 +50,7 @@ class Event extends Resource
             Text::make('Date'),
             Text::make('Heure'),
             Text::make('Lieu'),
+            Trix::make('Programme'),
             Image::make('Image')
             
         ];
