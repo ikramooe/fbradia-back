@@ -54,7 +54,7 @@ class Formulaire extends Resource
             Trix::make('Description'),
 
             Boolean::make('Autoriser action imprimer badge','print_badge'),
-            Boolean::make('Autoriser action envoyer attestation','envoyer_attes'),
+            Boolean::make('Autoriser action envoyer attestation','envoyer_attest'),
             Textarea::make('Description bas de page','description_bas'),
             BelongsTo::make('Event'),
             
