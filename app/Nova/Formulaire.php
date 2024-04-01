@@ -7,6 +7,7 @@ use Laravel\Nova\Fields\ID;
 use Laravel\Nova\Fields\Select;
 use Laravel\Nova\Fields\Text;
 use Laravel\Nova\Fields\Trix;
+use Laravel\Nova\Fields\Boolean;
 use Laravel\Nova\Fields\Image;
 use Laravel\Nova\Fields\BelongsTo;
 use Laravel\Nova\Fields\Textarea;
@@ -51,6 +52,9 @@ class Formulaire extends Resource
             Text::make('Titre'),
             Image::make('Image'),
             Trix::make('Description'),
+
+            Boolean::make('Autoriser action imprimer badge','print_badge'),
+            Boolean::make('Autoriser action envoyer attestation','envoyer_attes'),
             Textarea::make('Description bas de page','description_bas'),
             BelongsTo::make('Event'),
             
