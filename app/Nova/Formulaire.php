@@ -54,6 +54,8 @@ class Formulaire extends Resource
             Trix::make('Description'),
 
            
+            Boolean::make('Present','present'),
+            Boolean::make('Impression badge','badge'),
             Textarea::make('Description bas de page','description_bas'),
             BelongsTo::make('Event'),
             
