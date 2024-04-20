@@ -55,7 +55,7 @@ class Formulaire extends Resource
 
            
             Boolean::make('Present','present'),
-            Boolean::make('Impression badge','badge'),
+            Boolean::make('Impression badge','print_badge'),
             Textarea::make('Description bas de page','description_bas'),
             BelongsTo::make('Event'),
             
