@@ -51,6 +51,7 @@ class Formulaire extends Resource
         return [
             ID::make()->sortable(),
             Text::make('Titre'),
+            Text::make('Email'),
             Image::make('Image'),
             Trix::make('Description'),
 

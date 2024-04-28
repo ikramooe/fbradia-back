@@ -9,6 +9,10 @@ class Form extends Model
 {
     use HasFactory;
 
+    public $casts = [
+        'chrono'=>'date'
+    ];
+
     public function event(){
         return $this->belongsTo(Event::class);
     }
