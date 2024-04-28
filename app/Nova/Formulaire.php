@@ -11,6 +11,7 @@ use Laravel\Nova\Fields\Boolean;
 use Laravel\Nova\Fields\Image;
 use Laravel\Nova\Fields\BelongsTo;
 use Laravel\Nova\Fields\Textarea;
+use Laravel\Nova\Fields\Date;
 use Whitecube\NovaFlexibleContent\Flexible;
 use Laravel\Nova\Http\Requests\NovaRequest;
 
@@ -62,6 +63,7 @@ class Formulaire extends Resource
             Textarea::make('Description bas de page','description_bas'),
             BelongsTo::make('Event'),
             
+            Date::make('Chrono','chrono'),
             
             Flexible::make('Content')
             ->addLayout('Champ text', 'text', [
