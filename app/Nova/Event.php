@@ -5,12 +5,18 @@ namespace App\Nova;
 use Illuminate\Http\Request;
 use Laravel\Nova\Fields\ID;
 use Laravel\Nova\Fields\Text;
+use Laravel\Nova\Fields\Textarea;
 use Laravel\Nova\Fields\Trix;
 use Laravel\Nova\Fields\Image;
 use Laravel\Nova\Http\Requests\NovaRequest;
 
+use Eminiarts\Tabs\Traits\HasTabs;
+use Eminiarts\Tabs\Tabs;
+use Eminiarts\Tabs\Tab;
+
 class Event extends Resource
 {
+    use HasTabs;
     /**
      * The model the resource corresponds to.
      *
@@ -43,15 +49,39 @@ class Event extends Resource
     public function fields(NovaRequest $request)
     {
         return [
-            ID::make()->sortable(),
+            
+            Tabs::make('Some Title', [
+                Tab::make('Générales', [
+                    ID::make()->sortable(),
 
-            Text::make('Titre'),
-            Text::make('Organisateur'),
-            Text::make('Date'),
-            Text::make('Heure'),
-            Text::make('Lieu'),
-            Trix::make('Programme'),
-            Image::make('Image')
+                    Text::make('Titre'),
+                    Text::make('Organisateur'),
+                    Text::make('Date'),
+                    Text::make('Heure'),
+                    Text::make('Lieu'),
+                    Trix::make('Programme'),
+                    Image::make('Image')
+                ]),
+                Tab::make('Charte', [
+                    ID::make()->sortable(),
+                    Text::make('Couleur primaire','primare'),
+                    Text::make('Couleur secondaire','secondaire'),
+
+                  
+                ]),
+
+                Tab::make('Attestations', [
+                    ID::make()->sortable(),
+                    Image::make('BG Attestation com','att_com'),
+                    Image::make('BG Attestation pres','att_pres'),
+
+                    Textarea::make('Texte Attestation com','text_att_com'),
+                    Textarea::make('Texte Attestation pres','text_att_pres'),
+
+                  
+                ]),
+            ]),
+          
             
         ];
     }
