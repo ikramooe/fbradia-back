@@ -63,7 +63,7 @@ class Event extends Resource
                     Image::make('Image')
                 ]),
                 Tab::make('Charte', [
-                    ID::make()->sortable(),
+                  
                     Text::make('Couleur primaire','primare'),
                     Text::make('Couleur secondaire','secondaire'),
 
@@ -71,12 +71,20 @@ class Event extends Resource
                 ]),
 
                 Tab::make('Attestations', [
-                    ID::make()->sortable(),
+                  
                     Image::make('BG Attestation com','att_com'),
                     Image::make('BG Attestation pres','att_pres'),
 
                     Textarea::make('Texte Attestation com','text_att_com'),
                     Textarea::make('Texte Attestation pres','text_att_pres'),
+
+                  
+                ]),
+
+                Tab::make('Application', [
+                  
+                    Image::make('BG Application','application'),
+                  
 
                   
                 ]),
