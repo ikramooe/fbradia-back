@@ -15,6 +15,11 @@ use Laravel\Nova\Fields\Date;
 use Whitecube\NovaFlexibleContent\Flexible;
 use Laravel\Nova\Http\Requests\NovaRequest;
 
+
+use Eminiarts\Tabs\Traits\HasTabs;
+use Eminiarts\Tabs\Tabs;
+use Eminiarts\Tabs\Tab;
+
 class Formulaire extends Resource
 {
     /**
@@ -49,111 +54,136 @@ class Formulaire extends Resource
     public function fields(NovaRequest $request)
     {
         return [
-            ID::make()->sortable(),
-            Text::make('Titre'),
-            Text::make('Email'),
-            Image::make('Image'),
-            Trix::make('Description'),
+
+            Tabs::make('Some Title', [
+                Tab::make('Generales', [
+                    ID::make()->sortable(),
+                    Text::make('Titre'),
+                   
+                    Image::make('Image'),
+                   
+                    BelongsTo::make('Event'),
+
+                    Flexible::make('Content')
+                    ->addLayout('Champ text', 'text', [
+                        Text::make('Label'),
+                        Text::make('Name'),
+                       Select::make('Requis')
+                        ->options([
+                            '1'=>'Oui',
+                            '0'=>'Non'
+                        ]),
+                       
+                    ])
+                    ->addLayout('Champ textarea', 'textarea', [
+                        Text::make('Label'),
+                        Text::make('Name'),
+                       Select::make('Requis')
+                        ->options([
+                            '1'=>'Oui',
+                            '0'=>'Non'
+                        ]),
+                       
+                    ])
+                    ->addLayout('Champ fichier', 'file', [
+                        Text::make('Label'),
+                        Text::make('Name'),
+                       Select::make('Requis')
+                        ->options([
+                            '1'=>'Oui',
+                            '0'=>'Non'
+                        ]),
+                       
+                    ])
+                    ->addLayout('Champ pays', 'pays', [
+                        Text::make('Label'),
+                       
+                    ])
+                    ->addLayout('Champ wilaya', 'wilaya', [
+                        Text::make('Label'),
+                       
+                    ])
+                    ->addLayout('Champ radio', 'radio', [
+                        Text::make('Label'),
+                        Text::make('Name'),
+                       Select::make('Requis')
+                        ->options([
+                            '1'=>'Oui',
+                            '0'=>'Non'
+                        ]),
+                        Flexible::make('Options')
+                            ->addLayout('Champ option', 'option', [
+                               
+                                Text::make('Name'),
+                              
+                       
+                        ])
+                    ])
+                    ->addLayout('Champ checkbox', 'checkbox', [
+                        Text::make('Label'),
+                        Text::make('Name'),
+                       Select::make('Requis')
+                        ->options([
+                            '1'=>'Oui',
+                            '0'=>'Non'
+                        ]),
+                        Flexible::make('Options')
+                            ->addLayout('Champ option', 'option', [
+                               
+                                Text::make('Name'),
+                               
+                       
+                        ])
+                    ])
+                    ->addLayout('Champ select', 'select', [
+                        Text::make('Label'),
+                        Text::make('Name'),
+                     
+                        Select::make('Requis')
+                        ->options([
+                            '1'=>'Oui',
+                            '0'=>'Non'
+                        ]),
+                        Flexible::make('Options')
+                            ->addLayout('Champ option', 'option', [
+                               
+                                Text::make('Name'),
+                               
+                       
+                        ])
+                    ])
+                ]),
+                Tab::make('Supp', [
+                  
+                   
+                    Text::make('Email'),
+                    Date::make('Chrono','chrono'),
+                   
+                    Trix::make('Description'),
+                    Textarea::make('Description bas de page','description_bas'),
+                 
+                ]),
+
+                Tab::make('Actions', [
+                  
+                    Select::make('Action')->options([
+                        'Present'=>'Present',
+                        'Imprimer Badge'=>'Imprimer Badge'
+                    ]),
+                 
+                ]),
+            ]),
+           
 
            
-            Select::make('Action')->options([
-                'Present'=>'Present',
-                'Imprimer Badge'=>'Imprimer Badge'
-            ]),
+           
           
-            Textarea::make('Description bas de page','description_bas'),
-            BelongsTo::make('Event'),
+          
+          
             
-            Date::make('Chrono','chrono'),
+           
             
-            Flexible::make('Content')
-            ->addLayout('Champ text', 'text', [
-                Text::make('Label'),
-                Text::make('Name'),
-               Select::make('Requis')
-                ->options([
-                    '1'=>'Oui',
-                    '0'=>'Non'
-                ]),
-               
-            ])
-            ->addLayout('Champ textarea', 'textarea', [
-                Text::make('Label'),
-                Text::make('Name'),
-               Select::make('Requis')
-                ->options([
-                    '1'=>'Oui',
-                    '0'=>'Non'
-                ]),
-               
-            ])
-            ->addLayout('Champ fichier', 'file', [
-                Text::make('Label'),
-                Text::make('Name'),
-               Select::make('Requis')
-                ->options([
-                    '1'=>'Oui',
-                    '0'=>'Non'
-                ]),
-               
-            ])
-            ->addLayout('Champ pays', 'pays', [
-                Text::make('Label'),
-               
-            ])
-            ->addLayout('Champ wilaya', 'wilaya', [
-                Text::make('Label'),
-               
-            ])
-            ->addLayout('Champ radio', 'radio', [
-                Text::make('Label'),
-                Text::make('Name'),
-               Select::make('Requis')
-                ->options([
-                    '1'=>'Oui',
-                    '0'=>'Non'
-                ]),
-                Flexible::make('Options')
-                    ->addLayout('Champ option', 'option', [
-                       
-                        Text::make('Name'),
-                      
-               
-                ])
-            ])
-            ->addLayout('Champ checkbox', 'checkbox', [
-                Text::make('Label'),
-                Text::make('Name'),
-               Select::make('Requis')
-                ->options([
-                    '1'=>'Oui',
-                    '0'=>'Non'
-                ]),
-                Flexible::make('Options')
-                    ->addLayout('Champ option', 'option', [
-                       
-                        Text::make('Name'),
-                       
-               
-                ])
-            ])
-            ->addLayout('Champ select', 'select', [
-                Text::make('Label'),
-                Text::make('Name'),
-             
-                Select::make('Requis')
-                ->options([
-                    '1'=>'Oui',
-                    '0'=>'Non'
-                ]),
-                Flexible::make('Options')
-                    ->addLayout('Champ option', 'option', [
-                       
-                        Text::make('Name'),
-                       
-               
-                ])
-            ])
+           
 
 
           
