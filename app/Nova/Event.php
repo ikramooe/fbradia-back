@@ -64,7 +64,7 @@ class Event extends Resource
                 ]),
                 Tab::make('Charte', [
                   
-                    Text::make('Couleur primaire','primare'),
+                    Text::make('Couleur primaire','primaire'),
                     Text::make('Couleur secondaire','secondaire'),
 
                   
