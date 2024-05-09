@@ -85,8 +85,10 @@ class Event extends Resource
                 Tab::make('Application', [
                   
                   
-                    Image::make('BG Application','application'),
+                  Image::make('BG Application','application'),
                   File::make('Application apk','apk')
+
+              
 
                   
                 ]),
