@@ -105,8 +105,7 @@ class Answer extends Resource
                     return isset($options['p']);
                 }),
 
-            BelongsTo::make('form')->onlyOnForms(),
-
+           
             Text::make('Nom', function () {
                 $options = json_decode($this->answers, true);
                 $details = '';
