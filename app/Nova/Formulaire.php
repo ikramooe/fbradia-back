@@ -211,7 +211,9 @@ class Formulaire extends Resource
      */
     public function cards(NovaRequest $request)
     {
-        return [];
+        return [
+            new App\Nova\Metrics\Inscriptions
+        ];
     }
 
     /**
