@@ -71,7 +71,32 @@ class Formulaire extends Resource
                         return $details;
                     })->asHtml(),
 
-                    Flexible::make('Content')
+                    
+                ]),
+                Tab::make('Supp', [
+                  
+                   
+                    Text::make('Email'),
+                    Date::make('Chrono','chrono'),
+                   
+                    Trix::make('Description'),
+                    Textarea::make('Description bas de page','description_bas'),
+                 
+                ]),
+
+                Tab::make('Actions', [
+                  
+                    Select::make('Action')->options([
+                        'Present'=>'Present',
+                        'Imprimer Badge'=>'Imprimer Badge'
+                    ]),
+                 
+                ]),
+            
+              
+            ]),
+
+            Flexible::make('Content')
                     ->addLayout('Champ text', 'text', [
                         Text::make('Label'),
                         Text::make('Name'),
@@ -158,11 +183,7 @@ class Formulaire extends Resource
                                
                        
                         ])
-                    ])
-                ]),
-              
-            ]),
-
+                            ]),
 
             HasMany::make('answers'),
            
