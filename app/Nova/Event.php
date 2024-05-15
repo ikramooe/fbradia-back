@@ -85,12 +85,23 @@ class Event extends Resource
                 Tab::make('Application', [
                   
                   
-                  Image::make('BG Application','application'),
-                  File::make('Application apk','apk')
+                  Image::make('BG Application','bg_application'),
+                  File::make('Application apk','apk'),
+                  Flexible::make('Application')
+                  ->addLayout('Champ fichier', 'fichier', [
+                      Text::make('Label'),
+                      Image::make('Image'),
+                      File::make('fichier')
+                     
+                  ])
 
-              
+                  ->addLayout('Champ lien', 'lien', [
+                    Text::make('Label'),
+                    Image::make('Image'),
+                    Text::make('Lien'),
+                   
+                ])
 
-                  
                 ]),
             ]),
           

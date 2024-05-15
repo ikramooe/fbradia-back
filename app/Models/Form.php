@@ -16,4 +16,8 @@ class Form extends Model
     public function event(){
         return $this->belongsTo(Event::class);
     }
+
+    public function answers(){
+        return $this->hasMany(Answer::class);
+    }
 }
