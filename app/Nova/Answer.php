@@ -71,20 +71,7 @@ class Answer extends Resource
                     return !isset($options['p']);
                 }),
 
-            Text::make('Action', function ($resource) {
-                if ($this->form->action == 'Present') {
-                    if (!$this->present) {
-                        return '<a href="/present/' . $resource->id . '/' . $resource->form_id . '" style="text-decoration: none; font-weight: bold;" class="shrink-0 h-9 px-4 focus:outline-none ring-primary-200 dark:ring-gray-600 focus:ring text-white dark:text-gray-800 inline-flex items-center font-bold shadow rounded focus:outline-none ring-primary-200 dark:ring-gray-600 focus:ring bg-primary-500 hover:bg-primary-400 active:bg-primary-600 text-white dark:text-gray-800 inline-flex items-center font-bold px-4 h-9 text-sm shrink-0 h-9 px-4 focus:outline-none ring-primary-200 dark:ring-gray-600 focus:ring text-white dark:text-gray-800 inline-flex items-center font-bold">Marquer présent</a>';
-                    } else {
-                        return '<a href="/annuler/' . $resource->id . '/' . $resource->form_id . '" style="text-decoration: none; font-weight: bold;background-color:green" class="shrink-0 h-9 px-4 focus:outline-none ring-primary-200 dark:ring-gray-600 focus:ring text-white dark:text-gray-800 inline-flex items-center font-bold shadow rounded focus:outline-none ring-primary-200 dark:ring-gray-600 focus:ring bg-primary-500 hover:bg-primary-400 active:bg-primary-600 text-white dark:text-gray-800 inline-flex items-center font-bold px-4 h-9 text-sm shrink-0 h-9 px-4 focus:outline-none ring-primary-200 dark:ring-gray-600 focus:ring text-white dark:text-gray-800 inline-flex items-center font-bold">Annuler la présence</a>';
-                    }
-                }
-
-                if ($this->form->action == 'Imprimer Badge') {
-                    return '<a href="/badge/' . $resource->id . '" target="_blank" style="background-color:green; text-decoration: none; font-weight: bold;" class="shrink-0 h-9 px-4 focus:outline-none ring-primary-200 dark:ring-gray-600 focus:ring text-white dark:text-gray-800 inline-flex items-center font-bold shadow rounded focus:outline-none ring-primary-200 dark:ring-gray-600 focus:ring bg-primary-500 hover:bg-primary-400 active:bg-primary-600 text-white dark:text-gray-800 inline-flex items-center font-bold px-4 h-9 text-sm shrink-0 h-9 px-4 focus:outline-none ring-primary-200 dark:ring-gray-600 focus:ring text-white dark:text-gray-800 inline-flex items-center font-bold">Imprimer</a>';
-                }
-            })->asHtml(),
-
+     
             Text::make('P', function () {
                 $options = json_decode($this->answers, true);
                 $details = '';
