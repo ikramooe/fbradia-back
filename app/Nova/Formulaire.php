@@ -57,7 +57,12 @@ class Formulaire extends Resource
         return [
 
             ID::make()->sortable(),
-         
+            Tabs::make('Formualaire', [
+               
+              
+            ]),
+
+
             HasMany::make('answers'),
            
 
