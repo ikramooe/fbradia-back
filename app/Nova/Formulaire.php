@@ -144,7 +144,7 @@ class Formulaire extends Resource
                        
                
                 ])
-                    ]),
+                    ])->onlyOnForms(),
             Tabs::make('Formualaire', [
                 Tab::make('Informations', [
                    
