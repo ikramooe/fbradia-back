@@ -220,7 +220,7 @@ class Answer extends Resource
      */
     public function filters(NovaRequest $request)
     {
-        return [new Filters\FormulaireFilter()];
+        return [];
     }
 
     /**
