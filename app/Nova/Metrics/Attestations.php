@@ -16,7 +16,7 @@ class Attestations extends Value
      */
     public function calculate(NovaRequest $request)
     {
-        return $this->count($request, Model::class);
+        return $this->count($request, Answer::where('form_id',$request->resourceId)->where('attestation',1));
     }
 
     /**
