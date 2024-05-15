@@ -83,6 +83,14 @@ class Formulaire extends Resource
                     Textarea::make('Description bas de page','description_bas'),
                  
                 ]),
+                Tab::make('Actions', [
+                  
+                    Select::make('Action')->options([
+                        'Present'=>'Present',
+                        'Imprimer Badge'=>'Imprimer Badge'
+                    ]),
+                 
+                ]),
 
               
               
