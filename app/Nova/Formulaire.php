@@ -56,9 +56,10 @@ class Formulaire extends Resource
     {
         return [
 
+            ID::make()->sortable(),
             Tabs::make('Some Title', [
                 Tab::make('Generales', [
-                    ID::make()->sortable(),
+                   
                     Text::make('Titre'),
                    
                     Image::make('Image'),
