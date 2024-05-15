@@ -10,6 +10,7 @@ use Laravel\Nova\Fields\Trix;
 use Laravel\Nova\Fields\Image;
 use Laravel\Nova\Fields\File;
 use Laravel\Nova\Http\Requests\NovaRequest;
+use Whitecube\NovaFlexibleContent\Flexible;
 
 use Eminiarts\Tabs\Traits\HasTabs;
 use Eminiarts\Tabs\Tabs;

@@ -16,7 +16,6 @@ use Laravel\Nova\Fields\Date;
 use Whitecube\NovaFlexibleContent\Flexible;
 use Laravel\Nova\Http\Requests\NovaRequest;
 
-
 use Eminiarts\Tabs\Traits\HasTabs;
 use Eminiarts\Tabs\Tabs;
 use Eminiarts\Tabs\Tab;
