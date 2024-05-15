@@ -5,6 +5,7 @@ namespace App\Nova\Metrics;
 use Laravel\Nova\Http\Requests\NovaRequest;
 use Laravel\Nova\Metrics\Value;
 use Laravel\Nova\Nova;
+use App\Models\Answer;
 
 class Presents extends Value
 {
@@ -16,7 +17,7 @@ class Presents extends Value
      */
     public function calculate(NovaRequest $request)
     {
-        return $this->count($request, Model::class);
+        return $this->count($request, Answer::where('form_id',$request->resourceId)->where('present',1));
     }
 
     /**
