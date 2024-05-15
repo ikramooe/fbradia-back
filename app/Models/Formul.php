@@ -8,6 +8,7 @@ use Illuminate\Database\Eloquent\Model;
 class Formul extends Model
 {
     use HasFactory;
+    public $table = "forms";
 
     public $casts = [
         'chrono'=>'date'
