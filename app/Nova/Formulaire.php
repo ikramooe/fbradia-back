@@ -57,8 +57,8 @@ class Formulaire extends Resource
         return [
 
             ID::make()->sortable(),
-            Tabs::make('Some Title', [
-                Tab::make('Generales', [
+            Tabs::make('Formualaire', [
+                Tab::make('Informations', [
                    
                     Text::make('Titre'),
                    
