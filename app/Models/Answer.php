@@ -10,6 +10,6 @@ class Answer extends Model
     use HasFactory;
 
     public function form() {
-        return $this->belongsTo(Form::class);
+        return $this->belongsTo(Formul::class);
     }
 }
