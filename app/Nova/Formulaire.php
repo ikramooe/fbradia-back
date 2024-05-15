@@ -26,9 +26,9 @@ class Formulaire extends Resource
     /**
      * The model the resource corresponds to.
      *
-     * @var class-string<\App\Models\Form>
+     * @var class-string<\App\Models\Formul>
      */
-    public static $model = \App\Models\Form::class;
+    public static $model = \App\Models\Formul::class;
 
     /**
      * The single value that should be used to represent the resource when being displayed.
