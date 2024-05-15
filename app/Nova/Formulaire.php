@@ -71,7 +71,94 @@ class Formulaire extends Resource
                         return $details;
                     })->asHtml(),
 
-                  
+                    Flexible::make('Content')
+                    ->addLayout('Champ text', 'text', [
+                        Text::make('Label'),
+                        Text::make('Name'),
+                       Select::make('Requis')
+                        ->options([
+                            '1'=>'Oui',
+                            '0'=>'Non'
+                        ]),
+                       
+                    ])
+                    ->addLayout('Champ textarea', 'textarea', [
+                        Text::make('Label'),
+                        Text::make('Name'),
+                       Select::make('Requis')
+                        ->options([
+                            '1'=>'Oui',
+                            '0'=>'Non'
+                        ]),
+                       
+                    ])
+                    ->addLayout('Champ fichier', 'file', [
+                        Text::make('Label'),
+                        Text::make('Name'),
+                       Select::make('Requis')
+                        ->options([
+                            '1'=>'Oui',
+                            '0'=>'Non'
+                        ]),
+                       
+                    ])
+                    ->addLayout('Champ pays', 'pays', [
+                        Text::make('Label'),
+                       
+                    ])
+                    ->addLayout('Champ wilaya', 'wilaya', [
+                        Text::make('Label'),
+                       
+                    ])
+                    ->addLayout('Champ radio', 'radio', [
+                        Text::make('Label'),
+                        Text::make('Name'),
+                       Select::make('Requis')
+                        ->options([
+                            '1'=>'Oui',
+                            '0'=>'Non'
+                        ]),
+                        Flexible::make('Options')
+                            ->addLayout('Champ option', 'option', [
+                               
+                                Text::make('Name'),
+                              
+                       
+                        ])
+                    ])
+                    ->addLayout('Champ checkbox', 'checkbox', [
+                        Text::make('Label'),
+                        Text::make('Name'),
+                       Select::make('Requis')
+                        ->options([
+                            '1'=>'Oui',
+                            '0'=>'Non'
+                        ]),
+                        Flexible::make('Options')
+                            ->addLayout('Champ option', 'option', [
+                               
+                                Text::make('Name'),
+                               
+                       
+                        ])
+                    ])
+                    ->addLayout('Champ select', 'select', [
+                        Text::make('Label'),
+                        Text::make('Name'),
+                     
+                        Select::make('Requis')
+                        ->options([
+                            '1'=>'Oui',
+                            '0'=>'Non'
+                        ]),
+                        Flexible::make('Options')
+                            ->addLayout('Champ option', 'option', [
+                               
+                                Text::make('Name'),
+                               
+                       
+                        ])
+                    ])
                 ]),
               
             ]),
