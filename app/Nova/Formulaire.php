@@ -213,7 +213,7 @@ class Formulaire extends Resource
     {
         return [
             (new \App\Nova\Metrics\Inscriptions)->onlyOnDetail(),
-            (new \App\Nova\Metrics\Present)->onlyOnDetail(),
+            (new \App\Nova\Metrics\Presents)->onlyOnDetail(),
         ];
     }
 
