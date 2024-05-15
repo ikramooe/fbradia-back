@@ -58,7 +58,21 @@ class Formulaire extends Resource
 
             ID::make()->sortable(),
             Tabs::make('Formualaire', [
-               
+                Tab::make('Informations', [
+                   
+                    Text::make('Titre'),
+                   
+                    Image::make('Image'),
+                   
+                    BelongsTo::make('Event'),
+
+                    Text::make('Voir', function () {
+                        $details = "<a class='shrink-0 h-9 px-4 focus:outline-none ring-primary-200 dark:ring-gray-600 focus:ring text-white dark:text-gray-800 inline-flex items-center font-bold shadow rounded focus:outline-none ring-primary-200 dark:ring-gray-600 focus:ring bg-primary-500 hover:bg-primary-400 active:bg-primary-600 text-white dark:text-gray-800 inline-flex items-center font-bold px-4 h-9 text-sm shrink-0 h-9 px-4 focus:outline-none ring-primary-200 dark:ring-gray-600 focus:ring text-white dark:text-gray-800 inline-flex items-center font-bold' href='https://" . $this->event->titre . ".wemakeplus.com/formulaire/" . $this->titre . "' target='_blank'>Voir</a>";
+                        return $details;
+                    })->asHtml(),
+
+                  
+                ]),
               
             ]),
 
