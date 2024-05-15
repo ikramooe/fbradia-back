@@ -84,15 +84,7 @@ class Formulaire extends Resource
                  
                 ]),
 
-                Tab::make('Actions', [
-                  
-                    Select::make('Action')->options([
-                        'Present'=>'Present',
-                        'Imprimer Badge'=>'Imprimer Badge'
-                    ]),
-                 
-                ]),
-            
+              
               
             ]),
 
