@@ -76,12 +76,18 @@ class Event extends Resource
 
                 Tab::make('Eposter', [
                   
-                    Select::make('Eposter','eposter_id')
+                    Select::make('Eposter', 'eposter_id')
                     ->options(function(){
-                        $forms = Form::pluck('titre','id');
-                        return $forms;
-
-                    }),
+                        // Assuming Form has a 'belongsTo' relationship with Event
+                        $forms = Form::with('event')->get();
+                
+                        // Map the forms to the required format "titre form - titre event"
+                        $options = $forms->mapWithKeys(function ($form) {
+                            return [$form->id => $form->titre . ' - ' . $form->event->titre];
+                        });
+                
+                        return $options;
+                    })
                  
 
                   
