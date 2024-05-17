@@ -73,6 +73,21 @@ class Event extends Resource
                   
                 ]),
 
+                Tab::make('Eposter', [
+                  
+                    Select::make('Eposter','eposter_id')
+                    ->options(function(){
+                        $forms = Form::pluck('id','titre');
+                        return $forms;
+
+                    }),
+                 
+
+                  
+                ]),
+
+              
+
                 Tab::make('Attestations', [
                   
                     Image::make('BG Attestation com','att_com'),
@@ -83,6 +98,7 @@ class Event extends Resource
 
                   
                 ]),
+
 
                
                 Tab::make('Application', [
