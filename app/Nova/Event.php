@@ -78,7 +78,7 @@ class Event extends Resource
                   
                     Select::make('Eposter','eposter_id')
                     ->options(function(){
-                        $forms = Form::pluck('id','titre');
+                        $forms = Form::pluck('titre','id');
                         return $forms;
 
                     }),
