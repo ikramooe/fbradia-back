@@ -76,6 +76,8 @@ class Event extends Resource
 
                 Tab::make('Eposter', [
                   
+                    Image::make('Image','image_eposter'),
+                    Textarea::make('Texte','text_eposter'),
                     Select::make('Eposter', 'eposter_id')
                     ->options(function(){
                         // Assuming Form has a 'belongsTo' relationship with Event
