@@ -68,8 +68,8 @@ class Event extends Resource
 
                     Text::make('Plus d\'info','more_link'),
                     Text::make('Lien inscription','inscription_link'),
-                    Text::make('Lien inscription','soumission_link'),
-                    
+                    Text::make('Lien soumission','soumission_link'),
+
                 ]),
                 Tab::make('Charte', [
                   
