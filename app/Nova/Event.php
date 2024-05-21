@@ -90,7 +90,7 @@ class Event extends Resource
                         });
                 
                         return $options;
-                    })
+                    })->displayUsingLabels()
                  
 
                   
