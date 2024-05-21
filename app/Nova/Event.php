@@ -77,6 +77,7 @@ class Event extends Resource
                 Tab::make('Eposter', [
                   
                     Image::make('Image','image_eposter'),
+                    Text::make('Titre Page','titre_page'),
                     Textarea::make('Texte','text_eposter'),
                     Select::make('Eposter', 'eposter_id')
                     ->options(function(){
