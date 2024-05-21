@@ -64,7 +64,12 @@ class Event extends Resource
                     Text::make('Heure'),
                     Text::make('Lieu'),
                     Trix::make('Programme'),
-                    Image::make('Image')
+                    Image::make('Image'),
+
+                    Text::make('Plus d\'info','more_link'),
+                    Text::make('Lien inscription','inscription_link'),
+                    Text::make('Lien inscription','soumission_link'),
+                    
                 ]),
                 Tab::make('Charte', [
                   
