@@ -43,7 +43,7 @@ class EnvoyerAttestationEposter extends Action
             
 
             
-            $pdf = Pdf::loadView('attest-participation', ['evt' => $evt])->setPaper('a4', 'landscape');
+            $pdf = Pdf::loadView('attest-eposter', ['evt' => $evt])->setPaper('a4', 'landscape');
             $pdf->getDomPDF()->set_option('margin-top', 0);
             $pdf->getDomPDF()->set_option('margin-right', 0);
             $pdf->getDomPDF()->set_option('margin-bottom', 0);
