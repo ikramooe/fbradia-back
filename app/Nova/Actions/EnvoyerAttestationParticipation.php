@@ -11,7 +11,7 @@ use Laravel\Nova\Fields\ActionFields;
 use Illuminate\Support\Facades\Mail;
 use Barryvdh\DomPDF\Facade\Pdf;
 
-class EnvoyerAttestationEposter  extends Action
+class EnvoyerAttestationParticipation  extends Action
 {
     use InteractsWithQueue, Queueable;
 
