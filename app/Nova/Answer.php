@@ -226,12 +226,12 @@ class Answer extends Resource
      * @param  \Laravel\Nova\Http\Requests\NovaRequest  $request
      * @return array
      */
-    public function actions(NovaRequest $request)
+
+            
+              public function actions(NovaRequest $request)
     {
-      
-            return [
-                new DownloadExcel,
-            ];    
-      
+        return [ new DownloadExcel,new Actions\ImprimerBadge(), new Actions\EnvoyerAttestation(),new Actions\EnvoyerAttestationParticipation()];
     }
+      
+    
 }
