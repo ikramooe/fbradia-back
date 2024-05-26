@@ -37,7 +37,7 @@
 </head>
 <body>
     <div class="badge">
-        <img src="https://app.wemakeplus.com/{{$evt->att_com}}" alt="" style="top:0;left:0;width: 100%;position: absolute;">
+        <img src="https://app.wemakeplus.com/storage/{{$evt->att_com}}" alt="" style="top:0;left:0;width: 100%;position: absolute;">
         <div style="height:80mm"></div>
         <div class="badge-content" style="width: 100%;">
             @php
