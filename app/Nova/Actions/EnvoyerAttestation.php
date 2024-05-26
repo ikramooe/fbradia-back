@@ -35,14 +35,14 @@ class EnvoyerAttestation extends Action
             $model->save();
             $model = json_decode($model->answers);
            // $evt['p'] = $model->p;
-            $evt['titre'] = isset($model->Titre_) ? $model->Titre_ : (isset($model->Titre_) ? $model->Titre : "");
+            $evt['titre'] = isset($model->Titre_) ? $model->Titre_ : (isset($model->titre) ? $model->titre : "");
             $evt['moderateurs'] = isset($model->moderateurs) ? $model->moderateurs : "";
             $evt['nom'] = isset($model->Nom) ? $model->Nom : (isset($model->nom) ? $model->nom : "");
             $evt['prenom'] = isset($model->Prénom) ? $model->Prénom : (isset($model->prénom) ? $model->prénom : "");
             $evt['email'] = isset($model->Email) ? $model->Email : (isset($model->email) ? $model->email : "");
             $evt['image'] = isset($model->Abstracts) ? $model->Abstracts : (isset($model->abstracts) ? $model->abstracts : "");
             if($evt['image']=="{}") $evt['image']="";
-            $evt['auteur'] = isset($model->Auteurs_) ? $model->Auteurs_ :  (isset($model->Auteurs_) ? $model->Auteurs : "");
+            $evt['auteur'] = isset($model->Auteurs_) ? $model->Auteurs_ :  (isset($model->auteurs) ? $model->auteurs : "");
             
 
             
