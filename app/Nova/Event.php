@@ -108,8 +108,8 @@ class Event extends Resource
                     Image::make('BG Attestation com','att_com'),
                     Image::make('BG Attestation pres','att_pres'),
 
-                    Textarea::make('Texte Attestation com','text_att_com'),
-                    Textarea::make('Texte Attestation pres','text_att_pres'),
+                    Trix::make('Texte Attestation com','text_att_com'),
+                    Trix::make('Texte Attestation pres','text_att_pres'),
 
                   
                 ]),
