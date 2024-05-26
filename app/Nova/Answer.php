@@ -230,7 +230,7 @@ class Answer extends Resource
             
               public function actions(NovaRequest $request)
     {
-        return [ new DownloadExcel,new Actions\ImprimerBadge(), new Actions\EnvoyerAttestation(),new Actions\EnvoyerAttestationParticipation()];
+        return [ new DownloadExcel,new Actions\ImprimerBadge(), new Actions\EnvoyerAttestation(),new Actions\EnvoyerAttestationParticipation(),new Actions\EnvoyerAttestationEposter()];
     }
       
     
