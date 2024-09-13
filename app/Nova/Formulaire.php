@@ -57,7 +57,13 @@ class Formulaire extends Resource
         return [
 
             ID::make()->sortable(),
+            Select::make('Theme','desgin')
+            ->options([
+                '1'=>'1',
+                "2"=>'2'
+            ]),
             Flexible::make('Content')
+           
             ->addLayout('Champ text', 'text', [
                 Text::make('Label'),
                 Text::make('Name'),
