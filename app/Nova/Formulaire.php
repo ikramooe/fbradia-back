@@ -57,7 +57,7 @@ class Formulaire extends Resource
         return [
 
             ID::make()->sortable(),
-            Select::make('Theme','design')
+            Select::make('Theme','desigdswz<n')
             ->options([
                 '1'=>'1',
                 "2"=>'2'
@@ -67,6 +67,7 @@ class Formulaire extends Resource
             ->addLayout('Champ text', 'text', [
                 Text::make('Label'),
                 Text::make('Name'),
+                Textarea::make('Note'),     
                Select::make('Requis')
                 ->options([
                     '1'=>'Oui',
