@@ -57,7 +57,7 @@ class Formulaire extends Resource
         return [
 
             ID::make()->sortable(),
-            Select::make('Theme','desigdswz<n')
+            Select::make('Theme','design')
             ->options([
                 '1'=>'1',
                 "2"=>'2'
