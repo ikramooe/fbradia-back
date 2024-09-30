@@ -60,7 +60,8 @@ class Formulaire extends Resource
             Select::make('Theme','design')
             ->options([
                 '1'=>'1',
-                "2"=>'2'
+                "2"=>'2',
+                "3"=>'3'
             ]),
             Flexible::make('Content')
            
