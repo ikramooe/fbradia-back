@@ -110,8 +110,8 @@ class Answer extends Resource
                 $options = json_decode($this->answers, true);
                 $details = '';
 
-                if (!empty($options['prenom'])) {
-                    $details .= $options['prenom'];
+                if (!empty($options['Prenom'])) {
+                    $details .= $options['Prenom'];
                 } else {
                     $details .= ' N/A';
                 }
