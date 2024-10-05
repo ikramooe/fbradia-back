@@ -110,8 +110,8 @@ class Answer extends Resource
                 $options = json_decode($this->answers, true);
                 $details = '';
 
-                if (!empty($options['Prénom'])) {
-                    $details .= $options['Prénom'];
+                if (!empty($options['prenom'])) {
+                    $details .= $options['prenom'];
                 } else {
                     $details .= ' N/A';
                 }
@@ -123,8 +123,8 @@ class Answer extends Resource
                 $options = json_decode($this->answers, true);
                 $details = '';
 
-                if (!empty($options['Email'])) {
-                    $details .= $options['Email'];
+                if (!empty($options['email'])) {
+                    $details .= $options['email'];
                 } else {
                     $details .= ' N/A';
                 }
@@ -136,8 +136,8 @@ class Answer extends Resource
                 $options = json_decode($this->answers, true);
                 $details = '';
 
-                if (!empty($options['Specialite'])) {
-                    $details .= $options['Specialite'];
+                if (!empty($options['specialite'])) {
+                    $details .= $options['specialite'];
                 } else {
                     $details .= ' N/A';
                 }
