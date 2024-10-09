@@ -25,11 +25,11 @@ class AnswersImport implements ToModel, WithHeadingRow
             'form_id' => $this->form_id,
             'answers' => json_encode([
                 'form_id' => $this->form_id,
-                'nom' => $row['nom'],
-                'prenom' => $row['prénom'],
-                'email' => $row['email'],
-                'telephone' => $row['telephone'],
-                'specialite' => $row['spécialité'],
+                'nom' => $row[0],
+                'prenom' => $row[1],
+                'email' => $row[3],
+                'telephone' => "",
+                'specialite' => $row[4],
             ]),
         ]);
     }
