@@ -19,7 +19,7 @@ class AnswersImport implements ToModel, WithHeadingRow
     {
         // Perform validation if needed
       
-
+        dd($row);
         // Create the answer record with the JSON data
         return Answer::create([
             'form_id' => $this->form_id,
