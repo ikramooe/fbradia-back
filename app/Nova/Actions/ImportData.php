@@ -41,7 +41,7 @@ class ImportData extends Action
      *
      * @return array
      */
-    public function fields()
+    public function fields(NovaRequest $request)
     {
         return [
             File::make('CSV File', 'csv_file')
