@@ -3,6 +3,7 @@ namespace App\Nova\Actions;
 
 use Illuminate\Bus\Queueable;
 use Illuminate\Contracts\Queue\ShouldQueue;
+use Datomatic\Nova\Tools\DetachedActions\DetachedAction;
 use Illuminate\Queue\InteractsWithQueue;
 use Laravel\Nova\Http\Requests\NovaRequest;
 use Illuminate\Support\Collection;
@@ -13,7 +14,7 @@ use Laravel\Nova\Fields\Select;
 use Maatwebsite\Excel\Facades\Excel;
 use App\Imports\AnswersImport;
 
-class ImportData extends Action
+class ImportData extends DetachedAction
 {
     use InteractsWithQueue, Queueable;
 
@@ -34,7 +35,7 @@ class ImportData extends Action
             Excel::import(new AnswersImport($model->id), $fields->csv_file);
         }
 
-        return Action::message('Data imported successfully.');
+        return DetachedAction::message('Data imported successfully.');
     }
 
     /**
