@@ -19,17 +19,17 @@ class AnswersImport implements ToModel, WithHeadingRow
     {
         // Perform validation if needed
       
-       
+       dd($row);
         // Create the answer record with the JSON data
         return Answer::create([
             'form_id' => $this->form_id,
             'answers' => json_encode([
                 'form_id' => $this->form_id,
-                'nom' => $row[0],
-                'prenom' => $row[1],
-                'email' => $row[3],
-                'telephone' => "",
-                'specialite' => $row[4],
+                'nom' => $row['nom'],
+                'prenom' => $row['prénom'],
+                'email' => $row['email'],
+                'telephone' => $row['telephone'],
+                'specialite' => $row['spécialité'],
             ]),
         ]);
     }
