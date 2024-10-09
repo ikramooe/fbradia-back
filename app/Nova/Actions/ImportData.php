@@ -30,10 +30,9 @@ class ImportData extends DetachedAction
     public function handle(ActionFields $fields, Collection $models)
     {
         // Loop through the selected forms
-        foreach ($models as $model) {
-            // Import the data from the CSV
-            Excel::import(new AnswersImport($model->id), $fields->csv_file);
-        }
+
+            
+        Excel::import(new AnswersImport($fields->form_id), $fields->csv_file);
 
         return DetachedAction::message('Data imported successfully.');
     }
