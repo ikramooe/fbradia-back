@@ -49,7 +49,7 @@ class ImportData extends Action
                 ->rules('required', 'file', 'mimes:csv,txt'),
 
             Select::make('Form', 'form_id')
-                ->options(\App\Models\Form::all()->pluck('name', 'id'))
+                ->options(\App\Models\Form::all()->pluck('titre', 'id'))
                 ->rules('required')
         ];
     }
