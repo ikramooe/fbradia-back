@@ -8,7 +8,7 @@ use Illuminate\Database\Eloquent\Model;
 class Answer extends Model
 {
     use HasFactory;
-
+    public $fillable = ['form_id','answers'];
     public function form() {
         return $this->belongsTo(Form::class);
     }

@@ -159,7 +159,7 @@ class Answer extends Resource
 
                 return $details;
             })->asHtml(),
- Text::make('Reponsesx','answers'), 
+
             Text::make('Reponses', function () {
                 $options = json_decode($this->answers, true);
                 $details = '';
