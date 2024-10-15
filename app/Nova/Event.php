@@ -122,6 +122,7 @@ class Event extends Resource
                   
                   
                   Image::make('BG Application','bg_application'),
+                  Image::make('BG Application start','bg_application_start'),
                   File::make('Application apk','apk'),
                   Flexible::make('Application')
                   ->addLayout('Champ fichier', 'fichier', [
