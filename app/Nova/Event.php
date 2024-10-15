@@ -137,6 +137,18 @@ class Event extends Resource
                     Text::make('Lien'),
                    
                 ])
+                ->addLayout('Champ Eposter', 'eposter', [
+                    Text::make('Label'),
+                    Image::make('Image'),
+                   
+                   
+                ])
+                ->addLayout('Champ Questions', 'eposter', [
+                    Text::make('Label'),
+                    Image::make('Image'),
+                   
+                   
+                ])
 
                 ]),
             ]),
