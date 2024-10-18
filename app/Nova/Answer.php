@@ -109,16 +109,20 @@ class Answer extends Resource
 
             Text::make('Prénom', function () {
                 $options = json_decode($this->answers, true);
-                $details = '';
-
-                if (!empty($options['Prenom'])) {
-                    $details .= $options['Prenom'];
-                } else {
-                    $details .= ' N/A';
+                $details = 'N/A'; // Default value
+            
+                // Normalize keys to lowercase and check for 'prenom'
+                $keys = ['prénom', 'prenom'];
+                foreach ($keys as $key) {
+                    if (!empty($options[strtolower($key)])) {
+                        $details = $options[strtolower($key)];
+                        break;
+                    }
                 }
-
+            
                 return $details;
             })->asHtml(),
+
 
             Text::make('Email', function () {
                 $options = json_decode($this->answers, true);
