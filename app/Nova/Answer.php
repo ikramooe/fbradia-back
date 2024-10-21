@@ -112,10 +112,10 @@ class Answer extends Resource
                 $details = 'N/A'; // Default value
             
                 // Normalize keys to lowercase and check for 'prenom'
-                $keys = ['prénom', 'prenom'];
+                $keys = ['prénom', 'prenom','Prénom','Prenom'];
                 foreach ($keys as $key) {
-                    if (!empty($options[strtolower($key)])) {
-                        $details = $options[strtolower($key)];
+                    if (!empty($options[$key])) {
+                        $details = $options[$key];
                         break;
                     }
                 }
