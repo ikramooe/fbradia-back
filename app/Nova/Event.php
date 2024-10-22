@@ -108,6 +108,7 @@ class Event extends Resource
                     Image::make('BG Attestation com','att_com'),
                     Image::make('BG Attestation pres','att_pres'),
                     Image::make('BG Attestation Eposter','att_eposter'),
+                    Text::make('Code couleur','code_couleur'),
 
                     Trix::make('Texte Attestation com','text_att_com'),
                     Trix::make('Texte Attestation pres','text_att_pres'),
