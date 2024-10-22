@@ -64,6 +64,9 @@ class Formulaire extends Resource
                 "2"=>'2',
                 "3"=>'3'
             ]),
+
+              Boolean::make('Arreter ?','ended'),
+                    Trix::make('Texte fin','text_fin'),
             Flexible::make('Content')
            
             ->addLayout('Champ text', 'text', [
