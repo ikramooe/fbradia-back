@@ -39,7 +39,7 @@
     <div class="badge">
         <img src="https://app.wemakeplus.com/storage/{{$evt->att_com}}" alt="" style="top:0;left:0;width: 100%;position: absolute;">
         <div style="height:80mm"></div>
-        <div class="badge-content" style="width: 100%;color:{{$evt->code_couleur ? $evt->code_couleur : #000000 }}">
+        <div class="badge-content" style="width: 100%;color:{{$evt->code_couleur ? $evt->code_couleur : '#000000' }}">
             @php
                 $text = $evt->text_att_com;
                 $text = str_replace('TITRE:', $evt->titre, $text);
