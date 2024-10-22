@@ -53,7 +53,7 @@
         <div style="height:80mm"></div>
 
         <div class="badge-content" style="width: 100%;">
-            <div class="badge-content" style="width: 100%;color:"{{$evt->code_couleur ? $evt->code_couleur : #000000 }}">
+            <div class="badge-content" style="width: 100%;color:{{$evt->code_couleur ? $evt->code_couleur : #000000 }}">
             @php
                 $text = $evt->text_att_pres;
                 $text = str_replace('TITRE:', $evt->titre, $text);
