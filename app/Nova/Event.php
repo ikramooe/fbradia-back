@@ -7,6 +7,7 @@ use Laravel\Nova\Fields\ID;
 use Laravel\Nova\Fields\Text;
 use Laravel\Nova\Fields\Textarea;
 use Laravel\Nova\Fields\Trix;
+use Laravel\Nova\Fields\Boolean;
 use Laravel\Nova\Fields\Select;
 use Laravel\Nova\Fields\Image;
 use Laravel\Nova\Fields\BelongsTo;
@@ -69,6 +70,9 @@ class Event extends Resource
                     Text::make('Plus d\'info','more_link'),
                     Text::make('Lien inscription','inscription_link'),
                     Text::make('Lien soumission','soumission_link'),
+
+                    Boolean::make('Arreter ?','ended'),
+                    Trix::make('Texte fin','text_fin'),
 
                 ]),
                 Tab::make('Charte', [
