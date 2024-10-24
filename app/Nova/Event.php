@@ -149,7 +149,7 @@ class Event extends Resource
                    
                    
                 ])
-                ->addLayout('Champ Questions', 'eposter', [
+                ->addLayout('Champ Questions', 'questions', [
                     Text::make('Label'),
                     Image::make('Image'),
                    
