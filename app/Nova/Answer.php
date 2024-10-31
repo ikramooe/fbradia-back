@@ -123,6 +123,23 @@ class Answer extends Resource
                 return $details;
             })->asHtml(),
 
+            Text::make('Type', function () {
+                $options = json_decode($this->answers, true);
+                $details = 'N/A'; // Default value
+            
+                // Normalize keys to lowercase and check for 'prenom'
+                $keys = ['type', 'Type'];
+                foreach ($keys as $key) {
+                    if (!empty($options[$key])) {
+                        $details = $options[$key];
+                        break;
+                    }
+                }
+            
+                return $details;
+            })->asHtml(),
+
+
 
             Text::make('Email', function () {
                 $options = json_decode($this->answers, true);
