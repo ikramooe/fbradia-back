@@ -230,13 +230,7 @@ class Answer extends Resource
     public function filters(NovaRequest $request)
     {
         return [
-            (new \App\Nova\Filters\TypeFilter)
-            ->canRun(function(){
-                    return true;
-            })
-            ->canSee(function(){
-                    return true;
-            }),
+            new \App\Nova\Filters\TypeFilter,
         ];
     }
 
