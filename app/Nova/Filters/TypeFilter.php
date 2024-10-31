@@ -25,7 +25,7 @@ class TypeFilter extends Filter
      */
     public function apply(NovaRequest $request, $query, $value)
     {
-        return $query->whereJsonContains('answers',$value);
+        return $query->where('answers','like','%'.$value.'%');
     }
 
     /**
