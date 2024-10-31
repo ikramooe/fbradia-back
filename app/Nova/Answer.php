@@ -11,6 +11,7 @@ use Laravel\Nova\Fields\BelongsTo;
 use App\Models\Form;
 use Laravel\Nova\Http\Requests\NovaRequest;
 use Maatwebsite\LaravelNovaExcel\Actions\DownloadExcel;
+use App\Nova\Filters\TypeFilter;
 
 class Answer extends Resource
 {
@@ -228,7 +229,9 @@ class Answer extends Resource
      */
     public function filters(NovaRequest $request)
     {
-        return [];
+        return [
+            TypeFilter()
+        ];
     }
 
     /**
@@ -252,7 +255,7 @@ class Answer extends Resource
             
               public function actions(NovaRequest $request)
     {
-        return [  new ImportData,new DownloadExcel,new Actions\ImprimerBadge(), new Actions\EnvoyerAttestation(),new Actions\EnvoyerAttestationParticipation(),new Actions\EnvoyerAttestationEposter()];
+        return [  new ImportData,(new DownloadExcel)->withHeadings(),new Actions\ImprimerBadge(), new Actions\EnvoyerAttestation(),new Actions\EnvoyerAttestationParticipation(),new Actions\EnvoyerAttestationEposter()];
     }
       
     
