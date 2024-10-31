@@ -230,7 +230,7 @@ class Answer extends Resource
     public function filters(NovaRequest $request)
     {
         return [
-            TypeFilter()
+            TypeFilter::class
         ];
     }
 
