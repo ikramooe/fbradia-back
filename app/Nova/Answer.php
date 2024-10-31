@@ -233,6 +233,9 @@ class Answer extends Resource
             (new \App\Nova\Filters\TypeFilter)
             ->canRun(function(){
                     return true;
+            })
+            ->canSee(function(){
+                    return true;
             }),
         ];
     }
