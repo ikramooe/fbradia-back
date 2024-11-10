@@ -48,7 +48,7 @@
             @php
             $answers = json_decode($evt->answers);
             $prenom = $answers->Prénom ?? $answers->prénom ?? $answers->Prenom ?? $answers->prenom ?? '';
-           $ateliers = json_decode($answers->ateliers) ?? [];
+           $ateliers = json_decode($evt->ateliers) ?? [];
         @endphp
         
         <h1>{{ $answers->nom }}<br>{{ $prenom }}</h1>
