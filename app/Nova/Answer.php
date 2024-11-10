@@ -53,7 +53,7 @@ class Answer extends Resource
      *
      * @var array
      */
-    public static $search = ['id','answers'];
+    public static $search = ['id', 'answers'];
 
     /**
      * Get the fields displayed by the resource.
@@ -73,7 +73,6 @@ class Answer extends Resource
                     return !isset($options['p']);
                 }),
 
-     
             Text::make('P', function () {
                 $options = json_decode($this->answers, true);
                 $details = '';
@@ -94,7 +93,6 @@ class Answer extends Resource
                     return isset($options['p']);
                 }),
 
-           
             Text::make('Nom', function () {
                 $options = json_decode($this->answers, true);
                 $details = '';
@@ -111,23 +109,23 @@ class Answer extends Resource
             Text::make('Prénom', function () {
                 $options = json_decode($this->answers, true);
                 $details = 'N/A'; // Default value
-            
+
                 // Normalize keys to lowercase and check for 'prenom'
-                $keys = ['prénom', 'prenom','Prénom','Prenom'];
+                $keys = ['prénom', 'prenom', 'Prénom', 'Prenom'];
                 foreach ($keys as $key) {
                     if (!empty($options[$key])) {
                         $details = $options[$key];
                         break;
                     }
                 }
-            
+
                 return $details;
             })->asHtml(),
 
             Text::make('Type', function () {
                 $options = json_decode($this->answers, true);
                 $details = 'N/A'; // Default value
-            
+
                 // Normalize keys to lowercase and check for 'prenom'
                 $keys = ['type', 'Type'];
                 foreach ($keys as $key) {
@@ -136,11 +134,9 @@ class Answer extends Resource
                         break;
                     }
                 }
-            
+
                 return $details;
             })->asHtml(),
-
-
 
             Text::make('Email', function () {
                 $options = json_decode($this->answers, true);
@@ -168,7 +164,6 @@ class Answer extends Resource
                 return $details;
             })->asHtml(),
 
-
             Text::make('Telephone', function () {
                 $options = json_decode($this->answers, true);
                 $details = '';
@@ -180,8 +175,9 @@ class Answer extends Resource
                 }
 
                 return $details;
-            })->asHtml()->onlyOnExport(),
-
+            })
+                ->asHtml()
+                ->onlyOnExport(),
 
             Text::make('Titre', function () {
                 $options = json_decode($this->answers, true);
@@ -194,23 +190,27 @@ class Answer extends Resource
                 }
 
                 return $details;
-            })->asHtml()->onlyOnExport(),
+            })
+                ->asHtml()
+                ->onlyOnExport(),
 
             Text::make('Co-Auteurs', function () {
                 $options = json_decode($this->answers, true);
                 $details = 'N/A'; // Default value
-            
+
                 // Normalize keys to lowercase and check for 'prenom'
-                $keys = ['coauteurs', 'CoAuteurs','Coauteurs','Auteurs','auteurs'];
+                $keys = ['coauteurs', 'CoAuteurs', 'Coauteurs', 'Auteurs', 'auteurs'];
                 foreach ($keys as $key) {
                     if (!empty($options[$key])) {
                         $details = $options[$key];
                         break;
                     }
                 }
-            
+
                 return $details;
-            })->asHtml()->onlyOnExport(),
+            })
+                ->asHtml()
+                ->onlyOnExport(),
 
             Text::make('Abstract', function () {
                 $options = json_decode($this->answers, true);
@@ -250,6 +250,40 @@ class Answer extends Resource
                 return $details;
             })->asHtml(),
 
+            Text::make('Ateliers', function () {
+                $ateliers = json_decode($this->form->ateliers);
+                $output = '';
+                $answerId = $this->id;
+
+                foreach ($ateliers as $atelier) {
+                    $nom = $atelier->attributes->nom ?? 'N/A';
+                    $codeCouleur = $atelier->attributes->code_couleur ?? '#000';
+
+                    // Check if the atelier already exists in the answer's ateliers
+                    $existingAteliers = json_decode($this->ateliers, true) ?? [];
+
+                    $isAdded = collect($existingAteliers)->contains(function ($existingAtelier) use ($nom, $codeCouleur) {
+                        return $existingAtelier['nom'] === $nom && $existingAtelier['code_couleur'] === $codeCouleur;
+                    });
+
+                    $codeCouleurX = urlencode($codeCouleur);
+                    if ($isAdded) {
+                        // If the atelier exists, show a "Remove" button
+                        $url = "/atelier/remove/{$answerId}?nom={$nom}&code_couleur={$codeCouleurX}";
+                        $buttonText = 'Remove from Atelier';
+                    } else {
+                        // If the atelier does not exist, show an "Add" button
+                        $url = "/atelier/add/{$answerId}?nom={$nom}&code_couleur={$codeCouleurX}";
+                        $buttonText = 'Add to Atelier';
+                    }
+
+                    // Render each atelier as a clickable button with a link
+                    $output .= "<a href='{$url}' style='display: inline-block; background-color: {$codeCouleur}; color: #fff; padding: 5px 10px; margin-right: 5px; text-decoration: none;'>{$buttonText}</a>";
+                }
+
+                return $output;
+            })->asHtml(),
+
             DateTime::make('Créer le ', 'created_at'),
         ];
     }
@@ -273,9 +307,7 @@ class Answer extends Resource
      */
     public function filters(NovaRequest $request)
     {
-        return [
-            new \App\Nova\Filters\TypeFilter,
-        ];
+        return [new \App\Nova\Filters\TypeFilter()];
     }
 
     /**
@@ -296,11 +328,8 @@ class Answer extends Resource
      * @return array
      */
 
-            
-              public function actions(NovaRequest $request)
+    public function actions(NovaRequest $request)
     {
-        return [  new ImportData,(new DownloadExcel)->withHeadings(),new Actions\ImprimerBadge(), new Actions\EnvoyerAttestation(),new Actions\EnvoyerAttestationParticipation(),new Actions\EnvoyerAttestationEposter()];
+        return [new ImportData(), (new DownloadExcel())->withHeadings(), new Actions\ImprimerBadge(), new Actions\EnvoyerAttestation(), new Actions\EnvoyerAttestationParticipation(), new Actions\EnvoyerAttestationEposter()];
     }
-      
-    
 }

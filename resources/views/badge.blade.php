@@ -52,8 +52,17 @@
         
         <h1>{{ $answers->nom }}<br>{{ $prenom }}</h1>
         <p></p>
-            <!-- Add additional information as needed -->
-           
+          
+        <!-- Add additional information as needed -->
+                    <div>
+                @foreach($ateliers as $atelier)
+                    @php
+                        $nom = $atelier->nom ?? '';
+                        $codeCouleur = $atelier->code_couleur ?? '#000';
+                    @endphp
+                    <span class="atelier" style="background-color: {{ $codeCouleur }};">{{ $nom }}</span>
+                @endforeach
+            </div>   
         </div>
         <div style="position: absolute;top: 35%; right: 0;transform: translate(-50%, -50%);">
            
