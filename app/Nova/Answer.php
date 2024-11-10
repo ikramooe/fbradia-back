@@ -186,7 +186,7 @@ class Answer extends Resource
                 $details = 'N/A'; // Default value
             
                 // Normalize keys to lowercase and check for 'prenom'
-                $keys = ['coauteurs', 'CoAuteurs','Coauteurs'];
+                $keys = ['coauteurs', 'CoAuteurs','Coauteurs','Auteurs','auteurs'];
                 foreach ($keys as $key) {
                     if (!empty($options[$key])) {
                         $details = $options[$key];
