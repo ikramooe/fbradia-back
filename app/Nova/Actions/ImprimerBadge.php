@@ -8,6 +8,8 @@ use Illuminate\Queue\InteractsWithQueue;
 use Illuminate\Support\Collection;
 use Laravel\Nova\Actions\Action;
 use Laravel\Nova\Fields\ActionFields;
+use App\Models\ActionLog; 
+use Auth;
 
 class ImprimerBadge extends Action
 {
@@ -23,7 +25,13 @@ class ImprimerBadge extends Action
     public function handle(ActionFields $fields, Collection $models)
     {
         
-     
+         ActionLog::create([
+                'user_id' => Auth::id(), // The current authenticated user
+                'action' => 'Imprimer badge', // The name of the action being executed
+                'resource_type' => get_class($models[0]), // The class name of the resource (e.g., 'App\\Nova\\Answer')
+                'resource_id' => $models[0]->id, // The ID of the resource being acted upon
+         ]);
+
        return Action::redirect('/badge/'.$models[0]->id);
     }
 

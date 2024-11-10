@@ -168,6 +168,35 @@ class Answer extends Resource
                 return $details;
             })->asHtml(),
 
+            Text::make('Titre', function () {
+                $options = json_decode($this->answers, true);
+                $details = '';
+
+                if (!empty($options['titre'])) {
+                    $details .= $options['titre'];
+                } else {
+                    $details .= ' N/A';
+                }
+
+                return $details;
+            })->asHtml()->onlyOnExport(),
+
+            Text::make('Co-Auteurs', function () {
+                $options = json_decode($this->answers, true);
+                $details = 'N/A'; // Default value
+            
+                // Normalize keys to lowercase and check for 'prenom'
+                $keys = ['coauteurs', 'CoAuteurs','Coauteurs'];
+                foreach ($keys as $key) {
+                    if (!empty($options[$key])) {
+                        $details = $options[$key];
+                        break;
+                    }
+                }
+            
+                return $details;
+            })->asHtml()->onlyOnExport(),
+
             Text::make('Abstract', function () {
                 $options = json_decode($this->answers, true);
                 $details = '';

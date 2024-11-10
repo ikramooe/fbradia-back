@@ -10,6 +10,8 @@ use Laravel\Nova\Actions\Action;
 use Laravel\Nova\Fields\ActionFields;
 use Illuminate\Support\Facades\Mail;
 use Barryvdh\DomPDF\Facade\Pdf;
+use App\Models\ActionLog; 
+use Auth;
 
 class EnvoyerAttestation extends Action
 {
@@ -69,6 +71,12 @@ class EnvoyerAttestation extends Action
 
               //  $model->sent = 1;
       
+                ActionLog::create([
+                'user_id' => Auth::id(), // The current authenticated user
+                'action' => 'Envoyer attestation', // The name of the action being executed
+                'resource_type' => get_class($model), // The class name of the resource (e.g., 'App\\Nova\\Answer')
+                'resource_id' => $model->id, // The ID of the resource being acted upon
+         ]);
 
             // Send the email with the badge attached
         }
