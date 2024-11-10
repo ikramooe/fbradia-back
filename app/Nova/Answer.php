@@ -168,6 +168,21 @@ class Answer extends Resource
                 return $details;
             })->asHtml(),
 
+
+            Text::make('Telephone', function () {
+                $options = json_decode($this->answers, true);
+                $details = '';
+
+                if (!empty($options['telephone'])) {
+                    $details .= $options['telephone'];
+                } else {
+                    $details .= ' N/A';
+                }
+
+                return $details;
+            })->asHtml()->onlyOnExport(),
+
+
             Text::make('Titre', function () {
                 $options = json_decode($this->answers, true);
                 $details = '';
