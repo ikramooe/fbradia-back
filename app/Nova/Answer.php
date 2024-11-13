@@ -250,6 +250,42 @@ class Answer extends Resource
                 return $details;
             })->asHtml(),
 
+             Text::make('Ateliers', function () {
+                if($this->form->ateliers==null) return "" ;
+                $ateliers = json_decode($this->form->ateliers);
+                $output = '';
+                $answerId = $this->id;
+
+                foreach ($ateliers as $atelier) {
+                    $nom = $atelier->attributes->nom ?? 'N/A';
+                    $codeCouleur = $atelier->attributes->code_couleur ?? '#000';
+
+                    // Check if the atelier already exists in the answer's ateliers
+                    $existingAteliers = json_decode($this->ateliers, true) ?? [];
+
+                    $isAdded = collect($existingAteliers)->contains(function ($existingAtelier) use ($nom, $codeCouleur) {
+                        return $existingAtelier['nom'] === $nom && $existingAtelier['code_couleur'] === $codeCouleur;
+                    });
+
+                    $codeCouleurX = urlencode($codeCouleur);
+                    if ($isAdded) {
+                        // If the atelier exists, show a "Remove" button
+                        $url = "/atelier/remove/{$answerId}?nom={$nom}&code_couleur={$codeCouleurX}";
+                        $buttonText = 'Remove from Atelier';
+                    } else {
+                        // If the atelier does not exist, show an "Add" button
+                        $url = "/atelier/add/{$answerId}?nom={$nom}&code_couleur={$codeCouleurX}";
+                        $buttonText = 'Add to Atelier';
+                    }
+
+                    // Render each atelier as a clickable button with a link
+                    $output .= "<a href='{$url}' style='display: inline-block; background-color: {$codeCouleur}; color: #fff; padding: 5px 10px; margin-right: 5px; text-decoration: none;'>{$buttonText}</a>";
+                }
+
+                return $output;
+            })->asHtml(),
+
+
            
             DateTime::make('Créer le ', 'created_at'),
         ];
