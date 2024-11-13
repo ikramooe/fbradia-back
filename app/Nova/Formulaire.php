@@ -191,25 +191,11 @@ class Formulaire extends Resource
                         'Imprimer Badge'=>'Imprimer Badge'
                     ]),
 
-                      Flexible::make('Ateliers')
-                   
-                                 ->addLayout('Simple content section', 'wysiwyg', [
-                       
-                        Text::make('Nom'),
-                        Text::make('Code couleur','code_couleur'),
-                       
-               
-                ])
+                    
                  
                 ]),
 
-                       Tab::make('Ateliers', [
-
-                              
-                  
-                  
-                 
-                ]),
+                     
 
 
 
@@ -219,6 +205,15 @@ class Formulaire extends Resource
                 
 
             HasMany::make('answers'),
+              Flexible::make('Ateliers')
+                   
+                                 ->addLayout('Simple content section', 'wysiwyg', [
+                       
+                        Text::make('Nom'),
+                        Text::make('Code couleur','code_couleur'),
+                       
+               
+                ])
            
 
            
