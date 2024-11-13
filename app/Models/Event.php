@@ -9,5 +9,8 @@ class Event extends Model
 {
     use HasFactory;
 
+    public function formulaires(){
+        return $this->hasMany(Form::class);
+    }
     
 }
