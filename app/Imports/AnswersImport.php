@@ -28,7 +28,7 @@ class AnswersImport implements ToModel, WithHeadingRow
                 'nom' => $row['nom'],
                 'prenom' => $row['prenom'],
                 'email' => $row['email'],
-                'telephone' => "",
+                'telephone' => $row['telephone'],
                 'specialite' => $row['specialite'],
             ]),
         ]);
