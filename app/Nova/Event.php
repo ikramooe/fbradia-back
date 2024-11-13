@@ -161,7 +161,7 @@ class Event extends Resource
 
                
             ]),
-           HasMany:make('forms')
+           HasMany:make('formulaires')
             
         ];
     }
