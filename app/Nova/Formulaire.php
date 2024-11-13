@@ -193,12 +193,7 @@ class Formulaire extends Resource
                  
                 ]),
 
-
-
-              
-              
-            ]),
-                Tab::make('Ateliers', [
+                       Tab::make('Ateliers', [
                   
                     Flexible::make('Ateliers')
                     ->addLayout('Champ', 'atelier', [
@@ -210,6 +205,13 @@ class Formulaire extends Resource
                 ])
                  
                 ]),
+
+
+
+              
+              
+            ]),
+                
 
             HasMany::make('answers'),
            
