@@ -194,9 +194,12 @@ class Formulaire extends Resource
                 ]),
 
                        Tab::make('Ateliers', [
+
+                              
                   
                     Flexible::make('Ateliers')
-                    ->addLayout('Champ', 'atelier', [
+                   
+                                 ->addLayout('Champ', [
                        
                         Text::make('Nom'),
                         Text::make('Code couleur','code_couleur'),
