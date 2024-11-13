@@ -199,7 +199,7 @@ class Formulaire extends Resource
                   
                     Flexible::make('Ateliers')
                    
-                                 ->addLayout('Champ', [
+                                 ->addLayout('Simple content section', 'wysiwyg', [
                        
                         Text::make('Nom'),
                         Text::make('Code couleur','code_couleur'),
