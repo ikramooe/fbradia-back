@@ -190,14 +190,8 @@ class Formulaire extends Resource
                         'Present'=>'Present',
                         'Imprimer Badge'=>'Imprimer Badge'
                     ]),
-                 
-                ]),
 
-                       Tab::make('Ateliers', [
-
-                              
-                  
-                    Flexible::make('Ateliers')
+                      Flexible::make('Ateliers')
                    
                                  ->addLayout('Simple content section', 'wysiwyg', [
                        
@@ -206,6 +200,14 @@ class Formulaire extends Resource
                        
                
                 ])
+                 
+                ]),
+
+                       Tab::make('Ateliers', [
+
+                              
+                  
+                  
                  
                 ]),
 
