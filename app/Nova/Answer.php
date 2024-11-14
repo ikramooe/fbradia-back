@@ -251,7 +251,9 @@ class Answer extends Resource
             })->asHtml(),
 
              Text::make('Ateliers', function () {
+                 if(!$this->form) return "";
                 if($this->form->ateliers==null) return "" ;
+               
                 $ateliers = json_decode($this->form->ateliers);
                 $output = '';
                 $answerId = $this->id;
