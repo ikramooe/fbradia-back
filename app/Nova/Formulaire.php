@@ -75,7 +75,7 @@ class Formulaire extends Resource
                         Text::make('Code couleur','code_couleur'),
                        
                
-                ]),
+                ])->onlyOnForms(),
             
             Flexible::make('Content')
            
