@@ -67,6 +67,16 @@ class Formulaire extends Resource
 
               Boolean::make('Arreter ?','ended'),
                     Trix::make('Texte fin','text_fin'),
+
+                         Flexible::make('Ateliers')
+                ->addLayout('Simple content section', 'wysiwyg', [
+                       
+                        Text::make('Nom'),
+                        Text::make('Code couleur','code_couleur'),
+                       
+               
+                ]),
+            
             Flexible::make('Content')
            
             ->addLayout('Champ text', 'text', [
@@ -205,15 +215,9 @@ class Formulaire extends Resource
                 
 
             HasMany::make('answers'),
-              Flexible::make('Ateliers')
-                   
-                                 ->addLayout('Simple content section', 'wysiwyg', [
-                       
-                        Text::make('Nom'),
-                        Text::make('Code couleur','code_couleur'),
-                       
-               
-                ])->hideOnDetail()
+
+
+            
            
 
            
