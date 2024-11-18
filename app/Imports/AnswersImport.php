@@ -30,6 +30,9 @@ class AnswersImport implements ToModel, WithHeadingRow
                 'email' => $row['email'],
                 'telephone' => isset($row['telephone']) ? $row['telephone'] : "",
                 'specialite' => $row['specialite'],
+                'titre_en' => $row['titre_en'],
+                'titre_fr' => $row['titre_fr'],
+                'auteurs' => $row['auteurs'],
             ]),
         ]);
     }
