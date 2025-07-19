@@ -54,15 +54,10 @@ class User extends Resource
                 ->sortable()
                 ->rules('required', 'max:255'),
 
-            BelongsTo::make('event'),
+         
 
-            MultiSelect::make('forms')->options(function(){
-
-                $forms = Form::pluck('titre','id');
-                return $forms;
-            }
-               
-            ),
+         
+            
 
             
 

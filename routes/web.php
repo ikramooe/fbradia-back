@@ -15,10 +15,22 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\HomeController;
 
 Route::get('/', function () {
-    return view('welcome');
-});
+    return view('index');
+})
+->template(\App\Nova\Templates\Index::class)
+->name('Index');
 
-Route::get('/atelier/add/{answerId}', [HomeController::class, 'addToAnswerAteliers'])->name('atelier.add');
-Route::get('/atelier/remove/{answerId}', [HomeController::class, 'removeFromAnswerAteliers'])->name('atelier.remove');
+Route::get('/about', function () {
+    return view('about');
+})
+->template(\App\Nova\Templates\About::class)
+->name('about');
+
+Route::get('/contact', function () {
+    return view('contact');
+})
+->template(\App\Nova\Templates\Contact::class)
+->name('contact');
+
 
 

@@ -1,0 +1,259 @@
+@extends('layouts.app')
+@section('content')
+
+   <!-- page-title -->
+   <div class="ttm-page-title-row ttm-bg ttm-bgimage-yes ttm-bgcolor-darkgrey clearfix">
+    <div class="ttm-row-wrapper-bg-layer ttm-bg-layer"></div>
+    <div class="container">
+        <div class="row align-items-center">
+            <div class="col-lg-12">
+                <div class="ttm-page-title-row-inner">
+                    <div class="page-title-heading">
+                        <h2 class="title">Contact</h2>
+                    </div>
+                    <div class="breadcrumb-wrapper">
+                        <span>
+                            <a title="Homepage" href="/index.html"><i class="fa fa-home"></i>Home</a>
+                        </span>
+                        <span>Contact</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- page-title end -->
+
+<!--site-main start-->
+<div class="site-main">
+    <!--- conatact-section -->
+    <section class="ttm-row conatact-section ttm-bgcolor-white clearfix">
+        <div class="container">
+            <!-- row -->
+            <div class="row row-equal-height">
+                <div class="col-xl-6">
+                    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3196.7976543456123!2d2.9876543210987654!3d36.7654321098765!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zMzbCsDQ1JzU1LjYiTiAywrA1OSczNS42IkU!5e0!3m2!1sfr!2sdz!4v1620812345678!5m2!1sfr!2sdz" style="border:0; width:100%; height:450px;" allowfullscreen="" loading="lazy"></iframe>
+                </div>
+                <div class="col-xl-6">
+                    <div class="padding_left30 res-1199-padding_left0 padding_top20 res-1199-padding_top40">
+                        <!-- section title -->
+                        <div class="section-title">
+                            <div class="title-header">
+                                <h3>CONTACTEZ-NOUS</h3>
+                                <h2 class="title">Besoin d'aide ? Contactez<br>l'ONEC</h2>
+                            </div>
+                            <div class="title-desc padding_right30">
+                                <p>L'Ordre National des Experts-Comptables est à votre disposition pour répondre à vos questions et vous accompagner dans vos démarches professionnelles.</p>
+                            </div>
+                        </div><!-- section title end -->
+
+                        <div class="row">
+                            <div class="col-lg-12 col-md-12">
+                                <!--featured-icon-box-->
+                                <div class="featured-icon-box icon-align-before-content">
+                                    <div class="featured-icon">
+                                        <div
+                                            class="ttm-icon ttm-icon_element-border ttm-icon_element-color-skincolor
+                                        ttm-icon_element-style-round ttm-icon_element-size-sm ">
+                                            <i
+                                                class="flaticon flaticon-phone-call ttm-textcolor-skincolor"></i>
+                                        </div>
+                                    </div>
+                                    <div class="featured-content padding_left25">
+                                        <div class="featured-title text-left">
+                                            <h3 class="margin_bottom0">Appelez-nous: <span> +213 23 50 54 54 </span>
+                                            </h3>
+                                        </div>
+                                        <div class="featured-desc text-left">Horaires: Du dimanche au jeudi de 08:30 à 16:30</div>
+                                    </div>
+                                </div><!-- featured-icon-box end-->
+                            </div>
+                            <div class="col-lg-12 col-md-12">
+                                <!--featured-icon-box-->
+                                <div class="featured-icon-box icon-align-before-content">
+                                    <div class="featured-icon">
+                                        <div
+                                            class="ttm-icon ttm-icon_element-border ttm-icon_element-color-skincolor
+                                        ttm-icon_element-style-round ttm-icon_element-size-sm ">
+                                            <i class="flaticon flaticon-email-1 ttm-textcolor-skincolor"></i>
+                                        </div>
+                                    </div>
+                                    <div class="featured-content padding_left25">
+                                        <div class="featured-title text-left">
+                                            <h3 class="margin_bottom0">Email:</h3>
+                                        </div>
+                                        <div class="featured-desc text-left">contact@onec.dz</div>
+                                    </div>
+                                </div><!-- featured-icon-box end-->
+                            </div>
+                            <div class="col-lg-12 col-md-12">
+                                <!--featured-icon-box-->
+                                <div class="featured-icon-box icon-align-before-content">
+                                    <div class="featured-icon">
+                                        <div
+                                            class="ttm-icon ttm-icon_element-border ttm-icon_element-color-skincolor
+                                        ttm-icon_element-style-round ttm-icon_element-size-sm ">
+                                            <i class="flaticon flaticon-location ttm-textcolor-skincolor"></i>
+                                        </div>
+                                    </div>
+                                    <div class="featured-content padding_left25">
+                                        <div class="featured-title text-left">
+                                            <h3 class="margin_bottom0">Address:</h3>
+                                        </div>
+                                        <div class="featured-desc text-left">Villa N°02, Rue Ahmed Ouaked Dély Ibrahim, Alger</div>
+                                    </div>
+                                </div><!-- featured-icon-box end-->
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-lg-12 col-md-12">
+                                <p class="padding_top30 rajdhani fs-18 padding_right30">Suivez-nous sur <a href="#"><strong>Facebook</strong></a> et <a href="#"><strong>LinkedIn</strong></a></p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div><!-- row end -->
+        </div>
+    </section><!-- conatact-section end -->
+
+    <section class="ttm-row form-section ttm-bgcolor-grey bg-img11 ttm-bg ttm-bgimage-yes clearfix">
+        <div class="container">
+            <!--row -->
+            <div class="row">
+                <div class="col-lg-12">
+                    <!-- section title -->
+                    <div class="section-title title-style-center_text">
+                        <div class="title-header">
+                            <h2 class="title">Envoyez-nous un message</h2>
+                        </div>
+                        <div class="title-desc">
+                            <p>Pour toute question ou demande d'information, n'hésitez pas à nous contacter via ce formulaire. Notre équipe vous répondra dans les plus brefs délais.</p>
+                        </div>
+                    </div><!-- section title end -->
+                </div>
+            </div>
+            <!--row -->
+            <div class="row">
+                <div class="col-lg-12">
+                    <form id="request_qoute_form" class="request_qoute_form wrap-form clearfix"
+                        method="post" novalidate="novalidate" action="#">
+                        <div class="row">
+                            <div class="col-md-6">
+                                <span class="text-input"><input name="name" type="text" value=""
+                                        placeholder="Votre Nom*" required="required"></span>
+                            </div>
+                            <div class="col-md-6">
+                                <span class="text-input"><input name="subject" type="text"
+                                        value="" placeholder="Sujet*"
+                                        required="required"></span>
+                            </div>
+                            <div class="col-md-6">
+                                <span class="text-input"><input name="phone" type="text" value=""
+                                        placeholder="Numéro de téléphone*" required="required"></span>
+                            </div>
+                            <div class="col-md-6">
+                                <span class="text-input"><input name="email" type="email" value=""
+                                        placeholder="Votre Email*" required="required"></span>
+                            </div>
+                            <div class="col-lg-12">
+                                <span class="text-input">
+                                    <textarea name="message" rows="4" placeholder="Votre Message" required="required"></textarea>
+                                </span>
+                            </div>
+                            <div class="col-lg-12">
+                                <div class="padding_top15 text-center">
+                                    <button
+                                        class="submit ttm-btn ttm-btn-size-md ttm-btn-shape-rounded ttm-btn-style-fill ttm-btn-color-skincolor"
+                                        type="submit">Envoyer le message<i
+                                            class="flaticon flaticon-right-arrow"></i></button>
+                                </div>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="ttm-row services-section ttm-bgcolor-white clearfix">
+        <div class="container">
+            <!--row -->
+            <div class="row">
+                <div class="col-lg-3 col-md-6">
+                    <div class="ttm-bgcolor-white featured-icon-box icon-align-top-content box-shadow style2">
+                        <div class="featured-icon">
+                            <div
+                                class="ttm-icon ttm-icon_element-fill ttm-icon_element-color-grey ttm-icon_element-style-round ttm-icon_element-size-md">
+                                <i class="flaticon flaticon-checklist"></i>
+                            </div>
+                        </div>
+                        <div class="featured-content">
+                            <div class="featured-title">
+                                <h3>Publications</h3>
+                            </div>
+                            <div class="featured-desc">
+                                Consultez nos publications, rapports et communications professionnelles.
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-6">
+                    <div class="ttm-bgcolor-white featured-icon-box icon-align-top-content box-shadow style2">
+                        <div class="featured-icon">
+                            <div
+                                class="ttm-icon ttm-icon_element-fill ttm-icon_element-color-grey ttm-icon_element-style-round ttm-icon_element-size-md">
+                                <i class="fa fa-headphones"></i>
+                            </div>
+                        </div>
+                        <div class="featured-content">
+                            <div class="featured-title">
+                                <h3>Tableau des Experts</h3>
+                            </div>
+                            <div class="featured-desc">
+                                Consultez l'annuaire des experts-comptables inscrits à l'Ordre.
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-6">
+                    <div class="ttm-bgcolor-white featured-icon-box icon-align-top-content box-shadow style2">
+                        <div class="featured-icon">
+                            <div
+                                class="ttm-icon ttm-icon_element-fill ttm-icon_element-color-grey ttm-icon_element-style-round ttm-icon_element-size-md">
+                                <i class="ti ti-comment"></i>
+                            </div>
+                        </div>
+                        <div class="featured-content">
+                            <div class="featured-title">
+                                <h3>Formation Continue</h3>
+                            </div>
+                            <div class="featured-desc">
+                                Découvrez nos programmes de formation et de développement professionnel.
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-6">
+                    <div class="ttm-bgcolor-white featured-icon-box icon-align-top-content box-shadow style2">
+                        <div class="featured-icon">
+                            <div
+                                class="ttm-icon ttm-icon_element-fill ttm-icon_element-color-grey ttm-icon_element-style-round ttm-icon_element-size-md">
+                                <i class="flaticon flaticon-time"></i>
+                            </div>
+                        </div>
+                        <div class="featured-content">
+                            <div class="featured-title">
+                                <h3>Assistance en Ligne</h3>
+                            </div>
+                            <div class="featured-desc">
+                                Contactez-nous via notre plateforme d'assistance en ligne pour un support rapide
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div><!-- row end -->
+        </div>
+    </section>
+</div>
+
+@endsection
