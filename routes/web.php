@@ -48,7 +48,7 @@ Route::get('locale/{locale}', function ($locale) {
 Route::get('/pages/{page}', function ($p) {
 
     
-    $page = App\Models\Page::where('title->en', $p)->first();
+    $page = App\Models\Page::where('title->fr', $p)->first();
     
     if($page->model_type == 'model1') {
         return view('modele1', compact('page'));
