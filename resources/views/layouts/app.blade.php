@@ -96,7 +96,7 @@
                                 <div class="site-navigation d-flex flex-row align-items-center">
                                     <!-- site-branding -->
                                     <div class="site-branding mr-auto">
-                                        <a class="home-link" href="/index.html" title="EC" rel="home">
+                                        <a class="home-link" href="/" title="EC" rel="home">
                                             <img id="logo-img" class="img-center standardlogo" src="images/logo.png"
                                                 alt="logo-img">
                                         </a>
