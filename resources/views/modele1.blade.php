@@ -1,6 +1,9 @@
 @extends('layouts.app')
 @section('content')
     <!-- page-title -->
+    @php
+       $locale = app()->getLocale();
+    @endphp
     <div class="ttm-page-title-row ttm-bg ttm-bgimage-yes ttm-bgcolor-darkgrey clearfix">
         <div class="ttm-row-wrapper-bg-layer ttm-bg-layer"></div>
         <div class="container">
