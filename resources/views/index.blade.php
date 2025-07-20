@@ -71,11 +71,11 @@
                             <!-- section title -->
                             <div class="section-title clearfix">
                                 <div class="title-header">
-                                    <h3>{{Page::get('title1') ? Page::get('title1') : ''}}</h3>
-                                    <h2 class="title">{{Page::get('title2') ? Page::get('title2') : ''}}</h2>
+                                    <h3>{{Page::get('title1')->$locale ? Page::get('title1')->$locale : ''}}</h3>
+                                    <h2 class="title">{{Page::get('title2')->$locale ? Page::get('title2')->$locale : ''}}</h2>
                                 </div>
                                 <div class="title-desc">
-                                    <p>{{Page::get('text') ? Page::get('text') : ''}}</p>
+                                    <p><?php echo isset(Page::get('text')->$locale) ? Page::get('text')->$locale : ''; ?></p>
                                 </div>
                             </div><!-- section title end -->
                            
