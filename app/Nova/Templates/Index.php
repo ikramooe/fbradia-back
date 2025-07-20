@@ -88,10 +88,10 @@ class Index extends Template
                             Flexible::make('Partners')
                                 ->addLayout('Partner', 'partner', [
                                     Text::make('Name')
-                                        ->translatable(),
+                                       ,
 
-                                    Text::make('Link')
-                                        ->rules('url'),
+                                    Text::make('Link'),
+                                       
 
                                     Image::make('Logo')
                                         ->disk('public')

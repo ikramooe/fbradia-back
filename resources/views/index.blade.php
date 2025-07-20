@@ -75,7 +75,7 @@
                                     <h2 class="title">{{isset(json_decode(Page::get('title2'))->$locale) ? json_decode(Page::get('title2'))->$locale : ''}}</h2>
                                 </div>
                                 <div class="title-desc">
-                                    <p><?php echo isset(json_decode(Page::get('text'))->$locale) ? json_decode(Page::get('text'))->$locale : ''; ?></p>
+                                    <p>{{ isset(json_decode(Page::get('text'))->$locale) ? json_decode(Page::get('text'))->$locale : '' }}</p>
                                 </div>
                             </div><!-- section title end -->
                            
@@ -179,7 +179,7 @@
                         @endphp
                         <div class="margin_top35 res-991-margin_top30 text-center">
                             <a class="end_button">
-                                <span>{{isset(Page::get('titlepartners')->$locale) ? Page::get('titlepartners')->$locale : ''}}</span>
+                                <span>{{isset(json_decode(Page::get('titlepartners'))->$locale) ? json_decode(Page::get('titlepartners'))->$locale : ''}}</span>
                             </a>
                         </div>
                     </div>
@@ -196,11 +196,11 @@
                             <div class="ttm-client-logo">
                                 <div class="ttm-client-logo-inner">
                                     <div class="client-thumbnail">
-                                        <img class="img-fluid" src="{{asset('storage/' . $partner->image)}}"
+                                        <img class="img-fluid" src="{{asset('storage/' . $partner->logo)}}"
                                             alt="image">
                                     </div>
                                     <div class="client-thumbnail_hover">
-                                        <img class="img-fluid" src="{{asset('storage/' . $partner->image)}}"
+                                        <img class="img-fluid" src="{{asset('storage/' . $partner->logo)}}"
                                             alt="image">
                                     </div>
                                 </div>
