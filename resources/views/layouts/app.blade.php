@@ -127,7 +127,7 @@
                                                         <ul class="mega-submenu">
                                                             @foreach ($item->pages as $page)
                                                                 <li>
-                                                                    <a href="/pages/{{ $page->title->fr }}">{{ $page->title }}</a>
+                                                                    <a href="/pages/{{ $page->getTranslation('title', 'fr') }}">{{ $page->title }}</a>
                                                                 </li>
                                                             @endforeach
                                                         </ul>
