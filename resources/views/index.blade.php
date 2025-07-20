@@ -346,12 +346,7 @@
                                 <h3>@lang('Actualités')</h3>
                                 <h2 class="title">@lang('Nos dernières actualités')</h2>
                             </div>
-                            <div class="title-desc">
-                                <p>What better way is there to serve as a trusted resource for clients than to
-                                    provide valuable resources? Keep up to date with our thoughts <a href="contact-us.html"
-                                        class="ttm-btn btn-inline ttm-btn-color-skincolor ttm-icon-btn-right fs-15 padding_right10">
-                                        <strong>More Services<i class="flaticon flaticon-right-arrow"></i></strong></a></p>
-                            </div>
+                           
                         </div><!-- section title end -->
                     </div>
                 </div><!-- row end -->
