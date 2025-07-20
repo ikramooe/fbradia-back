@@ -1,0 +1,43 @@
+.language-switcher {
+    position: relative;
+    margin-left: auto;
+}
+
+.language-switcher select {
+    background: transparent;
+    border: none;
+    color: #fff;
+    padding: 0;
+    font-size: 14px;
+    cursor: pointer;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+}
+
+.language-switcher select option {
+    color: #000;
+    background: #fff;
+}
+
+.language-switcher select::-ms-expand {
+    display: none;
+}
+
+.language-switcher::after {
+    content: '\f078';
+    font-family: FontAwesome;
+    position: absolute;
+    right: 0;
+    top: 50%;
+    transform: translateY(-50%);
+    color: #fff;
+    pointer-events: none;
+}
+
+@media (max-width: 768px) {
+    .language-switcher {
+        margin-left: 0;
+        margin-right: auto;
+    }
+}

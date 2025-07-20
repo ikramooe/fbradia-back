@@ -51,6 +51,8 @@
 
     <!-- responsive -->
     <link rel="stylesheet" type="text/css" href="{{ asset('css/responsive.css') }}" />
+    <!-- language switcher -->
+    <link rel="stylesheet" type="text/css" href="{{ asset('css/language-switcher.css') }}" />
 
 </head>
 
@@ -98,7 +100,17 @@
                                             <img id="logo-img" class="img-center standardlogo" src="images/logo.png"
                                                 alt="logo-img">
                                         </a>
-                                    </div><!-- site-branding end -->
+                                    </div>
+
+                                    <!-- Language Switcher -->
+                                    <div class="language-switcher ml-auto">
+                                        <select class="form-control" onchange="window.location.href=this.value">
+                                            <option value="{{ route('locale', ['locale' => 'en']) }}" {{ app()->getLocale() === 'en' ? 'selected' : '' }}>English</option>
+                                            <option value="{{ route('locale', ['locale' => 'ar']) }}" {{ app()->getLocale() === 'ar' ? 'selected' : '' }}>العربية</option>
+                                            <option value="{{ route('locale', ['locale' => 'fr']) }}" {{ app()->getLocale() === 'fr' ? 'selected' : '' }}>Français</option>
+                                        </select>
+                                    </div>
+
                                     <div class="btn-show-menu-mobile menubar menubar--squeeze">
                                         <span class="menubar-box">
                                             <span class="menubar-inner"></span>

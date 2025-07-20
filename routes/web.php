@@ -33,6 +33,11 @@ Route::get('/contact', function () {
 ->template(\App\Nova\Templates\Contact::class)
 ->name('contact');
 
+Route::get('locale/{locale}', function ($locale) {
+    session(['locale' => $locale]);
+    return redirect()->back();
+})->name('locale');
+
 Route::get('/pages/{page}', function ($p) {
 
     
