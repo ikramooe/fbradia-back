@@ -13,11 +13,11 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('events', function (Blueprint $table) {
-            $table->id();
-            $table->string('titre');
-            $table->string('slug'); 
-            $table->timestamps();
+        Schema::table('menus', function (Blueprint $table) {
+            $table->json('title')->nullable();
+            $table->string('url');
+            $table->string('target')->default('_self');
+            $table->integer('order')->default(0);
         });
     }
 
@@ -28,6 +28,8 @@ return new class extends Migration
      */
     public function down()
     {
-        //
+        Schema::table('menus', function (Blueprint $table) {
+            $table->dropColumn(['title', 'url', 'target', 'order']);
+        });
     }
 };

@@ -13,14 +13,8 @@ return new class extends Migration
      */
     public function up()
     {
-        
-        Schema::create('answers', function (Blueprint $table) {
-            $table->id();
-            $table->string('form_id');
-           
-            $table->text('answers');
-           
-            $table->timestamps();
+        Schema::table('pages', function (Blueprint $table) {
+            $table->foreignId('menu_id')->constrained()->onDelete('cascade');
         });
     }
 
@@ -31,6 +25,9 @@ return new class extends Migration
      */
     public function down()
     {
-        //
+        Schema::table('pages', function (Blueprint $table) {
+            $table->dropForeign(['menu_id']);
+            $table->dropColumn('menu_id');
+        });
     }
 };

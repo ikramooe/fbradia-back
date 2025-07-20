@@ -15,6 +15,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\HomeController;
 
 Route::get('/', function () {
+   
     return view('index');
 })
 ->template(\App\Nova\Templates\Index::class)
@@ -31,6 +32,22 @@ Route::get('/contact', function () {
 })
 ->template(\App\Nova\Templates\Contact::class)
 ->name('contact');
+
+Route::get('/pages/{page}', function ($p) {
+
+    
+    $page = App\Models\Page::where('title->en', $p)->first();
+    
+    if($page->model_type == 'model1') {
+        return view('modele1', compact('page'));
+    }
+    if($page->model_type == 'model2') {
+        return view('modele2', compact('page'));
+    }
+    return view('page', compact('page'));
+})
+->name('page');
+
 
 
 

@@ -20,37 +20,37 @@
     <link rel="shortcut icon" href="images/favicon-32x32.png" />
 
     <!-- bootstrap -->
-    <link rel="stylesheet" type="text/css" href="css/bootstrap.min.css" />
+    <link rel="stylesheet" type="text/css" href="{{ asset('css/bootstrap.min.css') }}" />
 
     <!-- animate -->
-    <link rel="stylesheet" type="text/css" href="css/animate.css" />
+    <link rel="stylesheet" type="text/css" href="{{ asset('css/animate.css') }}" />
 
     <!-- flaticon -->
-    <link rel="stylesheet" type="text/css" href="css/flaticon.css" />
+    <link rel="stylesheet" type="text/css" href="{{ asset('css/flaticon.css') }}" />
 
     <!-- fontawesome -->
-    <link rel="stylesheet" type="text/css" href="css/font-awesome.css" />
+    <link rel="stylesheet" type="text/css" href="{{ asset('css/font-awesome.css') }}" />
 
     <!-- themify -->
-    <link rel="stylesheet" type="text/css" href="css/themify-icons.css" />
+    <link rel="stylesheet" type="text/css" href="{{ asset('css/themify-icons.css') }}" />
 
     <!-- slick -->
-    <link rel="stylesheet" type="text/css" href="css/slick.css">
+    <link rel="stylesheet" type="text/css" href="{{ asset('css/slick.css') }}">
 
     <!-- prettyphoto -->
-    <link rel="stylesheet" type="text/css" href="css/prettyPhoto.css">
+    <link rel="stylesheet" type="text/css" href="{{ asset('css/prettyPhoto.css') }}">
 
     <!-- shortcodes -->
-    <link rel="stylesheet" type="text/css" href="css/shortcode.css" />
+    <link rel="stylesheet" type="text/css" href="{{ asset('css/shortcode.css') }}" />
 
     <!-- main -->
-    <link rel="stylesheet" type="text/css" href="css/main.css" />
+    <link rel="stylesheet" type="text/css" href="{{ asset('css/main.css') }}" />
 
     <!-- megamenu -->
-    <link rel="stylesheet" type="text/css" href="css/megamenu.css" />
+    <link rel="stylesheet" type="text/css" href="{{ asset('css/megamenu.css') }}" />
 
     <!-- responsive -->
-    <link rel="stylesheet" type="text/css" href="css/responsive.css" />
+    <link rel="stylesheet" type="text/css" href="{{ asset('css/responsive.css') }}" />
 
 </head>
 
@@ -109,39 +109,24 @@
                                     <!-- menu -->
                                     <nav class="main-menu menu-mobile" id="menu">
                                         <ul class="menu">
-                                            <li class="mega-menu-item active"><a href="/index.html"
-                                                    class="mega-menu-link">Accueil</a>
-
-                                            </li>
-                                            <li><a href="about-us-1.html">L'institution</a></li>
-                                            <li class="mega-menu-item"><a href="#"
-                                                    class="mega-menu-link">Réglementations</a>
-                                                <ul class="mega-submenu">
-                                                    <li><a href="/documents.html">Lois Decrets Arretes Et Avis Cnc
-                                                            Circulaires Decisions</a></li>
-                                                    <li><a href="/documents.html">Réglement interieur de l'ordre</a>
-                                                    </li>
-                                                    <li><a href="/documents.html">Stages</a></li>
-
-                                                </ul>
-                                            </li>
-
-                                            <li><a href="/communique.html">Communiqués</a></li>
-                                            <li class="mega-menu-item"><a href="#"
-                                                    class="mega-menu-link">Mediathèque</a>
-                                                <ul class="mega-submenu">
-                                                    <li><a href="/phototheque.html">Photothèque</a></li>
-                                                    <li><a href="/videotheque.html">Vidéothèque</a></li>
-
-
-                                                </ul>
-                                            </li>
-                                            <li><a href="/communications.html">Communications</a></li>
-                                            <li><a href="/international.html">International</a></li>
-                                            <li><a href="/editions-ordre.html">Les Editions de l'Ordre</a></li>
-
+                                            @foreach (App\Models\Menu::all() as $item)
+                                                <li class="mega-menu-item {{ request()->url() === url($item->url) ? 'active' : '' }}">
+                                                    <a href="{{ url($item->url) }}" class="mega-menu-link">{{ $item->title }}</a>
+                                    
+                                                    @if (!empty($item->pages) && count($item->pages) > 0)
+                                                        <ul class="mega-submenu">
+                                                            @foreach ($item->pages as $page)
+                                                                <li>
+                                                                    <a href="/pages/{{ $page->title }}">{{ $page->title }}</a>
+                                                                </li>
+                                                            @endforeach
+                                                        </ul>
+                                                    @endif
+                                                </li>
+                                            @endforeach
                                         </ul>
                                     </nav>
+                                    
                                   
                                 </div><!-- site-navigation end-->
                             </div>
@@ -239,7 +224,7 @@
                     <div class="bottom-footer-text ">
                         <div class="row copyright text-center">
                             <div class="col-lg-12 col-md-12 col-sm-12 d-md-flex d-sm-block justify-content-center">
-                                <span>Copyright &#169; 2021 <a href="index.html"> Invess.</a>All Rights Reserved.</span>
+                                <span>Copyright &#169; {{ date('Y') }} <a href="index.html"> Invess.</a>All Rights Reserved.</span>
                                 <div id="footer-nav-menu">
                                     <ul class="footer-nav-menu">
                                         <li><a href="#">Privacy Policy</a></li>
@@ -263,19 +248,19 @@
     
     
         <!-- Javascript -->
-        <script src="js/jquery-3.7.1.min.js"></script>
-        <script src="js/jquery-migrate-3.4.1.min.js"></script>
-        <script src="js/bootstrap.min.js"></script>
-        <script src="js/jquery.easing.js"></script>
-        <script src="js/jquery-waypoints.js"></script>
-        <script src="js/jquery-validate.js"></script>
-        <script src="js/jquery.prettyPhoto.js"></script>
-        <script src="js/slick.min.js"></script>
-        <script src="js/numinate.min.js"></script>
-        <script src="js/circle-progress.min.js"></script>
-        <script src="js/imagesloaded.min.js"></script>
-        <script src="js/jquery-isotope.js"></script>
-        <script src="js/main.js"></script>
+        <script src="{{ asset('js/jquery-3.7.1.min.js') }}"></script>
+        <script src="{{ asset('js/jquery-migrate-3.4.1.min.js') }}"></script>
+        <script src="{{ asset('js/bootstrap.min.js') }}"></script>
+        <script src="{{ asset('js/jquery.easing.js') }}"></script>
+        <script src="{{ asset('js/jquery-waypoints.js') }}"></script>
+        <script src="{{ asset('js/jquery-validate.js') }}"></script>
+        <script src="{{ asset('js/jquery.prettyPhoto.js') }}"></script>
+        <script src="{{ asset('js/slick.min.js') }}"></script>
+        <script src="{{ asset('js/numinate.min.js') }}"></script>
+        <script src="{{ asset('js/circle-progress.min.js') }}"></script>
+        <script src="{{ asset('js/imagesloaded.min.js') }}"></script>
+        <script src="{{ asset('js/jquery-isotope.js') }}"></script>
+        <script src="{{ asset('js/main.js') }}"></script>
     
     </body>
     

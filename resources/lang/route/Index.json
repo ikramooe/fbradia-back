@@ -1,0 +1,55 @@
+{
+    "title": "Index",
+    "created_at": "2025-07-19 23:06:48",
+    "updated_at": "2025-07-20 02:23:12",
+    "attributes": {
+        "nova_page_title": "Index",
+        "nova_page_created_at": "2025-07-19T23:06:48.000Z",
+        "slider_items": "[{\"layout\":\"slider-item\",\"key\":\"c5Vm5Ep8cwh0M4tB\",\"attributes\":{\"title\":{\"en\":\"dqsd\",\"ar\":\"sdqsd\",\"fr\":\"dqsd\"},\"description\":{\"en\":\"<div>dsqd<\\\/div>\",\"ar\":\"<div>QSqdsqd<\\\/div>\",\"fr\":\"<div>sdsqd<\\\/div>\"},\"image\":\"slider-images\\\/4cdNmDYnNNPcpMiLwa1mMkpPwEftnKguiEBOzIpq.jpg\"}}]",
+        "title_1": {
+            "en": null,
+            "ar": null,
+            "fr": null
+        },
+        "title_2": {
+            "en": null,
+            "ar": null,
+            "fr": null
+        },
+        "text": {
+            "en": null,
+            "ar": null,
+            "fr": null
+        },
+        "partners": [],
+        "features": [],
+        "section_title": {
+            "en": null,
+            "ar": null,
+            "fr": null
+        },
+        "section_text": {
+            "en": null,
+            "ar": null,
+            "fr": null
+        },
+        "slider": [
+            {
+                "layout": "item",
+                "key": "cSxrmoghrIwpxoy6",
+                "attributes": {
+                    "title": {
+                        "en": "ssqd",
+                        "ar": "",
+                        "fr": ""
+                    },
+                    "description": {
+                        "en": "",
+                        "ar": "",
+                        "fr": ""
+                    }
+                }
+            }
+        ]
+    }
+}
