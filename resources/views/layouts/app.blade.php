@@ -73,7 +73,7 @@
                           
                             <div class="top_bar_contact_item ml-auto font-weight-bold padding_left15">
                                 <div class="top_bar_icon"><i class="fa fa-map-o"></i>
-                                </div>@lang('Adresse'): <span class="font-weight-500 text-white">{{Page::option('contact')->address->$locale  ?? ''}}</span>
+                                </div>@lang('Adresse'): <span class="font-weight-500 text-white">{{isset(json_decode(Page::option('contact')->address)->$locale) ? json_decode(Page::option('contact')->address)->$locale : ''}}</span>
                             </div>
                             <div class="top_bar_contact_item font-weight-bold">
                                 <div class="top_bar_icon ttm-highlight-right"><i class="ti ti-email"></i></div>@lang('Email'): <a

@@ -61,7 +61,7 @@
                                     </div>
                                     <div class="featured-content padding_left25">
                                         <div class="featured-title text-left">
-                                            <h3 class="margin_bottom0">Appelez-nous: <span> +213 23 50 54 54 </span>
+                                            <h3 class="margin_bottom0">@lang('Appelez-nous'): <span> +213 23 50 54 54 </span>
                                             </h3>
                                         </div>
                                        
@@ -103,7 +103,7 @@
                                         <div class="featured-title text-left">
                                             <h3 class="margin_bottom0">@lang('Address'):</h3>
                                         </div>
-                                        <div class="featured-desc text-left">{{Page::option('contact')->address->$locale}}</div>
+                                        <div class="featured-desc text-left">{{isset(json_decode(Page::option('contact')->address)->$locale) ? json_decode(Page::option('contact')->address)->$locale : ''}}</div>
                                     </div>
                                 </div><!-- featured-icon-box end-->
                             </div>
