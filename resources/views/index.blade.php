@@ -279,11 +279,9 @@
                     <div class="col-lg-6 col-md-6 col-sm-12">
                         <div class="row">
                             <div class="col-12">
-                                <div class="ttm-vertical-text">
-                                    <h4><span>20+</span> Years Of Experience In Finance </h4>
-                                </div>
+                              
                                 <div class="ttm_single_image-wrapper">
-                                    <img class="img-fluid" src="images/single-img-6.png" title="single-img-6"
+                                    <img class="img-fluid" src="{{asset('storage/' . Page::get('mainimagefeatures'))}}" title="single-img-6"
                                         alt="single-img">
                                 </div>
                             </div>
