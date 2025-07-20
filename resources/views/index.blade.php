@@ -222,11 +222,11 @@
                             <!-- section title -->
                             <div class="section-title clearfix">
                                 <div class="title-header">
-                                    <h3>{{isset(Page::get('titlefeatures')->$locale) ? Page::get('titlefeatures')->$locale : ''}}</h3>
-                                    <h2 class="title">{{isset(Page::get('titlefeatures2')->$locale) ? Page::get('titlefeatures2')->$locale : ''}}</h2>
+                                    <h3>{{isset(json_decode(Page::get('titlefeatures'))->$locale) ? json_decode(Page::get('titlefeatures'))->$locale : ''}}</h3>
+                                    <h2 class="title">{{isset(json_decode(Page::get('titlefeatures2'))->$locale) ? json_decode(Page::get('titlefeatures2'))->$locale : ''}}</h2>
                                 </div>
                                 <div class="title-desc">
-                                    <p>{{isset(Page::get('textfeatures')->$locale) ? Page::get('textfeatures')->$locale : ''}}</p>
+                                    <p>{{isset(json_decode(Page::get('textfeatures'))->$locale) ? json_decode(Page::get('textfeatures'))->$locale : ''}}</p>
                                 </div>
                             </div><!-- section title end -->
                             @php
