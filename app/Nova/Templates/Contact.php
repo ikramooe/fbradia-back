@@ -27,7 +27,7 @@ class Contact extends Template {
             Tabs::make('Page Content', [
                 'Contact Information' => [
                     Text::make('Email')
-                        ->translatable()
+                       
                         ->rules('required', 'email'),
     
                     Text::make('Address')

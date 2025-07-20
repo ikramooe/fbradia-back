@@ -70,16 +70,14 @@
                 <div class="container">
                     <div class="row no-gutters">
                         <div class="col-md-12 d-flex flex-row align-items-center justify-content-center">
-                            <div class="top_bar_contact_item pl-0">
-                                <div class="top_bar_icon"><i class="fa fa-graduation-cap"></i></div>Formation professionnelle <a href="#">Programme 2025</a>
-                            </div>
+                          
                             <div class="top_bar_contact_item ml-auto font-weight-bold padding_left15">
                                 <div class="top_bar_icon"><i class="fa fa-map-o"></i>
-                                </div>Adresse: <span class="font-weight-500 text-white">Villa N°02, Rue Ahmed Ouaked Dély Ibrahim, Alger</span>
+                                </div>@lang('Adresse'): <span class="font-weight-500 text-white">{{Page::option('contact')->address->$locale  ?? ''}}</span>
                             </div>
                             <div class="top_bar_contact_item font-weight-bold">
-                                <div class="top_bar_icon ttm-highlight-right"><i class="ti ti-email"></i></div>Email: <a
-                                    href="mailto:contact@onec.dz" class="font-weight-500 text-white">contact@onec.dz</a>
+                                <div class="top_bar_icon ttm-highlight-right"><i class="ti ti-email"></i></div>@lang('Email'): <a
+                                    href="mailto:{{Page::option('contact')->email  ?? ''}}" class="font-weight-500 text-white">{{Page::option('contact')->email  ?? ''}}</a>
                             </div>
                         </div>
                     </div>
@@ -155,29 +153,25 @@
                                         years of experience.</p>
                                 </div>
                                 <div class="widget d-flex padding_top15 res-575-margin_bottom20">
-                                    <h3 class="widget-title margin_right10">Social Share:</h3>
+                                    <h3 class="widget-title margin_right10">@lang('Social Share'):</h3>
                                     <div class="social-icons">
                                         <ul class="list-inline d-flex">
                                             <li>
                                                 <a class="tooltip-top" target="_blank"
-                                                    href="https://www.facebook.com/preyantechnosys19"
+                                                    href="{{Page::option('contact')->facebook ?? ''}}"
                                                     data-tooltip="Facebook"><i class="fa fa-facebook"></i></a>
                                             </li>
                                             <li>
                                                 <a class="tooltip-top" target="_blank"
-                                                    href="https://twitter.com/PreyanTechnosys" data-tooltip="Twitter"><i
+                                                    href="{{Page::option('contact')->twitter ?? ''}}" data-tooltip="Twitter"><i
                                                         class="fa fa-twitter"></i></a>
                                             </li>
                                             <li>
                                                 <a class=" tooltip-top" target="_blank"
-                                                    href="https://www.instagram.com/preyan_technosys/"
+                                                    href="{{Page::option('contact')->instagram ?? ''}}"
                                                     data-tooltip="instagram"><i class="fa fa-instagram"></i></a>
                                             </li>
-                                            <li>
-                                                <a class="tooltip-top" target="_blank"
-                                                    href="https://dribbble.com/PreyanTechnosys" data-tooltip="dribble"><i
-                                                        class="fa fa-dribbble"></i></a>
-                                            </li>
+                                          
                                         </ul>
                                     </div>
                                 </div>
@@ -186,36 +180,33 @@
                                 <div class="widget widget_nav_menu clearfix">
                                     <h3 class="widget-title">Explore</h3>
                                     <ul class="menu-footer-quick-links">
-                                        <li><a href="about-us-2.html">About Us</a></li>
-                                        <li><a href="/blog-classic.html">Blog</a></li>
-                                        <li><a href="contact-us.html">Contact Us</a></li>
+                                        <li><a href="about-us-2.html">@lang('About Us')</a></li>
+                                        <li><a href="/blog">@lang('Blog')</a></li>
+                                        <li><a href="/contact">@lang('Contact Us')</a></li>
                                     </ul>
                                 </div>
                             </div>
                             <div class="widget-area col-xs-12 col-sm-6 col-md-6 col-lg-4">
                                 <div class="widget widget-recent-post res-991-margin_top30 clearfix">
-                                    <h3 class="widget-title">Recent Posts</h3>
+                                    <h3 class="widget-title">@lang('Recent Posts')</h3>
+                                    @php
+                                    $locale = app()->getLocale();
+                                    $recent_posts = App\Models\Blog::latest()->limit(5)->get();
+                                    @endphp
                                     <ul class="widget-post ttm-recent-post-list">
+                                        @foreach ($recent_posts as $item)
                                         <li>
-                                            <a href="blog-single.html"><img class="img-fluid"
+                                            <a href="/article/{{$item->title}}"><img class="img-fluid"
                                                     src="images/blog/post-001-150x150.jpg" alt="post-img"></a>
                                             <div class="post-detail">
-                                                <span class="post-date"><i class="fa fa-calendar"></i>25 March,
-                                                    2021</span>
-                                                <a href="blog-single.html">If the white whale be raised it must be in a
-                                                    month.</a>
+                                                <span class="post-date"><i class="fa fa-calendar"></i>{{$item->created_at}}</span>
+                                                <a href="blog-single.html">{{	$item->title}}</a>
     
                                             </div>
                                         </li>
-                                        <li>
-                                            <a href="blog-single.html"><img class="img-fluid"
-                                                    src="images/blog/post-002-150x150.jpg" alt="post-img"></a>
-                                            <div class="post-detail">
-                                                <span class="post-date"><i class="fa fa-calendar"></i>18 March,
-                                                    2021</span>
-                                                <a href="blog-single.html">The new rules of personal finance in wealth</a>
-                                            </div>
-                                        </li>
+                                        @endforeach
+                                       
+                                      
                                     </ul>
                                 </div>
                             </div>
@@ -224,12 +215,12 @@
                     <div class="bottom-footer-text ">
                         <div class="row copyright text-center">
                             <div class="col-lg-12 col-md-12 col-sm-12 d-md-flex d-sm-block justify-content-center">
-                                <span>Copyright &#169; {{ date('Y') }} <a href="index.html"> Invess.</a>All Rights Reserved.</span>
+                                <span>Copyright &#169; {{ date('Y') }} <a href="/"> ONEC.</a>All Rights Reserved.</span>
                                 <div id="footer-nav-menu">
                                     <ul class="footer-nav-menu">
                                         <li><a href="#">Privacy Policy</a></li>
-                                        <li><a href="contact-us.html">Contact Us</a></li>
-                                        <li><a href="financial-advise.html">Financial Help</a></li>
+                                        <li><a href="/contact">Contact Us</a></li>
+                                      
                                     </ul>
                                 </div>
                             </div>

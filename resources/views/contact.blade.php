@@ -9,13 +9,13 @@
             <div class="col-lg-12">
                 <div class="ttm-page-title-row-inner">
                     <div class="page-title-heading">
-                        <h2 class="title">Contact</h2>
+                        <h2 class="title">@lang('Contact')</h2>
                     </div>
                     <div class="breadcrumb-wrapper">
                         <span>
-                            <a title="Homepage" href="/index.html"><i class="fa fa-home"></i>Home</a>
+                            <a title="Homepage" href="/"><i class="fa fa-home"></i>@lang('Home')</a>
                         </span>
-                        <span>Contact</span>
+                        <span>@lang('Contact')</span>
                     </div>
                 </div>
             </div>
@@ -39,8 +39,8 @@
                         <!-- section title -->
                         <div class="section-title">
                             <div class="title-header">
-                                <h3>CONTACTEZ-NOUS</h3>
-                                <h2 class="title">Besoin d'aide ? Contactez<br>l'ONEC</h2>
+                                <h3>@lang('CONTACTEZ-NOUS')</h3>
+                                <h2 class="title">@lang('Besoin d\'aide ? Contactez<br> ONEC')</h2>
                             </div>
                             <div class="title-desc padding_right30">
                                 <p>L'Ordre National des Experts-Comptables est à votre disposition pour répondre à vos questions et vous accompagner dans vos démarches professionnelles.</p>
@@ -64,7 +64,7 @@
                                             <h3 class="margin_bottom0">Appelez-nous: <span> +213 23 50 54 54 </span>
                                             </h3>
                                         </div>
-                                        <div class="featured-desc text-left">Horaires: Du dimanche au jeudi de 08:30 à 16:30</div>
+                                       
                                     </div>
                                 </div><!-- featured-icon-box end-->
                             </div>
@@ -80,9 +80,9 @@
                                     </div>
                                     <div class="featured-content padding_left25">
                                         <div class="featured-title text-left">
-                                            <h3 class="margin_bottom0">Email:</h3>
+                                            <h3 class="margin_bottom0">@lang('Email'):</h3>
                                         </div>
-                                        <div class="featured-desc text-left">contact@onec.dz</div>
+                                        <div class="featured-desc text-left">{{Page::option('contact')->email}}</div>
                                     </div>
                                 </div><!-- featured-icon-box end-->
                             </div>
@@ -96,18 +96,21 @@
                                             <i class="flaticon flaticon-location ttm-textcolor-skincolor"></i>
                                         </div>
                                     </div>
+                                    @php
+                                       $locale = app()->getLocale();   
+                                    @endphp
                                     <div class="featured-content padding_left25">
                                         <div class="featured-title text-left">
-                                            <h3 class="margin_bottom0">Address:</h3>
+                                            <h3 class="margin_bottom0">@lang('Address'):</h3>
                                         </div>
-                                        <div class="featured-desc text-left">Villa N°02, Rue Ahmed Ouaked Dély Ibrahim, Alger</div>
+                                        <div class="featured-desc text-left">{{Page::option('contact')->address->$locale}}</div>
                                     </div>
                                 </div><!-- featured-icon-box end-->
                             </div>
                         </div>
                         <div class="row">
                             <div class="col-lg-12 col-md-12">
-                                <p class="padding_top30 rajdhani fs-18 padding_right30">Suivez-nous sur <a href="#"><strong>Facebook</strong></a> et <a href="#"><strong>LinkedIn</strong></a></p>
+                                <p class="padding_top30 rajdhani fs-18 padding_right30">@lang('Suivez-nous sur') <a href="{{Page::option('contact')->facebook}}"><strong>Facebook</strong></a> et <a href="{{Page::option('contact')->linkedin}}"><strong>LinkedIn</strong></a></p>
                             </div>
                         </div>
                     </div>
@@ -124,10 +127,10 @@
                     <!-- section title -->
                     <div class="section-title title-style-center_text">
                         <div class="title-header">
-                            <h2 class="title">Envoyez-nous un message</h2>
+                            <h2 class="title">@lang('Envoyez-nous un message')</h2>
                         </div>
                         <div class="title-desc">
-                            <p>Pour toute question ou demande d'information, n'hésitez pas à nous contacter via ce formulaire. Notre équipe vous répondra dans les plus brefs délais.</p>
+                            <p>@lang("Pour toute question ou demande d\'information, n'hésitez pas à nous contacter via ce formulaire. Notre équipe vous répondra dans les plus brefs délais").</p>
                         </div>
                     </div><!-- section title end -->
                 </div>
@@ -164,7 +167,7 @@
                                 <div class="padding_top15 text-center">
                                     <button
                                         class="submit ttm-btn ttm-btn-size-md ttm-btn-shape-rounded ttm-btn-style-fill ttm-btn-color-skincolor"
-                                        type="submit">Envoyer le message<i
+                                        type="submit">@lang('Envoyer le message')<i
                                             class="flaticon flaticon-right-arrow"></i></button>
                                 </div>
                             </div>
@@ -192,7 +195,7 @@
                                 <h3>Publications</h3>
                             </div>
                             <div class="featured-desc">
-                                Consultez nos publications, rapports et communications professionnelles.
+                                @lang('Consultez nos publications, rapports et communications professionnelles.')
                             </div>
                         </div>
                     </div>
@@ -207,10 +210,10 @@
                         </div>
                         <div class="featured-content">
                             <div class="featured-title">
-                                <h3>Tableau des Experts</h3>
+                                <h3>@lang('Tableau des Experts')</h3>
                             </div>
                             <div class="featured-desc">
-                                Consultez l'annuaire des experts-comptables inscrits à l'Ordre.
+                                @lang('Consultez l\'annuaire des experts-comptables inscrits à l\'Ordre.')
                             </div>
                         </div>
                     </div>

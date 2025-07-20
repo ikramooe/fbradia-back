@@ -1,7 +1,7 @@
 {
     "title": "Index",
     "created_at": "2025-07-19 23:06:48",
-    "updated_at": "2025-07-20 02:23:12",
+    "updated_at": "2025-07-20 21:35:20",
     "attributes": {
         "nova_page_title": "Index",
         "nova_page_created_at": "2025-07-19T23:06:48.000Z",
@@ -23,33 +23,56 @@
         },
         "partners": [],
         "features": [],
-        "section_title": {
-            "en": null,
-            "ar": null,
-            "fr": null
-        },
-        "section_text": {
-            "en": null,
-            "ar": null,
-            "fr": null
-        },
+        "section_title": "{\"en\":null,\"ar\":null,\"fr\":null}",
+        "section_text": "{\"en\":null,\"ar\":null,\"fr\":null}",
         "slider": [
             {
                 "layout": "item",
                 "key": "cSxrmoghrIwpxoy6",
                 "attributes": {
                     "title": {
-                        "en": "ssqd",
-                        "ar": "",
-                        "fr": ""
+                        "en": "The National Council of Chartered Accountants ",
+                        "ar": "\u0627\u0644\u0647\u064a\u0626\u0629 \u0627\u0644\u0648\u0637\u0646\u064a\u0629 \u0644\u0644\u062e\u0628\u0631\u0627\u0621 \u0627\u0644\u0645\u062d\u0627\u0633\u0628\u064a\u0646",
+                        "fr": "L'ordre national  des experts comptables"
                     },
                     "description": {
                         "en": "",
                         "ar": "",
                         "fr": ""
-                    }
+                    },
+                    "image": "slider-images\/XOfd6iXgA02yfk1yyHHl1rFuwsugUAZSUa4ILiOl.jpg"
                 }
             }
-        ]
+        ],
+        "titlepartners": {
+            "en": null,
+            "ar": null,
+            "fr": null
+        },
+        "titlefeatures": {
+            "en": null,
+            "ar": null,
+            "fr": null
+        },
+        "titlefeatures2": {
+            "en": null,
+            "ar": null,
+            "fr": null
+        },
+        "textfeatures": {
+            "en": null,
+            "ar": null,
+            "fr": null
+        },
+        "sectiontitle": {
+            "en": null,
+            "ar": null,
+            "fr": null
+        },
+        "sectiontext": {
+            "en": null,
+            "ar": null,
+            "fr": null
+        }
     }
 }
