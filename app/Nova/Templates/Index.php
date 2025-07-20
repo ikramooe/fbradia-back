@@ -57,24 +57,24 @@ class Index extends Template
                         ]),
 
                         Tab::make('About Section', [
-                            Text::make('Title 1')
+                            Text::make('Title 1','title1')
                                 ->translatable(),
                                 
 
-                            Text::make('Title 2')
+                            Text::make('Title 2','title2')
                                 ->translatable(),
                                 
 
-                            Trix::make('Text')
+                            Trix::make('Text','text')
                                 ->translatable(),
                                 
 
-                            Image::make('Image 1')
+                            Image::make('Image 1','image1')
                                 ->disk('public')
                                 ->path('about-images')
                                 ->rules('image'),
 
-                            Image::make('Image 2')
+                            Image::make('Image 2','image2')
                                 ->disk('public')
                                 ->path('about-images')
                                 ->rules('image'),
