@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="{{app()->getLocale()}}" dir="{{app()->getLocale() === 'ar' ? 'rtl' : 'ltr'}}">
 
 <!-- Mirrored from themetechmount.com/html/invess/header-classic.html by HTTrack Website Copier/3.x [XR&CO'2014], Sun, 11 May 2025 22:57:08 GMT -->
 <!-- Added by HTTrack -->

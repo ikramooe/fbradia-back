@@ -21,6 +21,13 @@ Route::get('/', function () {
 ->template(\App\Nova\Templates\Index::class)
 ->name('Index');
 
+Route::get('/home', function () {
+   
+    return view('index');
+})
+->template(\App\Nova\Templates\Index::class)
+->name('Index');
+
 Route::get('/about', function () {
     return view('about');
 })
