@@ -92,7 +92,7 @@ class Page extends Resource
 
                 Trix::make('Content')
                     ->translatable()
-                    ->rules('required')
+                   
                     ->onlyOnForms(),
 
                     Flexible::make('Members')
