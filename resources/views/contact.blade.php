@@ -63,7 +63,7 @@
                                         <div class="featured-title text-left">
                                             <h3 class="margin_bottom0">@lang('Appelez-nous'): <span> 
                                             
-                                                @if(Page::option('contact')->phone)
+                                                @if(Page::option('contact')->numbers)
                                                      @foreach(json_decode(Page::option('contact')->numbers) as $phone)
                                                      <span>{{ $phone->number }}</span>
                                                      @endforeach
