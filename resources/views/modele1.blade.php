@@ -107,9 +107,9 @@
                             </div>
                             <div class="featured-content featured-content-team">
                                 <div class="featured-title">
-                                    <h3><a href="#">{{ $member->attributes->name }}</a></h3>
+                                    <h3><a href="#">{{ isset($member->attributes->name->$locale) ? $member->attributes->name->$locale : '' }}</a></h3>
                                 </div>
-                                <div class="team-position">{{ $member->attributes->position }}</div>
+                                <div class="team-position">{{ isset($member->attributes->position->$locale) ? $member->attributes->position->$locale : '' }}</div>
                                
                             </div>
                         </div><!-- featured-imagebox-team end-->
