@@ -69,6 +69,7 @@
 
 
         <!-- team-section -->
+        @if($page->members)
         <section
             class="ttm-row team-section bg-img6 ttm-bg ttm-bgimage-yes ttm-bgcolor-white mt_60 res-991-margin_top0 padding_top150 clearfix">
             <div class="container">
@@ -87,7 +88,7 @@
                 <!-- row -->
                 <div class="row slick_slider"
                     data-slick='{"slidesToShow": 4, "slidesToScroll": 1, "arrows":false, "autoplay":false, "dots":false, "infinite":true, "responsive":[{"breakpoint":1199,"settings": {"slidesToShow": 4}}, {"breakpoint":992,"settings":{"slidesToShow": 2}},{"breakpoint":767,"settings":{"slidesToShow": 1}}]}'>
-                  
+                   
                     @foreach (json_decode($page->members) as $member)
                     <div class="ttm-box-col-wrapper  col-lg-3 col-md-6 col-sm-12">
                         <!-- featured-imagebox-team -->
@@ -120,5 +121,6 @@
 
             </div>
         </section><!-- team-section end -->
+        @endif
     </div>
 @endsection
