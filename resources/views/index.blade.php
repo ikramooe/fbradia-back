@@ -288,7 +288,7 @@
                                     <h2 class="title">{{isset(json_decode(Page::get('titlefeatures2'))->$locale) ? json_decode(Page::get('titlefeatures2'))->$locale : ''}}</h2>
                                 </div>
                                 <div class="title-desc">
-                                    <p>{{isset(json_decode(Page::get('textfeatures'))->$locale) ? json_decode(Page::get('textfeatures'))->$locale : ''}}</p>
+                                    <p><?php echo isset(json_decode(Page::get('textfeatures'))->$locale) ? json_decode(Page::get('textfeatures'))->$locale : '' ?></p>
                                 </div>
                             </div><!-- section title end -->
                             @php
@@ -304,7 +304,7 @@
                                     <!-- content-inner -->
                                     @foreach (json_decode($features) as $feature)
                                     <div class="content-inner active">
-                                        <div>{{isset($feature->text->$locale) ? $feature->text->$locale : ''}}</div>
+                                        <div><?php echo isset($feature->text->$locale) ? $feature->text->$locale : '' ?></div>
                                     </div><!-- content-inner end-->
                                     @endforeach
                                     <!-- content-inner -->
@@ -358,12 +358,12 @@
                         <!-- section title -->
                         <div class="section-title style2 res-991-margin_bottom0">
                             <div class="title-header text-right">
-                                <h3>{{isset(json_decode(Page::get('sectiontitle'))->$locale) ? json_decode(Page::get('sectiontitle'))->$locale : ''}}</h3>
-                                <h2 class="title mr_10">{{isset(json_decode(Page::get('sectiontitle2'))->$locale) ? json_decode(Page::get('sectiontitle2'))->$locale : ''}}</h2>
+                                <h3><?php echo isset(json_decode(Page::get('sectiontitle'))->$locale) ? json_decode(Page::get('sectiontitle'))->$locale : '' ?></h3>
+                                <h2 class="title mr_10"><?php echo isset(json_decode(Page::get('sectiontitle2'))->$locale) ? json_decode(Page::get('sectiontitle2'))->$locale : '' ?></h2>
                             </div>
                             <div
                                 class="title-desc padding_left100 padding_top20  res-991-padding_left0 res-991-padding_top0">
-                                <p class="padding_bottom20 res-991-padding_bottom0">{{isset(json_decode(Page::get('sectiontext'))->$locale) ? json_decode(Page::get('sectiontext'))->$locale : ''}}</p>
+                                <p class="padding_bottom20 res-991-padding_bottom0"><?php echo isset(json_decode(Page::get('sectiontext'))->$locale) ? json_decode(Page::get('sectiontext'))->$locale : '' ?></p>
                                 <div class="ttm-play-icon-btn text-left margin_top30 style2 res-991-margin_left20">
                                     <div class="ttm-play-icon-animation">
                                         <a href="#" target="_self" class="ttm_prettyphoto">
