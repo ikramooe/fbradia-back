@@ -90,8 +90,8 @@
                     </div>
                 </div><!-- row end -->
                 <!-- row -->
-                <div class="row slick_slider"
-                    data-slick='{"slidesToShow": 4, "slidesToScroll": 1, "arrows":false, "autoplay":false, "dots":false, "infinite":true, "responsive":[{"breakpoint":1199,"settings": {"slidesToShow": 4}}, {"breakpoint":992,"settings":{"slidesToShow": 2}},{"breakpoint":767,"settings":{"slidesToShow": 1}}]}'>
+                <div class="row "
+                   >
                    
                     @foreach (json_decode($page->members) as $member)
                   
