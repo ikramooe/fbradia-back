@@ -78,7 +78,7 @@
                                     @endif
                                 </div>
                                 <div class="ttm-media-link">
-                                    <a href="blog-single.html" tabindex="0"
+                                    <a href="/blog/{{ $article->getTranslation('title', 'fr') }}" tabindex="0"
                                         class="ttm-icon ttm-icon_element-border ttm-icon_element-style-round ttm-icon_element-color-skincolor ttm-icon_element-size-xs">
                                         <i class="flaticon flaticon-right-arrow"></i>
                                     </a>
