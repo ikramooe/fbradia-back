@@ -3,7 +3,7 @@
     <!-- page-title -->
     @php
        $locale = app()->getLocale();
-       $article = \App\Models\Blog::all();
+       $articles = \App\Models\Blog::all();
     @endphp
      
      <div class="ttm-page-title-row ttm-bg ttm-bgimage-yes ttm-bgcolor-darkgrey clearfix">
@@ -36,32 +36,32 @@
                     <div class="col-lg-9 content-area">
                         <div class="row">
                             @foreach ($articles as $item)
-                            <div class="col-lg-6">
-                                <!-- featured-imagebox-blog -->
-                                <div class="featured-imagebox featured-imagebox-post style1 box-shadow">
-                                    <div class="ttm-box-view-overlay">
-                                        <div class="featured-thumbnail"><!-- featured-thumbnail -->
-                                            <img class="img-fluid" src="{{asset('storage/' . $item->image)}}" alt="">
+                                <div class="col-lg-6">
+                                    <!-- featured-imagebox-blog -->
+                                    <div class="featured-imagebox featured-imagebox-post style1 box-shadow">
+                                        <div class="ttm-box-view-overlay">
+                                            <div class="featured-thumbnail"><!-- featured-thumbnail -->
+                                                <img class="img-fluid" src="{{asset('storage/' . $item->image)}}" alt="">
+                                            </div>
+                                            <div class="ttm-media-link">
+                                                <a  href="/blog/{{ $item->id }}" tabindex="0" class="ttm-icon ttm-icon_element-border ttm-icon_element-style-round ttm-icon_element-color-skincolor ttm-icon_element-size-xs">
+                                                    <i class="flaticon flaticon-right-arrow"></i>
+                                                </a>
+                                            </div>
                                         </div>
-                                        <div class="ttm-media-link">
-                                            <a  href="/blog/{{ $item->id }}" tabindex="0" class="ttm-icon ttm-icon_element-border ttm-icon_element-style-round ttm-icon_element-color-skincolor ttm-icon_element-size-xs">
-                                                <i class="flaticon flaticon-right-arrow"></i>
-                                            </a>
+                                        <div class="featured-content"><!-- featured-content -->
+                                            <div class="post-meta post-category"><!-- post-meta -->
+                                                <span class="ttm-meta-line category">{{ $item->blogCategory? $item->blogCategory->name : '' }}</span>
+                                                <span class="ttm-entry-date">
+                                                    <time class="entry-date" datetime="2019-01-16T07:07:55+00:00"> <span class="entry-month entry-year">{{ $item->created_at->format('F, Y') }}</span></time>
+                                                </span>
+                                            </div>
+                                            <div class="featured-title"><!-- featured-title -->
+                                                <h3><a href="/blog/{{ $item->id }}">{{ $item->title }}</a></h3>
+                                            </div>
                                         </div>
-                                    </div>
-                                    <div class="featured-content"><!-- featured-content -->
-                                        <div class="post-meta post-category"><!-- post-meta -->
-                                            <span class="ttm-meta-line category">{{ $item->blogCategory? $item->blogCategory->name : '' }}</span>
-                                            <span class="ttm-entry-date">
-                                                <time class="entry-date" datetime="2019-01-16T07:07:55+00:00"> <span class="entry-month entry-year">{{ $item->created_at->format('F, Y') }}</span></time>
-                                            </span>
-                                        </div>
-                                        <div class="featured-title"><!-- featured-title -->
-                                            <h3><a href="/blog/{{ $item->id }}">{{ $item->title }}</a></h3>
-                                        </div>
-                                    </div>
-                                </div><!-- featured-imagebox-blog end -->
-                            </div>
+                                    </div><!-- featured-imagebox-blog end -->
+                                </div>
                             @endforeach
                             
                           
