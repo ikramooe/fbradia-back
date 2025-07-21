@@ -40,6 +40,12 @@ Route::get('/blog', function () {
 ->name('blog');
 
 Route::get('/blog/{blog}', function ($blog) {
+    $article = App\Models\Blog::where('title->fr', $blog)->first();
+    return view('blog', compact('article'));
+})
+->name('blog');
+
+Route::get('/blog/{blog}', function ($blog) {
     return view('article', compact('blog'));
 })
 ->name('blog_single');
