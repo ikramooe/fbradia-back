@@ -68,21 +68,22 @@ class Blog extends Resource
 
             Text::make('Slug')
                 ->sortable()
-                ->rules('required', 'unique:blogs,slug'),
+                ->rules('required'),
 
             BelongsTo::make('Category', 'blogCategory', 'App\Nova\BlogCategory'),
 
             Text::make('Title')
                 ->sortable()
+                ->translatable()
                 ->rules('required'),
 
-            Text::make('Excerpt')
-                ->sortable(),
+          
 
             Trix::make('Content')
+                ->translatable()
                 ->sortable(),
 
-            Image::make('Featured Image')
+            Image::make('Image')
                 ->disk('public')
                 ->path('blog-images'),
 
