@@ -94,6 +94,26 @@ class Page extends Resource
                     ->translatable()
                     ->rules('required')
                     ->onlyOnForms(),
+
+                    Flexible::make('Members')
+                    ->addLayout('Member', 'member', [
+                        Text::make('Name')
+                            ->translatable()
+                            ->rules('required'),
+
+                        Text::make('Position')
+                            ->translatable()
+                            ->rules('required'),
+
+                        Image::make('Image')
+                            ->disk('public')
+                            ->path('pages')
+                            ->rules('image')
+                            ->onlyOnForms(),
+                    ])
+                    ->button('Add Member')
+                    ->onlyOnForms(),
+
             ])->dependsOn('model_type', 'model1'),
 
             DependencyContainer::make([

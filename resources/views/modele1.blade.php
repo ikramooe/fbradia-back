@@ -78,8 +78,8 @@
                         <!-- section title -->
                         <div class="section-title title-style-center_text">
                             <div class="title-header">
-                                <h3>Découvree les membres du conseil</h3>
-                                <h2 class="title">Notre expertise en finance</h2>
+                                <h3>@lang('Découvrez les membres du conseil')</h3>
+                                <h2 class="title">@lang('Notre expertise en finance')</h2>
                             </div>
                         </div><!-- section title end -->
                     </div>
@@ -87,146 +87,33 @@
                 <!-- row -->
                 <div class="row slick_slider"
                     data-slick='{"slidesToShow": 4, "slidesToScroll": 1, "arrows":false, "autoplay":false, "dots":false, "infinite":true, "responsive":[{"breakpoint":1199,"settings": {"slidesToShow": 4}}, {"breakpoint":992,"settings":{"slidesToShow": 2}},{"breakpoint":767,"settings":{"slidesToShow": 1}}]}'>
-                    <div class="ttm-box-col-wrapper col-lg-3 col-md-6 col-sm-12">
-                        <!-- featured-imagebox-team -->
-                        <div class="featured-imagebox featured-imagebox-team style1">
-                            <div class="ttm-box-view-overlay">
-                                <div class="featured-iconbox ttm-media-link">
-                                    <div class="media-block">
-                                        <a href="team-details.html" class="media-btn"><i class="ti ti-plus"></i></a>
-                                        <ul class="social-icons list-inline">
-                                            <li class="social-facebook"><a
-                                                    href="https://www.facebook.com/preyantechnosys19" target="_blank"><i
-                                                        class="ti ti-facebook"></i></a></li>
-                                            <li class="social-twitter"><a href="https://twitter.com/PreyanTechnosys"
-                                                    target="_blank"><i class="ti ti-twitter-alt"></i></a></li>
-                                            <li class="social-instagram"><a
-                                                    href="https://www.instagram.com/preyan_technosys/" target="_blank"><i
-                                                        class="ti ti-instagram"></i></a></li>
-                                        </ul>
-                                    </div>
-                                </div>
-                                <div class="featured-thumbnail">
-                                    <img class="img-fluid" src="images/team/team-04.jpg" alt="image">
-                                </div>
-                            </div>
-                            <div class="featured-content featured-content-team">
-                                <div class="featured-title">
-                                    <h3><a href="team-details.html">Andrew Bert</a></h3>
-                                </div>
-                                <div class="team-position">Accounts Manager</div>
-                                <a href="team-details.html"
-                                    class="ttm-btn btn-inline ttm-btn-color-skincolor ttm-icon-btn-right fs-18 rajdhani">
-                                    <strong>Voir le Profil<i class="flaticon flaticon-right-arrow"></i></strong>
-                                </a>
-                            </div>
-                        </div><!-- featured-imagebox-team end-->
-                    </div>
+                  
+                    @foreach (json_decode($page->members) as $member)
                     <div class="ttm-box-col-wrapper  col-lg-3 col-md-6 col-sm-12">
                         <!-- featured-imagebox-team -->
                         <div class="featured-imagebox featured-imagebox-team style1">
                             <div class="ttm-box-view-overlay">
                                 <div class="featured-iconbox ttm-media-link">
                                     <div class="media-block">
-                                        <a href="team-details.html" class="media-btn"><i class="ti ti-plus"></i></a>
-                                        <ul class="social-icons list-inline">
-                                            <li class="social-facebook"><a
-                                                    href="https://www.facebook.com/preyantechnosys19" target="_blank"><i
-                                                        class="ti ti-facebook"></i></a></li>
-                                            <li class="social-twitter"><a href="https://twitter.com/PreyanTechnosys"
-                                                    target="_blank"><i class="ti ti-twitter-alt"></i></a></li>
-                                            <li class="social-instagram"><a
-                                                    href="https://www.instagram.com/preyan_technosys/" target="_blank"><i
-                                                        class="ti ti-instagram"></i></a></li>
-                                        </ul>
+                                       
+                                       
                                     </div>
                                 </div>
                                 <div class="featured-thumbnail">
-                                    <img class="img-fluid" src="images/team/team-01.jpg" alt="image">
+                                    <img class="img-fluid" src="{{ asset('storage/' . $member->image) }}" alt="image">
                                 </div>
                             </div>
                             <div class="featured-content featured-content-team">
                                 <div class="featured-title">
-                                    <h3><a href="team-details.html">Mohamed Boukhari</a></h3>
+                                    <h3><a href="#">{{ $member->name }}</a></h3>
                                 </div>
-                                <div class="team-position">Président du Conseil</div>
-                                <a href="team-details.html"
-                                    class="ttm-btn btn-inline ttm-btn-color-skincolor ttm-icon-btn-right fs-18 rajdhani">
-                                    <strong>Voir le Profil<i class="flaticon flaticon-right-arrow"></i></strong>
-                                </a>
+                                <div class="team-position">{{ $member->position }}</div>
+                               
                             </div>
                         </div><!-- featured-imagebox-team end-->
                     </div>
-                    <div class="ttm-box-col-wrapper col-lg-3 col-md-6 col-sm-12">
-                        <!-- featured-imagebox-team -->
-                        <div class="featured-imagebox featured-imagebox-team style1">
-                            <div class="ttm-box-view-overlay">
-                                <div class="featured-iconbox ttm-media-link">
-                                    <div class="media-block">
-                                        <a href="team-details.html" class="media-btn"><i class="ti ti-plus"></i></a>
-                                        <ul class="social-icons list-inline">
-                                            <li class="social-facebook"><a
-                                                    href="https://www.facebook.com/preyantechnosys19" target="_blank"><i
-                                                        class="ti ti-facebook"></i></a></li>
-                                            <li class="social-twitter"><a href="https://twitter.com/PreyanTechnosys"
-                                                    target="_blank"><i class="ti ti-twitter-alt"></i></a></li>
-                                            <li class="social-instagram"><a
-                                                    href="https://www.instagram.com/preyan_technosys/" target="_blank"><i
-                                                        class="ti ti-instagram"></i></a></li>
-                                        </ul>
-                                    </div>
-                                </div>
-                                <div class="featured-thumbnail">
-                                    <img class="img-fluid" src="images/team/team-03.jpg" alt="image">
-                                </div>
-                            </div>
-                            <div class="featured-content featured-content-team">
-                                <div class="featured-title">
-                                    <h3><a href="team-details.html">Rachid Nadri</a></h3>
-                                </div>
-                                <div class="team-position">Secrétaire Général</div>
-                                <a href="team-details.html"
-                                    class="ttm-btn btn-inline ttm-btn-color-skincolor ttm-icon-btn-right fs-18 rajdhani">
-                                    <strong>Voir le Profil<i class="flaticon flaticon-right-arrow"></i></strong>
-                                </a>
-                            </div>
-                        </div><!-- featured-imagebox-team end-->
-                    </div>
-                    <div class="ttm-box-col-wrapper col-lg-3 col-md-6 col-sm-12">
-                        <!-- featured-imagebox-team -->
-                        <div class="featured-imagebox featured-imagebox-team style1">
-                            <div class="ttm-box-view-overlay">
-                                <div class="featured-iconbox ttm-media-link">
-                                    <div class="media-block">
-                                        <a href="team-details.html" class="media-btn"><i class="ti ti-plus"></i></a>
-                                        <ul class="social-icons list-inline">
-                                            <li class="social-facebook"><a
-                                                    href="https://www.facebook.com/preyantechnosys19" target="_blank"><i
-                                                        class="ti ti-facebook"></i></a></li>
-                                            <li class="social-twitter"><a href="https://twitter.com/PreyanTechnosys"
-                                                    target="_blank"><i class="ti ti-twitter-alt"></i></a></li>
-                                            <li class="social-instagram"><a
-                                                    href="https://www.instagram.com/preyan_technosys/" target="_blank"><i
-                                                        class="ti ti-instagram"></i></a></li>
-                                        </ul>
-                                    </div>
-                                </div>
-                                <div class="featured-thumbnail">
-                                    <img class="img-fluid" src="images/team/team-02.jpg" alt="image">
-                                </div>
-                            </div>
-                            <div class="featured-content featured-content-team">
-                                <div class="featured-title">
-                                    <h3><a href="team-details.html">Kamel Hamza</a></h3>
-                                </div>
-                                <div class="team-position">Trésorier</div>
-                                <a href="team-details.html"
-                                    class="ttm-btn btn-inline ttm-btn-color-skincolor ttm-icon-btn-right fs-18 rajdhani">
-                                    <strong>Voir le Profil<i class="flaticon flaticon-right-arrow"></i></strong>
-                                </a>
-                            </div>
-                        </div><!-- featured-imagebox-team end-->
-                    </div>
+                    @endforeach
+                   
                 </div>
 
 
