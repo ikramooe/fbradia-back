@@ -202,9 +202,9 @@
                 <div class="communication-block">
                     <h2>{{ isset($document->attributes->title->$locale) ? $document->attributes->title->$locale : '' }}</h2>
                     <p>{{ isset($document->attributes->content->$locale) ? $document->attributes->content->$locale : '' }}</p>
-                    <p>Lieu: SHERATON HÔTEL ORAN</p>
-                    @if(isset($document->file))
-                    <a href="{{"/storage/" . $document->file }}" target="_blank" class="download-btn"><i class="fa fa-download"></i> Télécharger le document</a>
+                    
+                    @if(isset($document->attributes->file))
+                    <a href="{{"/storage/" . $document->attributes->file }}" target="_blank" class="download-btn"><i class="fa fa-download"></i> Télécharger le document</a>
                     @endif
                 </div>
                 @endforeach
