@@ -34,7 +34,7 @@ class Contact extends Template {
                         ->translatable()
                         ->rules('required'),
     
-                    Flexible::make('Phone Numbers')
+                    Flexible::make('Numbers')
                         ->addLayout('Phone Number', 'phone', [
                             Text::make('Number')
                                 ->rules('required')
