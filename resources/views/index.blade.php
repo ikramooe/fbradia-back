@@ -86,15 +86,13 @@
                             </div>
                             <div class="featured-content"><!-- featured-content -->
                                 <div class="post-meta post-category"><!-- post-meta -->
-                                    <span class="ttm-meta-line category">Finance</span>
+                                    <span class="ttm-meta-line category">{{ $article->category ? $article->category->name : '' }}</span>
                                     <span class="ttm-entry-date">
-                                        <time class="entry-date" datetime="2019-01-16T07:07:55+00:00">17 <span
-                                                class="entry-month entry-year">March, 2021</span></time>
+                                        <time class="entry-date" datetime="2019-01-16T07:07:55+00:00">{{ $article->created_at->format('d M, Y') }}</time>
                                     </span>
                                 </div>
                                 <div class="featured-title"><!-- featured-title -->
-                                    <h3><a href="blog-single.html">If the white whale be raised it must be in a
-                                            month.</a></h3>
+                                    <h3><a href="/blog/{{ $article->getTranslation('title', 'fr') }}">{{ $article->title }}</a></h3>
                                 </div>
 
                             </div>
