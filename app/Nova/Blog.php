@@ -90,6 +90,11 @@ class Blog extends Resource
 
             DateTime::make('Published At')
                 ->onlyOnForms(),
+
+            File::make('File')
+                ->disk('public')
+                ->path('blog-files')
+                ->rules('file'),
         ];
     }
 

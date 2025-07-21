@@ -148,7 +148,7 @@
                                                     </ul>
                                                 @else
                                                     {{-- No pages: link to the item URL --}}
-                                                    <a href="#" class="mega-menu-link">{{ $item->title }}</a>
+                                                    <a href="{{ $item->url }}" class="mega-menu-link">{{ $item->title }}</a>
                                                 @endif
                                             </li>
                                         @endforeach

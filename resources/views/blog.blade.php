@@ -41,7 +41,13 @@
                                     <div class="featured-imagebox featured-imagebox-post style1 box-shadow">
                                         <div class="ttm-box-view-overlay">
                                             <div class="featured-thumbnail"><!-- featured-thumbnail -->
-                                                <img class="img-fluid" src="{{asset('storage/' . $item->image)}}" alt="">
+                                                @if($item->image)
+                                                    <img class="img-fluid" src="{{asset('storage/' . $item->image)}}" alt="">
+                                                @elseif($item->file)
+                                                    <img class="img-fluid" src="{{asset('storage/' . $item->file)}}" alt="" style="object-fit: cover;">
+                                                @else
+                                                    <img class="img-fluid" src="{{asset('images/default-thumbnail.jpg')}}" alt="">
+                                                @endif
                                             </div>
                                             <div class="ttm-media-link">
                                                 <a  href="/blog/{{ $item->id }}" tabindex="0" class="ttm-icon ttm-icon_element-border ttm-icon_element-style-round ttm-icon_element-color-skincolor ttm-icon_element-size-xs">
