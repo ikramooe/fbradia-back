@@ -41,15 +41,12 @@ Route::get('/blog', function () {
 
 Route::get('/blog/{blog}', function ($blog) {
     $article = App\Models\Blog::where('title->fr', $blog)->first();
-    dd($article);
+   
     return view('blog', compact('article'));
 })
 ->name('blog');
 
-Route::get('/blog/{blog}', function ($blog) {
-    return view('article', compact('blog'));
-})
-->name('blog_single');
+
 
 Route::get('/contact', function () {
     return view('contact');
