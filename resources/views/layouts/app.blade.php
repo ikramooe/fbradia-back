@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="{{app()->getLocale()}}" dir="{{app()->getLocale() === 'ar' ? 'rtl' : 'ltr'}}">
+<html lang="{{ app()->getLocale() }}" dir="{{ app()->getLocale() === 'ar' ? 'rtl' : 'ltr' }}">
 
 <!-- Mirrored from themetechmount.com/html/invess/header-classic.html by HTTrack Website Copier/3.x [XR&CO'2014], Sun, 11 May 2025 22:57:08 GMT -->
 <!-- Added by HTTrack -->
@@ -72,14 +72,27 @@
                 <div class="container">
                     <div class="row no-gutters">
                         <div class="col-md-12 d-flex flex-row align-items-center justify-content-center">
-                          
+
                             <div class="top_bar_contact_item ml-auto font-weight-bold padding_left15">
                                 <div class="top_bar_icon"><i class="fa fa-map-o"></i>
-                                </div>@lang('Adresse'): <span class="font-weight-500 text-white">{{isset(json_decode(Page::option('contact')->address)->$locale) ? json_decode(Page::option('contact')->address)->$locale : ''}}</span>
+                                </div>@lang('Adresse'): <span
+                                    class="font-weight-500 text-white">{{ isset(json_decode(Page::option('contact')->address)->$locale) ? json_decode(Page::option('contact')->address)->$locale : '' }}</span>
                             </div>
                             <div class="top_bar_contact_item font-weight-bold">
-                                <div class="top_bar_icon ttm-highlight-right"><i class="ti ti-email"></i></div>@lang('Email'): <a
-                                    href="mailto:{{Page::option('contact')->email  ?? ''}}" class="font-weight-500 text-white">{{Page::option('contact')->email  ?? ''}}</a>
+                                <div class="top_bar_icon ttm-highlight-right"><i class="ti ti-email"></i></div>
+                                @lang('Email'): <a href="mailto:{{ Page::option('contact')->email ?? '' }}"
+                                    class="font-weight-500 text-white">{{ Page::option('contact')->email ?? '' }}</a>
+                            </div>
+                            <!-- Language Switcher -->
+                            <div class="language-switcher ml-auto">
+                                <select class="form-control" onchange="window.location.href=this.value">
+                                    <option value="{{ route('locale', ['locale' => 'en']) }}"
+                                        {{ app()->getLocale() === 'en' ? 'selected' : '' }}>English</option>
+                                    <option value="{{ route('locale', ['locale' => 'ar']) }}"
+                                        {{ app()->getLocale() === 'ar' ? 'selected' : '' }}>العربية</option>
+                                    <option value="{{ route('locale', ['locale' => 'fr']) }}"
+                                        {{ app()->getLocale() === 'fr' ? 'selected' : '' }}>Français</option>
+                                </select>
                             </div>
                         </div>
                     </div>
@@ -102,14 +115,7 @@
                                         </a>
                                     </div>
 
-                                    <!-- Language Switcher -->
-                                    <div class="language-switcher ml-auto">
-                                        <select class="form-control" onchange="window.location.href=this.value">
-                                            <option value="{{ route('locale', ['locale' => 'en']) }}" {{ app()->getLocale() === 'en' ? 'selected' : '' }}>English</option>
-                                            <option value="{{ route('locale', ['locale' => 'ar']) }}" {{ app()->getLocale() === 'ar' ? 'selected' : '' }}>العربية</option>
-                                            <option value="{{ route('locale', ['locale' => 'fr']) }}" {{ app()->getLocale() === 'fr' ? 'selected' : '' }}>Français</option>
-                                        </select>
-                                    </div>
+
 
                                     <div class="btn-show-menu-mobile menubar menubar--squeeze">
                                         <span class="menubar-box">
@@ -120,14 +126,17 @@
                                     <nav class="main-menu menu-mobile" id="menu">
                                         <ul class="menu">
                                             @foreach (App\Models\Menu::all() as $item)
-                                                <li class="mega-menu-item {{ request()->url() === url($item->url) ? 'active' : '' }}">
-                                                    <a href="{{ url($item->url) }}" class="mega-menu-link">{{ $item->title }}</a>
-                                    
+                                                <li
+                                                    class="mega-menu-item {{ request()->url() === url($item->url) ? 'active' : '' }}">
+                                                    <a href="{{ url($item->url) }}"
+                                                        class="mega-menu-link">{{ $item->title }}</a>
+
                                                     @if (!empty($item->pages) && count($item->pages) > 0)
                                                         <ul class="mega-submenu">
                                                             @foreach ($item->pages as $page)
                                                                 <li>
-                                                                    <a href="/pages/{{ $page->getTranslation('title', 'fr') }}">{{ $page->title }}</a>
+                                                                    <a
+                                                                        href="/pages/{{ $page->getTranslation('title', 'fr') }}">{{ $page->title }}</a>
                                                                 </li>
                                                             @endforeach
                                                         </ul>
@@ -136,8 +145,8 @@
                                             @endforeach
                                         </ul>
                                     </nav>
-                                    
-                                  
+
+
                                 </div><!-- site-navigation end-->
                             </div>
                         </div>
@@ -147,127 +156,128 @@
         </header>
         <!-- Banner -->
         @yield('content')
-             <!--footer start-->
-             <footer class="footer widget-footer ttm-bgcolor-darkgrey ttm-bg clearfix">
-                <div class="ttm-row-wrapper-bg-layer ttm-bg-layer"></div>
-                <div class="container">
-                  
-                    <div class="second-footer">
-                        <div class="row">
-                            <div class="widget-area col-xs-12 col-sm-6 col-md-6 col-lg-4">
-                                <div class="widget widget_text  clearfix">
-                                    <div class="footer-logo">
-                                        <img id="logo-img-1" class="img-center standardlogo"
-                                            src="images/logo.png" alt="logo-img">
-                                    </div>
-                                    <p>Invess offers an extensive range of professional services and a high degree of
-                                        spe-cialization. We serves both private & public traded companies. We bring over 35
-                                        years of experience.</p>
+        <!--footer start-->
+        <footer class="footer widget-footer ttm-bgcolor-darkgrey ttm-bg clearfix">
+            <div class="ttm-row-wrapper-bg-layer ttm-bg-layer"></div>
+            <div class="container">
+
+                <div class="second-footer">
+                    <div class="row">
+                        <div class="widget-area col-xs-12 col-sm-6 col-md-6 col-lg-4">
+                            <div class="widget widget_text  clearfix">
+                                <div class="footer-logo">
+                                    <img id="logo-img-1" class="img-center standardlogo" src="images/logo.png"
+                                        alt="logo-img">
                                 </div>
-                                <div class="widget d-flex padding_top15 res-575-margin_bottom20">
-                                    <h3 class="widget-title margin_right10">@lang('Social Share'):</h3>
-                                    <div class="social-icons">
-                                        <ul class="list-inline d-flex">
-                                            <li>
-                                                <a class="tooltip-top" target="_blank"
-                                                    href="{{Page::option('contact')->facebook ?? ''}}"
-                                                    data-tooltip="Facebook"><i class="fa fa-facebook"></i></a>
-                                            </li>
-                                            <li>
-                                                <a class="tooltip-top" target="_blank"
-                                                    href="{{Page::option('contact')->twitter ?? ''}}" data-tooltip="Twitter"><i
-                                                        class="fa fa-twitter"></i></a>
-                                            </li>
-                                            <li>
-                                                <a class=" tooltip-top" target="_blank"
-                                                    href="{{Page::option('contact')->instagram ?? ''}}"
-                                                    data-tooltip="instagram"><i class="fa fa-instagram"></i></a>
-                                            </li>
-                                          
-                                        </ul>
-                                    </div>
-                                </div>
+                                <p>Invess offers an extensive range of professional services and a high degree of
+                                    spe-cialization. We serves both private & public traded companies. We bring over 35
+                                    years of experience.</p>
                             </div>
-                            <div class="widget-area col-xs-12 col-sm-6 col-md-6 col-lg-4">
-                                <div class="widget widget_nav_menu clearfix">
-                                    <h3 class="widget-title">Explore</h3>
-                                    <ul class="menu-footer-quick-links">
-                                        <li><a href="about-us-2.html">@lang('About Us')</a></li>
-                                        <li><a href="/blog">@lang('Blog')</a></li>
-                                        <li><a href="/contact">@lang('Contact Us')</a></li>
-                                    </ul>
-                                </div>
-                            </div>
-                            <div class="widget-area col-xs-12 col-sm-6 col-md-6 col-lg-4">
-                                <div class="widget widget-recent-post res-991-margin_top30 clearfix">
-                                    <h3 class="widget-title">@lang('Recent Posts')</h3>
-                                    @php
-                                    $locale = app()->getLocale();
-                                    $recent_posts = App\Models\Blog::latest()->limit(5)->get();
-                                    @endphp
-                                    <ul class="widget-post ttm-recent-post-list">
-                                        @foreach ($recent_posts as $item)
+                            <div class="widget d-flex padding_top15 res-575-margin_bottom20">
+                                <h3 class="widget-title margin_right10">@lang('Social Share'):</h3>
+                                <div class="social-icons">
+                                    <ul class="list-inline d-flex">
                                         <li>
-                                            <a href="/article/{{$item->title}}"><img class="img-fluid"
-                                                    src="images/blog/post-001-150x150.jpg" alt="post-img"></a>
-                                            <div class="post-detail">
-                                                <span class="post-date"><i class="fa fa-calendar"></i>{{$item->created_at}}</span>
-                                                <a href="blog-single.html">{{	$item->title}}</a>
-    
-                                            </div>
+                                            <a class="tooltip-top" target="_blank"
+                                                href="{{ Page::option('contact')->facebook ?? '' }}"
+                                                data-tooltip="Facebook"><i class="fa fa-facebook"></i></a>
                                         </li>
-                                        @endforeach
-                                       
-                                      
+                                        <li>
+                                            <a class="tooltip-top" target="_blank"
+                                                href="{{ Page::option('contact')->twitter ?? '' }}"
+                                                data-tooltip="Twitter"><i class="fa fa-twitter"></i></a>
+                                        </li>
+                                        <li>
+                                            <a class=" tooltip-top" target="_blank"
+                                                href="{{ Page::option('contact')->instagram ?? '' }}"
+                                                data-tooltip="instagram"><i class="fa fa-instagram"></i></a>
+                                        </li>
+
                                     </ul>
                                 </div>
                             </div>
                         </div>
-                    </div>
-                    <div class="bottom-footer-text ">
-                        <div class="row copyright text-center">
-                            <div class="col-lg-12 col-md-12 col-sm-12 d-md-flex d-sm-block justify-content-center">
-                                <span>Copyright &#169; {{ date('Y') }} <a href="/"> ONEC.</a>All Rights Reserved.</span>
-                                <div id="footer-nav-menu">
-                                    <ul class="footer-nav-menu">
-                                        <li><a href="#">Privacy Policy</a></li>
-                                        <li><a href="/contact">Contact Us</a></li>
-                                      
-                                    </ul>
-                                </div>
+                        <div class="widget-area col-xs-12 col-sm-6 col-md-6 col-lg-4">
+                            <div class="widget widget_nav_menu clearfix">
+                                <h3 class="widget-title">Explore</h3>
+                                <ul class="menu-footer-quick-links">
+                                    <li><a href="about-us-2.html">@lang('About Us')</a></li>
+                                    <li><a href="/blog">@lang('Blog')</a></li>
+                                    <li><a href="/contact">@lang('Contact Us')</a></li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="widget-area col-xs-12 col-sm-6 col-md-6 col-lg-4">
+                            <div class="widget widget-recent-post res-991-margin_top30 clearfix">
+                                <h3 class="widget-title">@lang('Recent Posts')</h3>
+                                @php
+                                    $locale = app()->getLocale();
+                                    $recent_posts = App\Models\Blog::latest()->limit(5)->get();
+                                @endphp
+                                <ul class="widget-post ttm-recent-post-list">
+                                    @foreach ($recent_posts as $item)
+                                        <li>
+                                            <a href="/article/{{ $item->title }}"><img class="img-fluid"
+                                                    src="images/blog/post-001-150x150.jpg" alt="post-img"></a>
+                                            <div class="post-detail">
+                                                <span class="post-date"><i
+                                                        class="fa fa-calendar"></i>{{ $item->created_at }}</span>
+                                                <a href="blog-single.html">{{ $item->title }}</a>
+
+                                            </div>
+                                        </li>
+                                    @endforeach
+
+
+                                </ul>
                             </div>
                         </div>
                     </div>
                 </div>
-            </footer><!-- footer end-->
-    
-            <!--back-to-top start-->
-            <a id="totop" href="#top">
-                <i class="fa fa-angle-up"></i>
-            </a>
-            <!--back-to-top end-->
-    
-        </div>
-    
-    
-        <!-- Javascript -->
-        <script src="{{ asset('js/jquery-3.7.1.min.js') }}"></script>
-        <script src="{{ asset('js/jquery-migrate-3.4.1.min.js') }}"></script>
-        <script src="{{ asset('js/bootstrap.min.js') }}"></script>
-        <script src="{{ asset('js/jquery.easing.js') }}"></script>
-        <script src="{{ asset('js/jquery-waypoints.js') }}"></script>
-        <script src="{{ asset('js/jquery-validate.js') }}"></script>
-        <script src="{{ asset('js/jquery.prettyPhoto.js') }}"></script>
-        <script src="{{ asset('js/slick.min.js') }}"></script>
-        <script src="{{ asset('js/numinate.min.js') }}"></script>
-        <script src="{{ asset('js/circle-progress.min.js') }}"></script>
-        <script src="{{ asset('js/imagesloaded.min.js') }}"></script>
-        <script src="{{ asset('js/jquery-isotope.js') }}"></script>
-        <script src="{{ asset('js/main.js') }}"></script>
-    
-    </body>
-    
-    <!-- Mirrored from themetechmount.com/html/invess/header-classic.html by HTTrack Website Copier/3.x [XR&CO'2014], Sun, 11 May 2025 22:57:32 GMT -->
-    
-    </html>
-    
+                <div class="bottom-footer-text ">
+                    <div class="row copyright text-center">
+                        <div class="col-lg-12 col-md-12 col-sm-12 d-md-flex d-sm-block justify-content-center">
+                            <span>Copyright &#169; {{ date('Y') }} <a href="/"> ONEC.</a>All Rights
+                                Reserved.</span>
+                            <div id="footer-nav-menu">
+                                <ul class="footer-nav-menu">
+                                    <li><a href="#">Privacy Policy</a></li>
+                                    <li><a href="/contact">Contact Us</a></li>
+
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </footer><!-- footer end-->
+
+        <!--back-to-top start-->
+        <a id="totop" href="#top">
+            <i class="fa fa-angle-up"></i>
+        </a>
+        <!--back-to-top end-->
+
+    </div>
+
+
+    <!-- Javascript -->
+    <script src="{{ asset('js/jquery-3.7.1.min.js') }}"></script>
+    <script src="{{ asset('js/jquery-migrate-3.4.1.min.js') }}"></script>
+    <script src="{{ asset('js/bootstrap.min.js') }}"></script>
+    <script src="{{ asset('js/jquery.easing.js') }}"></script>
+    <script src="{{ asset('js/jquery-waypoints.js') }}"></script>
+    <script src="{{ asset('js/jquery-validate.js') }}"></script>
+    <script src="{{ asset('js/jquery.prettyPhoto.js') }}"></script>
+    <script src="{{ asset('js/slick.min.js') }}"></script>
+    <script src="{{ asset('js/numinate.min.js') }}"></script>
+    <script src="{{ asset('js/circle-progress.min.js') }}"></script>
+    <script src="{{ asset('js/imagesloaded.min.js') }}"></script>
+    <script src="{{ asset('js/jquery-isotope.js') }}"></script>
+    <script src="{{ asset('js/main.js') }}"></script>
+
+</body>
+
+<!-- Mirrored from themetechmount.com/html/invess/header-classic.html by HTTrack Website Copier/3.x [XR&CO'2014], Sun, 11 May 2025 22:57:32 GMT -->
+
+</html>
