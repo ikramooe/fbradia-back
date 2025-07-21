@@ -164,7 +164,7 @@
                                 pour soutenir et développer la profession comptable.
                                 <a href="/about-us-1.html"
                                     class="ttm-btn btn-inline ttm-btn-color-skincolor ttm-icon-btn-right rajdhani fs-15 padding_right10">
-                                    <strong>En savoir plus<i class="flaticon flaticon-right-arrow"></i></strong></a>
+                                    <strong style="color:#fff;">En savoir plus<i class="flaticon flaticon-right-arrow"></i></strong></a>
                             </div>
                         </div><!-- section title end -->
                     </div>
