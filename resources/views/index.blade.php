@@ -364,18 +364,7 @@
                             <div
                                 class="title-desc padding_left100 padding_top20  res-991-padding_left0 res-991-padding_top0">
                                 <p class="padding_bottom20 res-991-padding_bottom0"><?php echo isset(json_decode(Page::get('sectiontext'))->$locale) ? json_decode(Page::get('sectiontext'))->$locale : '' ?></p>
-                                <div class="ttm-play-icon-btn text-left margin_top30 style2 res-991-margin_left20">
-                                    <div class="ttm-play-icon-animation">
-                                        <a href="#" target="_self" class="ttm_prettyphoto">
-                                            <div
-                                                class="ttm-icon ttm-icon_element-onlytxt ttm-icon_element-color-white ttm-icon_element-size-sm ttm-icon_element-style-rounded">
-                                                <i class="fa fa-play ttm-textcolor-skincolor"></i>
-                                            </div>
-                                        </a>
-
-                                    </div>
-
-                                </div>
+                               
                             </div>
                         </div><!-- section title end -->
                     </div>
