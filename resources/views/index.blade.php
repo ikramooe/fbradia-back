@@ -60,8 +60,7 @@
                         </div><!-- section title end -->
                     </div>
                 </div><!-- row end -->
-                <div class="row slick_slider"
-                    data-slick='{"slidesToShow": 3, "slidesToScroll": 1, "arrows":false, "autoplay":false, "dots":false, "infinite":true, "responsive":[{"breakpoint":1199,"settings": {"slidesToShow": 3}}, {"breakpoint":992,"settings":{"slidesToShow": 2}},{"breakpoint":620,"settings":{"slidesToShow": 1}}]}'>
+                <div class="row">
                     @foreach ($articles as $article)
                     <div class="col-lg-4 col-md-6">
                         <!-- featured-imagebox-blog -->
