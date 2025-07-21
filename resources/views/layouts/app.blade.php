@@ -76,11 +76,11 @@
                             <div class="language-switcher mr-auto">
                                 <select class="form-control" onchange="window.location.href=this.value" style="color: white; border:1px solid white">
                                     <option value="{{ route('locale', ['locale' => 'en']) }}"
-                                        {{ app()->getLocale() === 'en' ? 'selected' : '' }}>English</option>
+                                        {{ app()->getLocale() === 'en' ? 'selected' : '' }} style="color: white;">English</option>
                                     <option value="{{ route('locale', ['locale' => 'ar']) }}"
-                                        {{ app()->getLocale() === 'ar' ? 'selected' : '' }}>العربية</option>
+                                        {{ app()->getLocale() === 'ar' ? 'selected' : '' }} style="color: white;">العربية</option>
                                     <option value="{{ route('locale', ['locale' => 'fr']) }}"
-                                        {{ app()->getLocale() === 'fr' ? 'selected' : '' }}>Français</option>
+                                        {{ app()->getLocale() === 'fr' ? 'selected' : '' }} style="color: white;">Français</option>
                                 </select>
                             </div>
                             <div class="top_bar_contact_item font-weight-bold padding_left15">
