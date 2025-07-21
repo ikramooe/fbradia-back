@@ -110,7 +110,7 @@
                                     <!-- site-branding -->
                                     <div class="site-branding mr-auto">
                                         <a class="home-link" href="/" title="EC" rel="home">
-                                            <img id="logo-img" class="img-center standardlogo" src="{{asset('images/logo.png"
+                                            <img id="logo-img" class="img-center standardlogo" src="{{asset('images/logo.png')}}"
                                                 alt="logo-img">
                                         </a>
                                     </div>
