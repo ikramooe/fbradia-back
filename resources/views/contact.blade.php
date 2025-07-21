@@ -61,7 +61,16 @@
                                     </div>
                                     <div class="featured-content padding_left25">
                                         <div class="featured-title text-left">
-                                            <h3 class="margin_bottom0">@lang('Appelez-nous'): <span> +213 23 50 54 54 </span>
+                                            <h3 class="margin_bottom0">@lang('Appelez-nous'): <span> 
+                                            
+                                                @if(Page::option('contact')->phone)
+                                                     @foreach(json_decode(Page::option('contact')->phone) as $phone)
+                                                     <span>{{ $phone }}</span>
+                                                     @endforeach
+                                                @endif
+                                            
+                                            
+                                            </span>
                                             </h3>
                                         </div>
                                        

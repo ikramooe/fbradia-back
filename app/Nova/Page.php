@@ -76,18 +76,18 @@ class Page extends Resource
             DependencyContainer::make([
                 Text::make('Title','main_title')
                     ->translatable()
-                    ->rules('required')
+                  
                     ->onlyOnForms(),
 
                 Text::make('Sub Title','sub_title')
                     ->translatable()
-                    ->rules('required')
+                   
                     ->onlyOnForms(),
 
                 Image::make('Image')
                     ->disk('public')
                     ->path('pages')
-                    ->rules('required', 'image')
+                    ->rules('image')
                     ->onlyOnForms(),
 
                 Trix::make('Content')
