@@ -47,7 +47,7 @@
                                     @endif
                                     <div class="ttm-box-post-date">
                                         <span class="ttm-entry-date">
-                                            <time class="entry-date" datetime="2021-03-18T04:16:25+00:00">{{ $article->created_at->format('d M, Y') }}<span class="entry-month entry-year">Mar</span></time>
+                                            <time class="entry-date" datetime="2021-03-18T04:16:25+00:00" style="font-size: 18px;">{{ $article->created_at->format('d M, Y') }}</time>
                                         </span>
                                     </div>
                                 </div>
