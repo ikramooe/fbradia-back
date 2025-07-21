@@ -42,10 +42,10 @@
                                         <div class="ttm-box-view-overlay">
                                             <div class="featured-thumbnail"><!-- featured-thumbnail -->
                                                 @if($item->image)
-                                                    <img class="img-fluid" src="{{asset('storage/' . $item->image)}}" alt="">
+                                                    <img class="img-fluid w-100" src="{{asset('storage/' . $item->image)}}" alt="">
                                               
                                                 @else
-                                                    <img class="img-fluid" src="{{asset('images/logo.png')}}" alt="">
+                                                    <img class="img-fluid w-100" src="{{asset('images/logo.png')}}" alt="">
                                                 @endif
                                             </div>
                                             <div class="ttm-media-link">
