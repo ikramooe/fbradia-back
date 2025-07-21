@@ -34,6 +34,17 @@ Route::get('/about', function () {
 ->template(\App\Nova\Templates\About::class)
 ->name('about');
 
+
+Route::get('/blog', function () {
+    return view('blog');
+})
+->name('blog');
+
+Route::get('/blog/{blog}', function ($blog) {
+    return view('article', compact('blog'));
+})
+->name('blog_single');
+
 Route::get('/contact', function () {
     return view('contact');
 })
