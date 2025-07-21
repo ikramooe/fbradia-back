@@ -148,7 +148,7 @@
         </section><!-- aboutus-section end -->
 
         <!-- services-section -->
-        <section class="ttm-row services-section bg-img3 ttm-bg ttm-bgimage-yes ttm-bgcolor-darkgrey clearfix">
+        <section class="ttm-row services-section bg-img3 ttm-bg ttm-bgimage-yes ttm-bgcolor-darkgrey clearfix" style="background-color:#c42934;">
             <div class="container">
                 <!--row -->
                 <div class="row">

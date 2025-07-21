@@ -42,7 +42,7 @@ Route::get('/blog', function () {
 Route::get('/blog/{blog}', function ($blog) {
     $article = App\Models\Blog::where('title->fr', $blog)->first();
    
-    return view('blog', compact('article'));
+    return view('article', compact('article'));
 })
 ->name('blog');
 
