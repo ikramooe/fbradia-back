@@ -14,19 +14,18 @@ use Illuminate\Support\Facades\Route;
 */
 use App\Http\Controllers\HomeController;
 
-Route::get('/', function () {
-   
+Route::get('/', function () {   
     return view('index');
 })
 ->template(\App\Nova\Templates\Index::class)
 ->name('Index');
 
 Route::get('/home', function () {
-   
     return view('index');
 })
 ->template(\App\Nova\Templates\Index::class)
 ->name('Index');
+
 
 Route::get('/about', function () {
     return view('about');
