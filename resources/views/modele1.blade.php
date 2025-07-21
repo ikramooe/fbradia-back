@@ -90,9 +90,7 @@
                     data-slick='{"slidesToShow": 4, "slidesToScroll": 1, "arrows":false, "autoplay":false, "dots":false, "infinite":true, "responsive":[{"breakpoint":1199,"settings": {"slidesToShow": 4}}, {"breakpoint":992,"settings":{"slidesToShow": 2}},{"breakpoint":767,"settings":{"slidesToShow": 1}}]}'>
                    
                     @foreach (json_decode($page->members) as $member)
-                    @php 
-                      dd(json_decode($page->members));
-                    @endphp
+                  
                     <div class="ttm-box-col-wrapper  col-lg-3 col-md-6 col-sm-12">
                         <!-- featured-imagebox-team -->
                         <div class="featured-imagebox featured-imagebox-team style1">
@@ -104,14 +102,14 @@
                                     </div>
                                 </div>
                                 <div class="featured-thumbnail">
-                                    <img class="img-fluid" src="{{ asset('storage/' . isset($member->image) ? $member->image : '') }}" alt="image">
+                                    <img class="img-fluid" src="{{ asset('storage/' . isset($member->attributes->image) ? $member->attributes->image : '') }}" alt="image">
                                 </div>
                             </div>
                             <div class="featured-content featured-content-team">
                                 <div class="featured-title">
-                                    <h3><a href="#">{{ $member->name }}</a></h3>
+                                    <h3><a href="#">{{ $member->attributes->name }}</a></h3>
                                 </div>
-                                <div class="team-position">{{ $member->position }}</div>
+                                <div class="team-position">{{ $member->attributes->position }}</div>
                                
                             </div>
                         </div><!-- featured-imagebox-team end-->
