@@ -43,10 +43,9 @@
                                             <div class="featured-thumbnail"><!-- featured-thumbnail -->
                                                 @if($item->image)
                                                     <img class="img-fluid" src="{{asset('storage/' . $item->image)}}" alt="">
-                                                @elseif($item->file)
-                                                    <img class="img-fluid" src="{{asset('storage/' . $item->file)}}" alt="" style="object-fit: cover;">
+                                              
                                                 @else
-                                                    <img class="img-fluid" src="{{asset('images/default-thumbnail.jpg')}}" alt="">
+                                                    <img class="img-fluid" src="{{asset('images/logo.png')}}" alt="">
                                                 @endif
                                             </div>
                                             <div class="ttm-media-link">

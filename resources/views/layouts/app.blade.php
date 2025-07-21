@@ -110,7 +110,7 @@
                                     <!-- site-branding -->
                                     <div class="site-branding mr-auto">
                                         <a class="home-link" href="/" title="EC" rel="home">
-                                            <img id="logo-img" class="img-center standardlogo" src="images/logo.png"
+                                            <img id="logo-img" class="img-center standardlogo" src="{{asset('images/logo.png"
                                                 alt="logo-img">
                                         </a>
                                     </div>
@@ -176,7 +176,7 @@
                         <div class="widget-area col-xs-12 col-sm-6 col-md-6 col-lg-4">
                             <div class="widget widget_text  clearfix">
                                 <div class="footer-logo">
-                                    <img id="logo-img-1" class="img-center standardlogo" src="images/logo.png"
+                                    <img id="logo-img-1" class="img-center standardlogo" src="{{asset('images/logo.png')}}"
                                         alt="logo-img">
                                 </div>
                                 <p>Invess offers an extensive range of professional services and a high degree of
