@@ -46,7 +46,7 @@
                             <div class="section-title clearfix">
                                 <div class="title-header">
                                     <h3>{{ $page->main_title }}</h3>
-                                    <h2 class="title res-1024-br-none">{{ $page->sub_title }}</h2>
+                                    <h2 class="title res-1024-br-none">{{ $page->main_title }}</h2>
                                 </div>
                                 <div class="title-desc padding_right40">
                                     <p><?php echo $page->content ?></p>
