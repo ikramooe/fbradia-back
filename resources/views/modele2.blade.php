@@ -37,22 +37,21 @@
                         <p>Aucun résultat trouvé</p>
                     </div>
                 </div>
-            @php
-            $locale = app()->getLocale();
-            @endphp
+
+                @php
+                $locale = app()->getLocale();
+                @endphp
                 <!-- 6ème Congrès -->
                 @foreach (json_decode($page->documents) as $document)
                 <div class="communication-block">
-                    <h2>{{ isset($document->title->$locale) ? $document->title->$locale : '' }}</h2>
-                    <p>{{ isset($document->content->$locale) ? $document->content->$locale : '' }}</p>
-                   
-                    <a href="#" class="download-btn"><i class="fa fa-download"></i> Télécharger les communications</a>
+                    <h2>{{ isset($document->attributes->title->$locale) ? $document->attributes->title->$locale : '' }}</h2>
+                    <p>{{ isset($document->attributes->content->$locale) ? $document->attributes->content->$locale : '' }}</p>
+                    <p>Lieu: SHERATON HÔTEL ORAN</p>
+                    <a href="{{"/storage/" . $document->file }}" target="_blank" class="download-btn"><i class="fa fa-download"></i> Télécharger le document</a>
                 </div>
                 @endforeach
 
-              
-
-               
+                
 
                 <!-- Pagination -->
                 <div class="pagination-container">
