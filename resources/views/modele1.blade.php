@@ -83,8 +83,8 @@
                         <!-- section title -->
                         <div class="section-title title-style-center_text">
                             <div class="title-header">
-                                <h3>@lang('Découvrez les membres du conseil')</h3>
-                                <h2 class="title">@lang('Notre expertise en finance')</h2>
+                                <h3>{{ $page->main_title }}</h3>
+                                <h2 class="title">{{ $page->sub_title }}</h2>
                             </div>
                         </div><!-- section title end -->
                     </div>
