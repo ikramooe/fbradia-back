@@ -201,7 +201,7 @@
                 @foreach (json_decode($page->documents) as $document)
                 <div class="communication-block">
                     <h2>{{ isset($document->attributes->title->$locale) ? $document->attributes->title->$locale : '' }}</h2>
-                    <p>{{ isset($document->attributes->description->$locale) ? $document->attributes->description->$locale : '' }}</p>
+                    <p><?php echo isset($document->attributes->description->$locale) ? $document->attributes->description->$locale : '' ?></p>
                     
                     @if(isset($document->attributes->file))
                     <a href="{{"/storage/" . $document->attributes->file }}" target="_blank" class="download-btn"><i class="fa fa-download"></i> Télécharger le document</a>

@@ -69,8 +69,13 @@
                         <div class="featured-imagebox featured-imagebox-post style1 box-shadow">
                             <div class="ttm-box-view-overlay">
                                 <div class="featured-thumbnail"><!-- featured-thumbnail -->
-                                    <a href="blog-single.html"> <img class="img-fluid"
-                                            src="images/blog/post-001-740x480.jpg" alt="post-001"> </a>
+                                    @if(isset($article->image))
+                                    <a href="/blog/{{ $article->getTranslation('title', 'fr') }}"> <img class="img-fluid"
+                                            src="{{asset('storage/' . $article->image)}}" alt="post-001"> </a>
+                                    @else 
+                                    <a href="/blog/{{ $article->getTranslation('title', 'fr') }}"> <img class="img-fluid"
+                                            src="{{asset('images/logo.png')}}" alt="post-001"> </a>
+                                    @endif
                                 </div>
                                 <div class="ttm-media-link">
                                     <a href="blog-single.html" tabindex="0"
