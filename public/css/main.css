@@ -3219,7 +3219,7 @@ section.error-404 a.ttm-btn i{
     content: "";
     top: 0px;
     left: 0px;
-    width: 55%;
+    width: 100%;
     height: 100%;
     z-index: 1;
     -webkit-transition: all 0.45s ease-in-out;
