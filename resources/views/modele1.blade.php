@@ -75,7 +75,7 @@
         <!-- team-section -->
         @if($page->members)
         <section
-            class="ttm-row team-section bg-img6 ttm-bg ttm-bgimage-yes ttm-bgcolor-white mt_60 res-991-margin_top0 padding_top150 clearfix">
+            class="ttm-row team-section bg-img6 ttm-bg ttm-bgimage-yes ttm-bgcolor-white mt_60 res-991-margin_top0 {{ $page->content ? 'padding_top150' : 'padding_top50' }} clearfix">
             <div class="container">
                 <!--row -->
                 <div class="row">

@@ -134,7 +134,7 @@ class Page extends Resource
                             ->translatable()
                             ->rules('required'),
 
-                        File::make('Document File')
+                        File::make('file')
                             ->disk('public')
                             ->path('documents')
                             ->rules('required', 'file'),
