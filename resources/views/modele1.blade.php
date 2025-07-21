@@ -90,6 +90,9 @@
                     data-slick='{"slidesToShow": 4, "slidesToScroll": 1, "arrows":false, "autoplay":false, "dots":false, "infinite":true, "responsive":[{"breakpoint":1199,"settings": {"slidesToShow": 4}}, {"breakpoint":992,"settings":{"slidesToShow": 2}},{"breakpoint":767,"settings":{"slidesToShow": 1}}]}'>
                    
                     @foreach (json_decode($page->members) as $member)
+                    @php 
+                      dd(json_decode($page->members));
+                    @endphp
                     <div class="ttm-box-col-wrapper  col-lg-3 col-md-6 col-sm-12">
                         <!-- featured-imagebox-team -->
                         <div class="featured-imagebox featured-imagebox-team style1">
