@@ -101,7 +101,7 @@
                                     </div>
                                 </div>
                                 <div class="featured-thumbnail">
-                                    <img class="img-fluid" src="{{ asset('storage/' . $member->image) }}" alt="image">
+                                    <img class="img-fluid" src="{{ asset('storage/' . isset($member->image) ? $member->image : '') }}" alt="image">
                                 </div>
                             </div>
                             <div class="featured-content featured-content-team">
