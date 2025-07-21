@@ -131,8 +131,8 @@ class Page extends Resource
                             ->rules('required'),
 
                         Trix::make('Description')
-                            ->translatable()
-                            ->rules('required'),
+                            ->translatable(),
+                            
 
                         File::make('file')
                             ->disk('public')

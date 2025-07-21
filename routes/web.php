@@ -41,6 +41,7 @@ Route::get('/blog', function () {
 
 Route::get('/blog/{blog}', function ($blog) {
     $article = App\Models\Blog::where('title->fr', $blog)->first();
+    dd($article);
     return view('blog', compact('article'));
 })
 ->name('blog');
