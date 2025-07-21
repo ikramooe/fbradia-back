@@ -70,10 +70,10 @@
                             <div class="ttm-box-view-overlay">
                                 <div class="featured-thumbnail"><!-- featured-thumbnail -->
                                     @if(isset($article->image))
-                                    <a href="/blog/{{ $article->getTranslation('title', 'fr') }}"> <img class="img-fluid"
+                                    <a href="/blog/{{ $article->getTranslation('title', 'fr') }}"> <img class="img-fluid w-100"
                                             src="{{asset('storage/' . $article->image)}}" alt="post-001"> </a>
                                     @else 
-                                    <a href="/blog/{{ $article->getTranslation('title', 'fr') }}"> <img class="img-fluid"
+                                    <a href="/blog/{{ $article->getTranslation('title', 'fr') }}"> <img class="img-fluid w-100"
                                             src="{{asset('images/logo.png')}}" alt="post-001"> </a>
                                     @endif
                                 </div>
