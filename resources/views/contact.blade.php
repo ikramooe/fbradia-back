@@ -65,7 +65,7 @@
                                             
                                                 @if(Page::option('contact')->numbers)
                                                      @foreach(json_decode(Page::option('contact')->numbers) as $phone)
-                                                     <span>{{ $phone->number }}</span>
+                                                     <span>{{ $phone->attributes->number }}</span>
                                                      @endforeach
                                                 @endif
                                             
