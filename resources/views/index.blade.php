@@ -156,8 +156,8 @@
                         <!-- section title -->
                         <div class="section-title style2">
                             <div class="title-header">
-                                <h3>NOS SERVICES</h3>
-                                <h2 class="title">Services Professionnels</h2>
+                                <h3 style="color:#fff;">NOS SERVICES</h3>
+                                <h2 class="title" style="color:#fff;">Services Professionnels</h2>
                             </div>
                             <div class="title-desc ttm-textcolor-white">
                                 L'Ordre National des Experts-Comptables offre une gamme complète de services professionnels
