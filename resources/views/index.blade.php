@@ -37,10 +37,70 @@
       
     </div><!-- Banner end-->
    
+    
     <!--site-main start-->
     <div class="site-main">
 
-      
+        @php
+        $articles =App\Models\Blog::latest()->take(3)->get();
+        @endphp
+        <!-- article-section -->
+        <section class="ttm-row article-section ttm-bgcolor-grey clearfix">
+            <div class="container">
+                <!--row -->
+                <div class="row">
+                    <div class="col-lg-12">
+                        <!-- section title -->
+                        <div class="section-title style2">
+                            <div class="title-header">
+                                <h3>@lang('Actualités')</h3>
+                                <h2 class="title">@lang('Nos dernières actualités')</h2>
+                            </div>
+                           
+                        </div><!-- section title end -->
+                    </div>
+                </div><!-- row end -->
+                <div class="row slick_slider"
+                    data-slick='{"slidesToShow": 3, "slidesToScroll": 1, "arrows":false, "autoplay":false, "dots":false, "infinite":true, "responsive":[{"breakpoint":1199,"settings": {"slidesToShow": 3}}, {"breakpoint":992,"settings":{"slidesToShow": 2}},{"breakpoint":620,"settings":{"slidesToShow": 1}}]}'>
+                    @foreach ($articles as $article)
+                    <div class="col-lg-4 col-md-6">
+                        <!-- featured-imagebox-blog -->
+                      
+                        <div class="featured-imagebox featured-imagebox-post style1 box-shadow">
+                            <div class="ttm-box-view-overlay">
+                                <div class="featured-thumbnail"><!-- featured-thumbnail -->
+                                    <a href="blog-single.html"> <img class="img-fluid"
+                                            src="images/blog/post-001-740x480.jpg" alt="post-001"> </a>
+                                </div>
+                                <div class="ttm-media-link">
+                                    <a href="blog-single.html" tabindex="0"
+                                        class="ttm-icon ttm-icon_element-border ttm-icon_element-style-round ttm-icon_element-color-skincolor ttm-icon_element-size-xs">
+                                        <i class="flaticon flaticon-right-arrow"></i>
+                                    </a>
+
+                                </div>
+                            </div>
+                            <div class="featured-content"><!-- featured-content -->
+                                <div class="post-meta post-category"><!-- post-meta -->
+                                    <span class="ttm-meta-line category">Finance</span>
+                                    <span class="ttm-entry-date">
+                                        <time class="entry-date" datetime="2019-01-16T07:07:55+00:00">17 <span
+                                                class="entry-month entry-year">March, 2021</span></time>
+                                    </span>
+                                </div>
+                                <div class="featured-title"><!-- featured-title -->
+                                    <h3><a href="blog-single.html">If the white whale be raised it must be in a
+                                            month.</a></h3>
+                                </div>
+
+                            </div>
+                        </div><!-- featured-imagebox-blog end -->
+                    </div>
+                    @endforeach
+                 
+                </div>
+            </div>
+        </section><!-- article-section end -->
 
         <!-- aboutus-section -->
         <section class="ttm-row aboutus-section ttm-bgcolor-white clearfix">
@@ -75,7 +135,7 @@
                                     <h2 class="title">{{isset(json_decode(Page::get('title2'))->$locale) ? json_decode(Page::get('title2'))->$locale : ''}}</h2>
                                 </div>
                                 <div class="title-desc">
-                                    <p>{{ isset(json_decode(Page::get('text'))->$locale) ? json_decode(Page::get('text'))->$locale : '' }}</p>
+                                    <p><?php echo isset(json_decode(Page::get('text'))->$locale) ? json_decode(Page::get('text'))->$locale : '' ?></p>
                                 </div>
                             </div><!-- section title end -->
                            
@@ -255,16 +315,7 @@
                                 <div class="col-lg-8 col-md-8 col-sm-8">
                                     <div
                                         class="ttm-fid inside ttm-fid-without-icon ttm-highlight-fid style1 res-575-margin_bottom30">
-                                        <div class="ttm-fid-contents">
-                                            <h4 class="ttm-fid-inner">
-                                                <span data-appear-animation="animateDigits" data-from="0" data-to="2000"
-                                                    data-interval="5" data-before="" data-before-style="sub"
-                                                    data-after="+" data-after-style="sup" class="numinate">2000
-                                                </span>
-                                                <span>+</span>
-                                            </h4>
-                                            <h3 class="ttm-fid-title">Experts-Comptables Professionnels</h3>
-                                        </div>
+                                       
                                     </div>
                                 </div>
                                 <div class="col-lg-4 col-md-4 col-sm-4">
@@ -331,65 +382,6 @@
         </section><!-- features-section end -->
 
 
-        @php
-        $articles =App\Models\Blog::latest()->take(3)->get();
-        @endphp
-        <!-- article-section -->
-        <section class="ttm-row article-section ttm-bgcolor-grey clearfix">
-            <div class="container">
-                <!--row -->
-                <div class="row">
-                    <div class="col-lg-12">
-                        <!-- section title -->
-                        <div class="section-title style2">
-                            <div class="title-header">
-                                <h3>@lang('Actualités')</h3>
-                                <h2 class="title">@lang('Nos dernières actualités')</h2>
-                            </div>
-                           
-                        </div><!-- section title end -->
-                    </div>
-                </div><!-- row end -->
-                <div class="row slick_slider"
-                    data-slick='{"slidesToShow": 3, "slidesToScroll": 1, "arrows":false, "autoplay":false, "dots":false, "infinite":true, "responsive":[{"breakpoint":1199,"settings": {"slidesToShow": 3}}, {"breakpoint":992,"settings":{"slidesToShow": 2}},{"breakpoint":620,"settings":{"slidesToShow": 1}}]}'>
-                    @foreach ($articles as $article)
-                    <div class="col-lg-4 col-md-6">
-                        <!-- featured-imagebox-blog -->
-                      
-                        <div class="featured-imagebox featured-imagebox-post style1 box-shadow">
-                            <div class="ttm-box-view-overlay">
-                                <div class="featured-thumbnail"><!-- featured-thumbnail -->
-                                    <a href="blog-single.html"> <img class="img-fluid"
-                                            src="images/blog/post-001-740x480.jpg" alt="post-001"> </a>
-                                </div>
-                                <div class="ttm-media-link">
-                                    <a href="blog-single.html" tabindex="0"
-                                        class="ttm-icon ttm-icon_element-border ttm-icon_element-style-round ttm-icon_element-color-skincolor ttm-icon_element-size-xs">
-                                        <i class="flaticon flaticon-right-arrow"></i>
-                                    </a>
-
-                                </div>
-                            </div>
-                            <div class="featured-content"><!-- featured-content -->
-                                <div class="post-meta post-category"><!-- post-meta -->
-                                    <span class="ttm-meta-line category">Finance</span>
-                                    <span class="ttm-entry-date">
-                                        <time class="entry-date" datetime="2019-01-16T07:07:55+00:00">17 <span
-                                                class="entry-month entry-year">March, 2021</span></time>
-                                    </span>
-                                </div>
-                                <div class="featured-title"><!-- featured-title -->
-                                    <h3><a href="blog-single.html">If the white whale be raised it must be in a
-                                            month.</a></h3>
-                                </div>
-
-                            </div>
-                        </div><!-- featured-imagebox-blog end -->
-                    </div>
-                    @endforeach
-                 
-                </div>
-            </div>
-        </section><!-- article-section end -->
+      
     </div>
 @endsection
