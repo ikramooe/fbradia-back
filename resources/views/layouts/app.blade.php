@@ -72,8 +72,18 @@
                 <div class="container">
                     <div class="row no-gutters">
                         <div class="col-md-12 d-flex flex-row align-items-center justify-content-center">
-
-                            <div class="top_bar_contact_item ml-auto font-weight-bold padding_left15">
+                            <!-- Language Switcher -->
+                            <div class="language-switcher mr-auto">
+                                <select class="form-control" onchange="window.location.href=this.value" style="color: white; border:1px solid white">
+                                    <option value="{{ route('locale', ['locale' => 'en']) }}"
+                                        {{ app()->getLocale() === 'en' ? 'selected' : '' }}>English</option>
+                                    <option value="{{ route('locale', ['locale' => 'ar']) }}"
+                                        {{ app()->getLocale() === 'ar' ? 'selected' : '' }}>العربية</option>
+                                    <option value="{{ route('locale', ['locale' => 'fr']) }}"
+                                        {{ app()->getLocale() === 'fr' ? 'selected' : '' }}>Français</option>
+                                </select>
+                            </div>
+                            <div class="top_bar_contact_item font-weight-bold padding_left15">
                                 <div class="top_bar_icon"><i class="fa fa-map-o"></i>
                                 </div>@lang('Adresse'): <span
                                     class="font-weight-500 text-white">{{ isset(json_decode(Page::option('contact')->address)->$locale) ? json_decode(Page::option('contact')->address)->$locale : '' }}</span>
@@ -83,17 +93,7 @@
                                 @lang('Email'): <a href="mailto:{{ Page::option('contact')->email ?? '' }}"
                                     class="font-weight-500 text-white">{{ Page::option('contact')->email ?? '' }}</a>
                             </div>
-                            <!-- Language Switcher -->
-                            <div class="language-switcher ml-auto">
-                                <select class="form-control" onchange="window.location.href=this.value">
-                                    <option value="{{ route('locale', ['locale' => 'en']) }}"
-                                        {{ app()->getLocale() === 'en' ? 'selected' : '' }}>English</option>
-                                    <option value="{{ route('locale', ['locale' => 'ar']) }}"
-                                        {{ app()->getLocale() === 'ar' ? 'selected' : '' }}>العربية</option>
-                                    <option value="{{ route('locale', ['locale' => 'fr']) }}"
-                                        {{ app()->getLocale() === 'fr' ? 'selected' : '' }}>Français</option>
-                                </select>
-                            </div>
+
                         </div>
                     </div>
                 </div>
