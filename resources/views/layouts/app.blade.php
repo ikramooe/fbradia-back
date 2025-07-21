@@ -126,23 +126,33 @@
                                     <nav class="main-menu menu-mobile" id="menu">
                                         <ul class="menu">
                                             @foreach (App\Models\Menu::all() as $item)
-                                                <li
-                                                    class="mega-menu-item {{ request()->url() === url($item->url) ? 'active' : '' }}">
-                                                    <a href="{{ url($item->url) }}"
-                                                        class="mega-menu-link">{{ $item->title }}</a>
-
-                                                    @if (!empty($item->pages) && count($item->pages) > 0)
-                                                        <ul class="mega-submenu">
-                                                            @foreach ($item->pages as $page)
-                                                                <li>
-                                                                    <a
-                                                                        href="/pages/{{ $page->getTranslation('title', 'fr') }}">{{ $page->title }}</a>
-                                                                </li>
-                                                            @endforeach
-                                                        </ul>
-                                                    @endif
-                                                </li>
-                                            @endforeach
+                                            @php
+                                                $pages = $item->pages;
+                                            @endphp
+                                        
+                                            <li class="mega-menu-item {{ request()->url() === url($item->url) ? 'active' : '' }}">
+                                                @if (!empty($pages) && count($pages) === 1)
+                                                    {{-- Only one page: link directly to it --}}
+                                                    <a href="/pages/{{ $pages[0]->getTranslation('title', 'fr') }}" class="mega-menu-link">
+                                                        {{ $item->title }}
+                                                    </a>
+                                                @elseif (!empty($pages) && count($pages) > 1)
+                                                    {{-- Multiple pages: show dropdown --}}
+                                                    <a href="#" class="mega-menu-link">{{ $item->title }}</a>
+                                                    <ul class="mega-submenu">
+                                                        @foreach ($pages as $page)
+                                                            <li>
+                                                                <a href="/pages/{{ $page->getTranslation('title', 'fr') }}">{{ $page->title }}</a>
+                                                            </li>
+                                                        @endforeach
+                                                    </ul>
+                                                @else
+                                                    {{-- No pages: link to the item URL --}}
+                                                    <a href="#" class="mega-menu-link">{{ $item->title }}</a>
+                                                @endif
+                                            </li>
+                                        @endforeach
+                                        
                                         </ul>
                                     </nav>
 
