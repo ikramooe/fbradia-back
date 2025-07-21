@@ -29,6 +29,8 @@
     <!--site-main start-->
     <div class="site-main">
 
+
+        @if($page->content)
         <!-- aboutus-section -->
         <section class="ttm-row aboutus-section ttm-bgcolor-white clearfix">
             <div class="container">
@@ -60,6 +62,8 @@
               
             </div>
         </section><!-- aboutus-section end -->
+
+        @endif
 
 
         <!-- services-section -->
@@ -102,7 +106,9 @@
                                     </div>
                                 </div>
                                 <div class="featured-thumbnail">
-                                    <img class="img-fluid" src="{{ asset('storage/' . isset($member->attributes->image) ? $member->attributes->image : '') }}" alt="image">
+                                    @if(isset($member->attributes->image))
+                                    <img class="img-fluid" src="{{ asset('storage/' .$member->attributes->image) }}" alt="image">
+                                    @endif
                                 </div>
                             </div>
                             <div class="featured-content featured-content-team">
