@@ -148,6 +148,31 @@ class Index extends Template
                                 ->path('content-section-images')
                                 ->rules('image'),
                         ]),
+
+                        Tab::make('Services Section', [
+                            Text::make('Title','title')
+                                ->translatable(),
+                                
+                            Trix::make('Text','text')
+                                ->translatable(),
+                                
+                            Flexible::make('Services','services')
+                                ->addLayout('Service', 'service', [
+                                    Text::make('Title')
+                                        ->translatable(),
+                                         
+                                    Trix::make('Description')
+                                        ->translatable(),
+
+                                    Image::make('Image')
+                                        ->disk('public')
+                                        ->path('services-images')
+                                        ->rules('image'),
+                                        
+                                ])
+                               
+                                ->button('Add Service'),
+                        ]),
                     ])
                 ];
             }

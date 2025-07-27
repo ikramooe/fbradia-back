@@ -148,6 +148,7 @@
         </section><!-- aboutus-section end -->
 
         <!-- services-section -->
+        @if(Page::get('services'))
         <section class="ttm-row services-section bg-img3 ttm-bg ttm-bgimage-yes ttm-bgcolor-darkgrey clearfix" style="background-color:#c42934;">
             <div class="container">
                 <!--row -->
@@ -156,30 +157,27 @@
                         <!-- section title -->
                         <div class="section-title style2">
                             <div class="title-header">
-                                <h3 style="color:#fff;">NOS SERVICES</h3>
-                                <h2 class="title" style="color:#fff;">Services Professionnels</h2>
+                                <h3 style="color:#fff;">{{isset(json_decode(Page::get('title1'))->$locale) ? json_decode(Page::get('title1'))->$locale : ''}}</h3>
+                                <h2 class="title" style="color:#fff;">{{isset(json_decode(Page::get('title2'))->$locale) ? json_decode(Page::get('title2'))->$locale : ''}}</h2>
                             </div>
                             <div class="title-desc ttm-textcolor-white">
-                                L'Ordre National des Experts-Comptables offre une gamme complète de services professionnels
-                                pour soutenir et développer la profession comptable.
-                                <a href="/about-us-1.html"
-                                    class="ttm-btn btn-inline ttm-btn-color-skincolor ttm-icon-btn-right rajdhani fs-15 padding_right10">
-                                    <strong style="color:#fff;">En savoir plus<i class="flaticon flaticon-right-arrow"></i></strong></a>
+                                <?php echo isset(json_decode(Page::get('text'))->$locale) ? json_decode(Page::get('text'))->$locale : '' ?>
+                              
                             </div>
                         </div><!-- section title end -->
                     </div>
                 </div><!-- row end -->
                 <!--row -->
                 <div class="row">
+                    @foreach(Page::get('services') as $service)
                     <div class="col-lg-4 col-md-12 col-sm-12">
                         <div class="featured-icon-box icon-align-bottom-content box-shadow style7">
                             <div class="featured-content">
                                 <div class="featured-title">
-                                    <h3>Formation Continue</h3>
+                                    <h3>{{ $service->getTranslation('title', 'fr') }}</h3>
                                 </div>
                                 <div class="featured-desc">
-                                    Programme de formation continue pour maintenir et développer les compétences
-                                    professionnelles.
+                                    {{ $service->getTranslation('description', 'fr') }}
                                 </div>
                             </div>
                             <div class="featured-icon">
@@ -192,47 +190,8 @@
                             </div>
                         </div>
                     </div>
-                    <div class="col-lg-4 col-md-12 col-sm-12">
-                        <div class="featured-icon-box icon-align-bottom-content box-shadow style7">
-                            <div class="featured-content">
-                                <div class="featured-title">
-                                    <h3>Support Professionnel</h3>
-                                </div>
-                                <div class="featured-desc">
-                                    Accompagnement et conseil pour les experts-comptables dans leur pratique
-                                    professionnelle.
-                                </div>
-                            </div>
-                            <div class="featured-icon">
-                                <div
-                                    class="ttm-icon ttm-icon_element-onlytxt ttm-icon_element-color-skincolor  ttm-icon_element-size-md">
-                                    <i class="flaticon flaticon-support"></i>
-                                </div>
-                                <a class="ttm-btn ttm-btn-size-md  ttm-btn-shape-rounded ttm-btn-style-fill ttm-icon-btn-right ttm-btn-color-dark float-right"
-                                    href="/about-us-1.html">Lire plus<i class="flaticon flaticon-right-arrow"></i></a>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-lg-4 col-md-12 col-sm-12">
-                        <div class="featured-icon-box icon-align-bottom-content box-shadow style7">
-                            <div class="featured-content">
-                                <div class="featured-title">
-                                    <h3>Normes Professionnelles</h3>
-                                </div>
-                                <div class="featured-desc">
-                                    Développement et mise à jour des normes et standards de la profession comptable.
-                                </div>
-                            </div>
-                            <div class="featured-icon">
-                                <div
-                                    class="ttm-icon ttm-icon_element-onlytxt ttm-icon_element-color-skincolor  ttm-icon_element-size-md">
-                                    <i class="flaticon flaticon-checklist"></i>
-                                </div>
-                                <a class="ttm-btn ttm-btn-size-md  ttm-btn-shape-rounded ttm-btn-style-fill ttm-icon-btn-right ttm-btn-color-dark float-right"
-                                    href="/about-us-1.html">Lire plus<i class="flaticon flaticon-right-arrow"></i></a>
-                            </div>
-                        </div>
-                    </div>
+                    @endforeach
+                  
                 </div><!-- row end -->
                 <div class="row">
                     <div class="col-lg-12">
@@ -274,6 +233,7 @@
                 </div><!-- slick_slider end -->
             </div>
         </section><!-- services-section end  -->
+        @endif
 
         <!-- skill-section -->
         <section class="ttm-row skill-section ttm-bgcolor-white clearfix">
