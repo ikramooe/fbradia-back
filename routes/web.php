@@ -70,6 +70,10 @@ Route::get('/pages/{page}', function ($p) {
     if($page->model_type == 'model2') {
         return view('modele2', compact('page'));
     }
+
+    if($page->model_type == 'model3') {
+        return view('modele3', compact('page'));
+    }
     return view('page', compact('page'));
 })
 ->name('page');

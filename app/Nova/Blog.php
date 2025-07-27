@@ -70,7 +70,13 @@ class Blog extends Resource
                 ->sortable()
                 ->rules('required'),
 
-            BelongsTo::make('Category', 'blogCategory', 'App\Nova\BlogCategory'),
+            Select::make('Type',[
+                'event'=>'Evenement',
+                'act'=>'Actualites'
+            ])->displayUsingLabels(),
+
+            BelongsTo::make('Category', 'blogCategory', 'App\Nova\BlogCategory')
+            ->nullable(),
 
             Text::make('Title')
                 ->sortable()

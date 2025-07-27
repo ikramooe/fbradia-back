@@ -26,5 +26,6 @@ class AppServiceProvider extends ServiceProvider
     public function boot(Manager $pages)
     {
         $pages->register('option', 'contact', \App\Nova\Templates\Contact::class);
+        $pages->register('option', 'popup', \App\Nova\Templates\Popup::class);
     }
 }

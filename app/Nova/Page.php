@@ -67,11 +67,44 @@ class Page extends Resource
             Select::make('Template', 'model_type')
                 ->options([
                     'model1' => 'Model 1',
-                    'model2' => 'Model 2'
+                    'model2' => 'Model 2',
+                    'model3' => 'Model 3',
+
                 ])
                 ->displayUsingLabels()
                 ->rules('required')
                 ->hideFromIndex(),
+
+
+            
+
+                DependencyContainer::make([
+                    Text::make('Title','main_title')
+                        ->translatable()
+                      
+                        ->onlyOnForms(),
+    
+                 
+    
+    
+                  
+    
+                        Flexible::make('Liens')
+                        ->addLayout('Lien', 'lien', [
+                            Text::make('label')
+                                ->translatable()
+                                ->rules('required'),
+    
+                            Text::make('url')
+                             
+                                ->rules('required'),
+    
+                          
+                        ])
+                        ->button('Add link')
+                        ->onlyOnForms(),
+    
+                ])->dependsOn('model_type', 'model3'),
 
             DependencyContainer::make([
                 Text::make('Title','main_title')

@@ -65,6 +65,107 @@
         </div>
         <!-- preloader end -->
 
+         <!-- Popup Modal -->
+         @php
+         $popup = \App\Nova\Page::option('popup');
+     @endphp
+
+     @if($popup && $popup->afficher)
+         <div class="popup-modal" id="popupModal">
+             <div class="popup-content">
+                 <span class="close-popup">&times;</span>
+                 <div class="popup-image">
+                     @if($popup->image)
+                         <img src="{{ asset('storage/' . $popup->image) }}" alt="Popup Image">
+                     @endif
+                 </div>
+                 <div class="popup-text">
+                     <?php echo $popup->getTranslation('text', app()->getLocale()); ?>
+                 </div>
+                 @if($popup->link)
+                     <div class="popup-button">
+                         <a href="{{ $popup->link }}" class="ttm-btn ttm-btn-size-md ttm-btn-shape-rounded ttm-btn-style-fill ttm-btn-color-skincolor">
+                             @lang('Learn More')
+                         </a>
+                     </div>
+                 @endif
+             </div>
+         </div>
+
+         <style>
+             .popup-modal {
+                 display: none;
+                 position: fixed;
+                 top: 0;
+                 left: 0;
+                 width: 100%;
+                 height: 100%;
+                 background-color: rgba(0, 0, 0, 0.8);
+                 z-index: 9999;
+             }
+
+             .popup-content {
+                 position: relative;
+                 background-color: white;
+                 margin: 15% auto;
+                 padding: 20px;
+                 width: 80%;
+                 max-width: 600px;
+                 border-radius: 8px;
+                 box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+             }
+
+             .close-popup {
+                 position: absolute;
+                 right: 10px;
+                 top: 5px;
+                 font-size: 28px;
+                 font-weight: bold;
+                 cursor: pointer;
+                 color: #666;
+             }
+
+             .popup-image {
+                 text-align: center;
+                 margin-bottom: 20px;
+             }
+
+             .popup-image img {
+                 max-width: 100%;
+                 height: auto;
+                 border-radius: 4px;
+             }
+
+             .popup-text {
+                 margin-bottom: 20px;
+             }
+
+             .popup-button {
+                 text-align: center;
+             }
+         </style>
+
+         <script>
+             // Show modal when page loads
+             document.addEventListener('DOMContentLoaded', function() {
+                 document.getElementById('popupModal').style.display = 'block';
+             });
+
+             // Close modal when clicking the X
+             document.querySelector('.close-popup').addEventListener('click', function() {
+                 document.getElementById('popupModal').style.display = 'none';
+             });
+
+             // Close modal when clicking outside
+             window.onclick = function(event) {
+                 var modal = document.getElementById('popupModal');
+                 if (event.target == modal) {
+                     modal.style.display = 'none';
+                 }
+             };
+         </script>
+
+
         <!--header start-->
         <header id="masthead" class="header ttm-header-style-02">
             <!-- ttm-topbar-wrapper -->
