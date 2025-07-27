@@ -148,7 +148,7 @@
         </section><!-- aboutus-section end -->
 
         <!-- services-section -->
-        @if(Page::get('services'))
+       
         <section class="ttm-row services-section bg-img3 ttm-bg ttm-bgimage-yes ttm-bgcolor-darkgrey clearfix" style="background-color:#c42934;">
             <div class="container">
                 <!--row -->
@@ -157,13 +157,17 @@
                         <!-- section title -->
                         <div class="section-title style2">
                             <div class="title-header">
+                                @if(isset(json_decode(Page::get('title_section_services'))->$locale))
                                 <h3 style="color:#fff;">{{isset(json_decode(Page::get('title_section_services'))->$locale) ? json_decode(Page::get('title_section_services'))->$locale : ''}}</h3>
+                                @endif
                                
                             </div>
+                            @if(isset(json_decode(Page::get('text_section_services'))->$locale))
                             <div class="title-desc ttm-textcolor-white">
                                 <?php echo isset(json_decode(Page::get('text_section_services'))->$locale) ? json_decode(Page::get('text_section_services'))->$locale : '' ?>
                               
                             </div>
+                            @endif
                         </div><!-- section title end -->
                     </div>
                 </div><!-- row end -->
@@ -175,10 +179,14 @@
                             <div class="featured-content">
                                 
                                 <div class="featured-title">
+                                    @if(isset($service->attributes->title_service->$locale))
                                     <h3>{{ $service->attributes->title_service->$locale }}</h3>
+                                    @endif
                                 </div>
                                 <div class="featured-desc">
-                                    {{ $service->attributes->description_service->$locale }}
+                                    @if(isset($service->attributes->description_service->$locale))
+                                    <?php echo $service->attributes->description_service->$locale ?>
+                                    @endif
                                 </div>
                             </div>
                             
@@ -227,7 +235,7 @@
                 </div><!-- slick_slider end -->
             </div>
         </section><!-- services-section end  -->
-        @endif
+     
 
         <!-- skill-section -->
         <section class="ttm-row skill-section ttm-bgcolor-white clearfix">
