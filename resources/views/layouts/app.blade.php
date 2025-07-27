@@ -96,7 +96,7 @@
                         @endif
                     </div>
                     <div class="popup-text">
-                        <?php echo $popup->text->$locale; ?>
+                        <?php echo json_decode($popup->text)->$locale; ?>
                     </div>
                     @if ($popup->link)
                         <div class="popup-button">
