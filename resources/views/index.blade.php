@@ -157,11 +157,11 @@
                         <!-- section title -->
                         <div class="section-title style2">
                             <div class="title-header">
-                                <h3 style="color:#fff;">{{isset(json_decode(Page::get('title1'))->$locale) ? json_decode(Page::get('title1'))->$locale : ''}}</h3>
-                                <h2 class="title" style="color:#fff;">{{isset(json_decode(Page::get('title2'))->$locale) ? json_decode(Page::get('title2'))->$locale : ''}}</h2>
+                                <h3 style="color:#fff;">{{isset(json_decode(Page::get('title_section_services'))->$locale) ? json_decode(Page::get('title_section_services'))->$locale : ''}}</h3>
+                               
                             </div>
                             <div class="title-desc ttm-textcolor-white">
-                                <?php echo isset(json_decode(Page::get('text'))->$locale) ? json_decode(Page::get('text'))->$locale : '' ?>
+                                <?php echo isset(json_decode(Page::get('text_section_services'))->$locale) ? json_decode(Page::get('text_section_services'))->$locale : '' ?>
                               
                             </div>
                         </div><!-- section title end -->
@@ -169,25 +169,19 @@
                 </div><!-- row end -->
                 <!--row -->
                 <div class="row">
-                    @foreach(Page::get('services') as $service)
+                    @foreach(json_decode(Page::get('services')) as $service)
                     <div class="col-lg-4 col-md-12 col-sm-12">
                         <div class="featured-icon-box icon-align-bottom-content box-shadow style7">
                             <div class="featured-content">
+                                
                                 <div class="featured-title">
-                                    <h3>{{ $service->getTranslation('title', 'fr') }}</h3>
+                                    <h3>{{ $service->attributes->title_service->$locale }}</h3>
                                 </div>
                                 <div class="featured-desc">
-                                    {{ $service->getTranslation('description', 'fr') }}
+                                    {{ $service->attributes->description_service->$locale }}
                                 </div>
                             </div>
-                            <div class="featured-icon">
-                                <div
-                                    class="ttm-icon ttm-icon_element-onlytxt ttm-icon_element-color-skincolor  ttm-icon_element-size-md">
-                                    <i class="flaticon flaticon-graduation"></i>
-                                </div>
-                                <a class="ttm-btn ttm-btn-size-md  ttm-btn-shape-rounded ttm-btn-style-fill ttm-icon-btn-right ttm-btn-color-dark float-right"
-                                    href="/about-us-1.html">Lire plus<i class="flaticon flaticon-right-arrow"></i></a>
-                            </div>
+                            
                         </div>
                     </div>
                     @endforeach
