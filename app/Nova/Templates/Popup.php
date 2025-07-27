@@ -24,7 +24,8 @@ class Popup extends Template {
             Boolean::make('Afficher'),
             Image::make('image'),
             Trix::make('text')
-            ->tanslatable(),
+            ->translatable(),
+
             Text::make('link')
         ];
     }
