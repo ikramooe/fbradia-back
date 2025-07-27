@@ -150,21 +150,21 @@ class Index extends Template
                         ]),
 
                         Tab::make('Services Section', [
-                            Text::make('Title','title')
+                            Text::make('Title','title_section_services')
                                 ->translatable(),
                                 
-                            Trix::make('Text','text')
+                            Trix::make('Text','text_section_services')
                                 ->translatable(),
                                 
                             Flexible::make('Services','services')
                                 ->addLayout('Service', 'service', [
-                                    Text::make('Title')
+                                    Text::make('Title','title_service')
                                         ->translatable(),
                                          
-                                    Trix::make('Description')
+                                    Trix::make('Description','description_service')
                                         ->translatable(),
 
-                                    Image::make('Image')
+                                    Image::make('Image','image_service')
                                         ->disk('public')
                                         ->path('services-images')
                                         ->rules('image'),
