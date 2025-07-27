@@ -68,7 +68,7 @@
     </script>
     <!--End of Tawk.to Script-->
 
-    <div id="sfczqs216613aqxgj5q75dj6wyjrqn9x4l4"></div><script type="text/javascript" src="https://counter1.optistats.ovh/private/counter.js?c=zqs216613aqxgj5q75dj6wyjrqn9x4l4&down=async" async></script><noscript><a href="https://www.freecounterstat.com" title="hit counter"><img src="https://counter1.optistats.ovh/private/freecounterstat.php?c=zqs216613aqxgj5q75dj6wyjrqn9x4l4" border="0" title="hit counter" alt="hit counter"></a></noscript>
+    <script src="https://cdn.counter.dev/script.js" data-id="aecb578a-d265-4cff-b542-e48431114713" data-utcoffset="1"></script>
 
 </head>
 
