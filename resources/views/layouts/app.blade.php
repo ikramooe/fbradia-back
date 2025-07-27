@@ -80,7 +80,7 @@
 
         <!-- Popup Modal -->
         @php
-            $popup = \App\Nova\Page::option('popup');
+            $popup = Page::option('popup');
         @endphp
 
         @if ($popup && $popup->afficher)
