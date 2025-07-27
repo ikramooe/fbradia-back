@@ -96,7 +96,7 @@
                         @endif
                     </div>
                     <div class="popup-text">
-                        <?php echo $popup->attributes->text->$locale; ?>
+                        <?php echo $popup->text->$locale; ?>
                     </div>
                     @if ($popup->link)
                         <div class="popup-button">
