@@ -65,106 +65,108 @@
         </div>
         <!-- preloader end -->
 
-         <!-- Popup Modal -->
-         @php
-         $popup = \App\Nova\Page::option('popup');
-     @endphp
+        <!-- Popup Modal -->
+        @php
+            $popup = \App\Nova\Page::option('popup');
+        @endphp
 
-     @if($popup && $popup->afficher)
-         <div class="popup-modal" id="popupModal">
-             <div class="popup-content">
-                 <span class="close-popup">&times;</span>
-                 <div class="popup-image">
-                     @if($popup->image)
-                         <img src="{{ asset('storage/' . $popup->image) }}" alt="Popup Image">
-                     @endif
-                 </div>
-                 <div class="popup-text">
-                     <?php echo $popup->getTranslation('text', app()->getLocale()); ?>
-                 </div>
-                 @if($popup->link)
-                     <div class="popup-button">
-                         <a href="{{ $popup->link }}" class="ttm-btn ttm-btn-size-md ttm-btn-shape-rounded ttm-btn-style-fill ttm-btn-color-skincolor">
-                             @lang('Learn More')
-                         </a>
-                     </div>
-                 @endif
-             </div>
-         </div>
+        @if ($popup && $popup->afficher)
+            <div class="popup-modal" id="popupModal">
+                <div class="popup-content">
+                    <span class="close-popup">&times;</span>
+                    <div class="popup-image">
+                        @if ($popup->image)
+                            <img src="{{ asset('storage/' . $popup->image) }}" alt="Popup Image">
+                        @endif
+                    </div>
+                    <div class="popup-text">
+                        <?php echo $popup->getTranslation('text', app()->getLocale()); ?>
+                    </div>
+                    @if ($popup->link)
+                        <div class="popup-button">
+                            <a href="{{ $popup->link }}"
+                                class="ttm-btn ttm-btn-size-md ttm-btn-shape-rounded ttm-btn-style-fill ttm-btn-color-skincolor">
+                                @lang('Learn More')
+                            </a>
+                        </div>
+                    @endif
+                </div>
+            </div>
 
-         <style>
-             .popup-modal {
-                 display: none;
-                 position: fixed;
-                 top: 0;
-                 left: 0;
-                 width: 100%;
-                 height: 100%;
-                 background-color: rgba(0, 0, 0, 0.8);
-                 z-index: 9999;
-             }
+            <style>
+                .popup-modal {
+                    display: none;
+                    position: fixed;
+                    top: 0;
+                    left: 0;
+                    width: 100%;
+                    height: 100%;
+                    background-color: rgba(0, 0, 0, 0.8);
+                    z-index: 9999;
+                }
 
-             .popup-content {
-                 position: relative;
-                 background-color: white;
-                 margin: 15% auto;
-                 padding: 20px;
-                 width: 80%;
-                 max-width: 600px;
-                 border-radius: 8px;
-                 box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-             }
+                .popup-content {
+                    position: relative;
+                    background-color: white;
+                    margin: 15% auto;
+                    padding: 20px;
+                    width: 80%;
+                    max-width: 600px;
+                    border-radius: 8px;
+                    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+                }
 
-             .close-popup {
-                 position: absolute;
-                 right: 10px;
-                 top: 5px;
-                 font-size: 28px;
-                 font-weight: bold;
-                 cursor: pointer;
-                 color: #666;
-             }
+                .close-popup {
+                    position: absolute;
+                    right: 10px;
+                    top: 5px;
+                    font-size: 28px;
+                    font-weight: bold;
+                    cursor: pointer;
+                    color: #666;
+                }
 
-             .popup-image {
-                 text-align: center;
-                 margin-bottom: 20px;
-             }
+                .popup-image {
+                    text-align: center;
+                    margin-bottom: 20px;
+                }
 
-             .popup-image img {
-                 max-width: 100%;
-                 height: auto;
-                 border-radius: 4px;
-             }
+                .popup-image img {
+                    max-width: 100%;
+                    height: auto;
+                    border-radius: 4px;
+                }
 
-             .popup-text {
-                 margin-bottom: 20px;
-             }
+                .popup-text {
+                    margin-bottom: 20px;
+                }
 
-             .popup-button {
-                 text-align: center;
-             }
-         </style>
+                .popup-button {
+                    text-align: center;
+                }
+            </style>
 
-         <script>
-             // Show modal when page loads
-             document.addEventListener('DOMContentLoaded', function() {
-                 document.getElementById('popupModal').style.display = 'block';
-             });
+            <script>
+                // Show modal when page loads
+                document.addEventListener('DOMContentLoaded', function() {
+                    document.getElementById('popupModal').style.display = 'block';
+                });
 
-             // Close modal when clicking the X
-             document.querySelector('.close-popup').addEventListener('click', function() {
-                 document.getElementById('popupModal').style.display = 'none';
-             });
+                // Close modal when clicking the X
+                document.querySelector('.close-popup').addEventListener('click', function() {
+                    document.getElementById('popupModal').style.display = 'none';
+                });
 
-             // Close modal when clicking outside
-             window.onclick = function(event) {
-                 var modal = document.getElementById('popupModal');
-                 if (event.target == modal) {
-                     modal.style.display = 'none';
-                 }
-             };
-         </script>
+                // Close modal when clicking outside
+                window.onclick = function(event) {
+                    var modal = document.getElementById('popupModal');
+                    if (event.target == modal) {
+                        modal.style.display = 'none';
+                    }
+                };
+            </script>
 
+        @endif
 
         <!--header start-->
         <header id="masthead" class="header ttm-header-style-02">
@@ -175,13 +177,17 @@
                         <div class="col-md-12 d-flex flex-row align-items-center justify-content-center">
                             <!-- Language Switcher -->
                             <div class="language-switcher mr-auto">
-                                <select class="form-control" onchange="window.location.href=this.value" style="color: white; border:1px solid white">
+                                <select class="form-control" onchange="window.location.href=this.value"
+                                    style="color: white; border:1px solid white">
                                     <option value="{{ route('locale', ['locale' => 'en']) }}"
-                                        {{ app()->getLocale() === 'en' ? 'selected' : '' }} style="color: white;">English</option>
+                                        {{ app()->getLocale() === 'en' ? 'selected' : '' }} style="color: white;">
+                                        English</option>
                                     <option value="{{ route('locale', ['locale' => 'ar']) }}"
-                                        {{ app()->getLocale() === 'ar' ? 'selected' : '' }} style="color: white;">العربية</option>
+                                        {{ app()->getLocale() === 'ar' ? 'selected' : '' }} style="color: white;">
+                                        العربية</option>
                                     <option value="{{ route('locale', ['locale' => 'fr']) }}"
-                                        {{ app()->getLocale() === 'fr' ? 'selected' : '' }} style="color: white;">Français</option>
+                                        {{ app()->getLocale() === 'fr' ? 'selected' : '' }} style="color: white;">
+                                        Français</option>
                                 </select>
                             </div>
                             <div class="top_bar_contact_item font-weight-bold padding_left15">
@@ -211,8 +217,8 @@
                                     <!-- site-branding -->
                                     <div class="site-branding mr-auto">
                                         <a class="home-link" href="/" title="EC" rel="home">
-                                            <img id="logo-img" class="img-center standardlogo" src="{{asset('images/logo.png')}}"
-                                                alt="logo-img">
+                                            <img id="logo-img" class="img-center standardlogo"
+                                                src="{{ asset('images/logo.png') }}" alt="logo-img">
                                         </a>
                                     </div>
 
@@ -227,33 +233,38 @@
                                     <nav class="main-menu menu-mobile" id="menu">
                                         <ul class="menu">
                                             @foreach (App\Models\Menu::all() as $item)
-                                            @php
-                                                $pages = $item->pages;
-                                            @endphp
-                                        
-                                            <li class="mega-menu-item {{ request()->url() === url($item->url) ? 'active' : '' }}">
-                                                @if (!empty($pages) && count($pages) === 1)
-                                                    {{-- Only one page: link directly to it --}}
-                                                    <a href="/pages/{{ $pages[0]->getTranslation('title', 'fr') }}" class="mega-menu-link">
-                                                        {{ $item->title }}
-                                                    </a>
-                                                @elseif (!empty($pages) && count($pages) > 1)
-                                                    {{-- Multiple pages: show dropdown --}}
-                                                    <a href="#" class="mega-menu-link">{{ $item->title }}</a>
-                                                    <ul class="mega-submenu">
-                                                        @foreach ($pages as $page)
-                                                            <li>
-                                                                <a href="/pages/{{ $page->getTranslation('title', 'fr') }}">{{ $page->title }}</a>
-                                                            </li>
-                                                        @endforeach
-                                                    </ul>
-                                                @else
-                                                    {{-- No pages: link to the item URL --}}
-                                                    <a href="{{ $item->url }}" class="mega-menu-link">{{ $item->title }}</a>
-                                                @endif
-                                            </li>
-                                        @endforeach
-                                        
+                                                @php
+                                                    $pages = $item->pages;
+                                                @endphp
+
+                                                <li
+                                                    class="mega-menu-item {{ request()->url() === url($item->url) ? 'active' : '' }}">
+                                                    @if (!empty($pages) && count($pages) === 1)
+                                                        {{-- Only one page: link directly to it --}}
+                                                        <a href="/pages/{{ $pages[0]->getTranslation('title', 'fr') }}"
+                                                            class="mega-menu-link">
+                                                            {{ $item->title }}
+                                                        </a>
+                                                    @elseif (!empty($pages) && count($pages) > 1)
+                                                        {{-- Multiple pages: show dropdown --}}
+                                                        <a href="#"
+                                                            class="mega-menu-link">{{ $item->title }}</a>
+                                                        <ul class="mega-submenu">
+                                                            @foreach ($pages as $page)
+                                                                <li>
+                                                                    <a
+                                                                        href="/pages/{{ $page->getTranslation('title', 'fr') }}">{{ $page->title }}</a>
+                                                                </li>
+                                                            @endforeach
+                                                        </ul>
+                                                    @else
+                                                        {{-- No pages: link to the item URL --}}
+                                                        <a href="{{ $item->url }}"
+                                                            class="mega-menu-link">{{ $item->title }}</a>
+                                                    @endif
+                                                </li>
+                                            @endforeach
+
                                         </ul>
                                     </nav>
 
@@ -277,8 +288,8 @@
                         <div class="widget-area col-xs-12 col-sm-6 col-md-6 col-lg-4">
                             <div class="widget widget_text  clearfix">
                                 <div class="footer-logo">
-                                    <img id="logo-img-1" class="img-center standardlogo" src="{{asset('images/logo.png')}}"
-                                        alt="logo-img">
+                                    <img id="logo-img-1" class="img-center standardlogo"
+                                        src="{{ asset('images/logo.png') }}" alt="logo-img">
                                 </div>
                                 <p>Invess offers an extensive range of professional services and a high degree of
                                     spe-cialization. We serves both private & public traded companies. We bring over 35
