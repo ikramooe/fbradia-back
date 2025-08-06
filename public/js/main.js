@@ -1,543 +1,1503 @@
-/** ==========================================================================================
+/*================================================
+[  Table of contents  ]
+================================================
 
-  Project :   Invess - Responsive Multi-purpose HTML5 Template
-  Author :    Themetechmount
-  Version :   Bootstrap 5.3.3
+1. Variables
+2. Mobile Menu
+3. Mega Menu
+4. One Page Navigation
+5. Toogle Search
+6. Current Year Copyright area
+7. Background Image
+8. wow js init
+9. Tooltip
+10. Nice Select
+11. Default active and hover item active
+12. Product Details Page
+13. Isotope Gallery Active  ( Gallery / Portfolio )
+14. LightCase jQuery Active
+15. Slider One Active 
+16. Product Slider One
+17. Tab Product Slider One
+18. Blog Slider One
+19. Testimonial Slider - 1
+20. Testimonial Slider - 2
+21. Testimonial Slider - 3
+22. Category Slider
+23. Image Slide  - 1 (Screenshot) 
+24. Image Slide - 2
+25. Image Slide - 3
+26. Image Slide - 4 
+27. Brand Logo
+28. Blog Gallery (Blog Page )
+29. Countdown
+30. Counter Up
+31. Instagram Feed
+32. Price Slider
+33. Quantity plus minus
+34. scrollUp active
+35. Parallax active
+36. Header menu sticky
 
-========================================================================================== */
-
-/** ===============
-
- .. Preloader
- .. header_search
- .. Fixed-header
- .. Menu
- .. Number rotator
- .. Skillbar
- .. Tab
- .. Accordion
- .. Isotope
- .. Prettyphoto
- .. Slick_slider
- .. One Page setting 
- .. Back to top 
-
- =============== */
 
 
-jQuery(function($) {
+======================================
+[ End table content ]
+======================================*/
 
+(function($) {
   "use strict";
 
+    jQuery(document).ready(function(){
+      
+        /* --------------------------------------------------------
+            1. Variables
+        --------------------------------------------------------- */
+        var $window = $(window),
+        $body = $('body');
 
-/*------------------------------------------------------------------------------*/
-/* Preloader
-/*------------------------------------------------------------------------------*/
-   // makes sure the whole site is loaded
-    $(window).on("load",function(){
-        $(".loader-blob").fadeOut(),$("#preloader").delay(300).fadeOut("slow",function(){$(this).remove()})
-    })
+        /* --------------------------------------------------------
+            2. Mobile Menu
+        --------------------------------------------------------- */
+         /* ---------------------------------
+            Utilize Function 
+        ----------------------------------- */
+        (function () {
+            var $ltn__utilizeToggle = $('.ltn__utilize-toggle'),
+                $ltn__utilize = $('.ltn__utilize'),
+                $ltn__utilizeOverlay = $('.ltn__utilize-overlay'),
+                $mobileMenuToggle = $('.mobile-menu-toggle');
+            $ltn__utilizeToggle.on('click', function (e) {
+                e.preventDefault();
+                var $this = $(this),
+                    $target = $this.attr('href');
+                $body.addClass('ltn__utilize-open');
+                $($target).addClass('ltn__utilize-open');
+                $ltn__utilizeOverlay.fadeIn();
+                if ($this.parent().hasClass('mobile-menu-toggle')) {
+                    $this.addClass('close');
+                }
+            });
+            $('.ltn__utilize-close, .ltn__utilize-overlay').on('click', function (e) {
+                e.preventDefault();
+                $body.removeClass('ltn__utilize-open');
+                $ltn__utilize.removeClass('ltn__utilize-open');
+                $ltn__utilizeOverlay.fadeOut();
+                $mobileMenuToggle.find('a').removeClass('close');
+            });
+        })();
+
+        /* ------------------------------------
+            Utilize Menu
+        ----------------------------------- */
+        function mobileltn__utilizeMenu() {
+            var $ltn__utilizeNav = $('.ltn__utilize-menu, .overlay-menu'),
+                $ltn__utilizeNavSubMenu = $ltn__utilizeNav.find('.sub-menu');
+
+            /*Add Toggle Button With Off Canvas Sub Menu*/
+            $ltn__utilizeNavSubMenu.parent().prepend('<span class="menu-expand"></span>');
+
+            /*Category Sub Menu Toggle*/
+            $ltn__utilizeNav.on('click', 'li a, .menu-expand', function (e) {
+                var $this = $(this);
+                if ($this.attr('href') === '#' || $this.hasClass('menu-expand')) {
+                    e.preventDefault();
+                    if ($this.siblings('ul:visible').length) {
+                        $this.parent('li').removeClass('active');
+                        $this.siblings('ul').slideUp();
+                        $this.parent('li').find('li').removeClass('active');
+                        $this.parent('li').find('ul:visible').slideUp();
+                    } else {
+                        $this.parent('li').addClass('active');
+                        $this.closest('li').siblings('li').removeClass('active').find('li').removeClass('active');
+                        $this.closest('li').siblings('li').find('ul:visible').slideUp();
+                        $this.siblings('ul').slideDown();
+                    }
+                }
+            });
+        }
+        mobileltn__utilizeMenu();
+
+        /* --------------------------------------------------------
+            3. Mega Menu
+        --------------------------------------------------------- */
+        $('.mega-menu').each(function(){
+            if($(this).children('li').length){
+                var ulChildren = $(this).children('li').length;
+                $(this).addClass('column-'+ulChildren)
+            }
+        });
+        
+
+        /* Remove Attribute( href ) from sub-menu title in mega-menu */
+        /*
+        $('.mega-menu > li > a').removeAttr('href');
+        */
 
 
-/*------------------------------------------------------------------------------*/
-/* header_search
-/*------------------------------------------------------------------------------*/
-            
-    
-    $(".header_search").each(function(){  
-        $(".search_btn", this).on("click", function(e){
+        /* Mega Munu  */
+        // $(".mega-menu").parent().css({"position": "inherit"});
+        $(".mega-menu").parent().addClass("mega-menu-parent");
+        
 
-            e.preventDefault();
-            e.stopPropagation();
+        /* Add space for Elementor Menu Anchor link */
+        $( window ).on( 'elementor/frontend/init', function() {
+            elementorFrontend.hooks.addFilter( 'frontend/handlers/menu_anchor/scroll_top_distance', function( scrollTop ) {
+                return scrollTop - 75;
+            });
+        });
 
-            $(".header_search_content").toggleClass("on");
+        /* --------------------------------------------------------
+            3-2. Category Menu
+        --------------------------------------------------------- */
 
-            if ($('.header_search a').hasClass('open')) {
+        $('.ltn__category-menu-title').on('click', function(){
+            $('.ltn__category-menu-toggle').slideToggle(500);
+        });	
 
-                $( ".header_search a i" ).removeClass('ti-close').addClass('ti-search');
-                
-                $(this).removeClass('open').addClass('sclose');    
+        /* Category Menu More Item show */
+        $('.ltn__category-menu-more-item-parent').on('click', function(){
+            $('.ltn__category-menu-more-item-child').slideToggle();
+            $(this).toggleClass('rx-change');
 
-            } 
+        });
 
-            else {
-                $(".header_search a").removeClass('sclose').addClass('open');
-
-                $( ".header_search a i" ).removeClass('ti-search').addClass('ti-close');  
-                
+        /* Category Submenu Column Count */
+        $('.ltn__category-submenu').each(function(){
+            if($(this).children('li').length){
+                var ulChildren = $(this).children('li').length;
+                $(this).addClass('ltn__category-column-no-'+ulChildren)
             }
         });
 
-    });
- 
-/*------------------------------------------------------------------------------*/
-/* Fixed-header
-/*------------------------------------------------------------------------------*/
-
-    $(window).on("scroll",function(){
-        if ( matchMedia( 'only screen and (min-width: 1200px)' ).matches ) 
-        {
-            if ($(window).scrollTop() >= 50 ) {
-
-                $('.ttm-stickable-header').addClass('fixed-header');
+        /* Category Menu Responsive */
+        function ltn__CategoryMenuToggle(){
+            $('.ltn__category-menu-toggle .ltn__category-menu-drop > a').on('click', function(){
+            if($(window).width() < 991){
+                $(this).removeAttr('href');
+                var element = $(this).parent('li');
+                if (element.hasClass('open')) {
+                    element.removeClass('open');
+                    element.find('li').removeClass('open');
+                    element.find('ul').slideUp();
+                }
+                else {
+                    element.addClass('open');
+                    element.children('ul').slideDown();
+                    element.siblings('li').children('ul').slideUp();
+                    element.siblings('li').removeClass('open');
+                    element.siblings('li').find('li').removeClass('open');
+                    element.siblings('li').find('ul').slideUp();
+                }
             }
-            else {
-
-                $('.ttm-stickable-header').removeClass('fixed-header');
-            }
+            });
+            $('.ltn__category-menu-toggle .ltn__category-menu-drop > a').append('<span class="expand"></span>');
         }
-    });
+        ltn__CategoryMenuToggle();
 
 
-/*------------------------------------------------------------------------------*/
-/* Menu
-/*------------------------------------------------------------------------------*/
+        /* ---------------------------------------------------------
+            4. One Page Navigation ( jQuery Easing Plugin )
+        --------------------------------------------------------- */
+        // jQuery for page scrolling feature - requires jQuery Easing plugin
+        $(function() {
+            $('a.page-scroll').bind('click', function(event) {
+                var $anchor = $(this);
+                $('html, body').stop().animate({
+                    scrollTop: $($anchor.attr('href')).offset().top
+                }, 1500, 'easeInOutExpo');
+                event.preventDefault();
+            });
+        });
+
+
+        /* --------------------------------------------------------
+            5. Toogle Search
+        -------------------------------------------------------- */
+        // Handle click on toggle search button
+        $('.header-search-1').on('click', function() {
+            $('.header-search-1, .header-search-1-form').toggleClass('search-open');
+            return false;
+        });
+
+
+        /* ---------------------------------------------------------
+            6. Current Year Copyright area
+        --------------------------------------------------------- */
+        $(".current-year").text((new Date).getFullYear());
+
+
+        /* ---------------------------------------------------------
+            7. Background Image
+        --------------------------------------------------------- */
+        var $backgroundImage = $('.bg-image, .bg-image-top');
+        $backgroundImage.each(function() {
+            var $this = $(this),
+                $bgImage = $this.data('bs-bg');
+            $this.css('background-image', 'url('+$bgImage+')');
+        });
+
+
+        /* ---------------------------------------------------------
+            8. wow js init
+        --------------------------------------------------------- */
+        new WOW().init();
+
+
+        /* ---------------------------------------------------------
+            9. Tooltip
+        --------------------------------------------------------- */
+        $('[data-toggle="tooltip"]').tooltip();
+
+
+        /* --------------------------------------------------------
+            10. Nice Select
+        --------------------------------------------------------- */
+        $('select').niceSelect();
+
+        /* ---------------------------------------------------------
+            datepicker
+        --------------------------------------------------------- */
+
+        $('.ltn__datepicker .input-group.date').datepicker({
+            format: 'mm/dd/yyyy',
+            /* format: 'mm/dd/yyyy', */
+            /* format: 'yyyy/dd/mm', */
+        });
+
         
-        var menu = {
-        initialize: function() {
-            this.Menuhover();
-        },
+        /* --------------------------------------------------------
+            11. Default active and hover item active
+        --------------------------------------------------------- */
+        var ltn__active_item = $('.ltn__feature-item-6, .ltn__our-journey-wrap ul li, .ltn__pricing-plan-item')
+        ltn__active_item.mouseover(function() {
+            ltn__active_item.removeClass('active');
+            $(this).addClass('active');
+        });
 
-        Menuhover : function(){
-            var getNav = $("nav.main-menu"),
-                getWindow = $(window).width(),
-                getHeight = $(window).height(),
-                getIn = getNav.find("ul.menu").data("in"),
-                getOut = getNav.find("ul.menu").data("out");
-            
-            if ( matchMedia( 'only screen and (max-width: 1200px)' ).matches ) {
-                                                     
-                // Enable click event
-                $("nav.main-menu ul.menu").each(function(){
-                    
-                    // Dropdown Fade Toggle
-                    $("a.mega-menu-link", this).on('click', function (e) {
-                        e.preventDefault();
-                        var t = $(this);
-                        t.toggleClass('active').next('ul').toggleClass('active');
-                    });   
+        /* --------------------------------------------------------
+            12. Product Details Page
+        --------------------------------------------------------- */
+        $('.ltn__shop-details-large-img').slick({
+            slidesToShow: 1,
+            slidesToScroll: 1,
+            arrows: false,
+            fade: true,
+            asNavFor: '.ltn__shop-details-small-img'
+        });
+        $('.ltn__shop-details-small-img').slick({
+            slidesToShow: 4,
+            slidesToScroll: 1,
+            asNavFor: '.ltn__shop-details-large-img',
+            dots: false,
+            arrows: true,
+            focusOnSelect: true,
+            prevArrow: '<a class="slick-prev"><i class="fas fa-arrow-left" alt="Arrow Icon"></i></a>',
+            nextArrow: '<a class="slick-next"><i class="fas fa-arrow-right" alt="Arrow Icon"></i></a>',
+            responsive: [
+                {
+                    breakpoint: 992,
+                    settings: {
+                        slidesToShow: 4,
+                        slidesToScroll: 1
+                    }
+                },
+                {
+                    breakpoint: 768,
+                    settings: {
+                        slidesToShow: 3,
+                        slidesToScroll: 1
+                    }
+                },
+                {
+                    breakpoint: 580,
+                    settings: {
+                        slidesToShow: 3,
+                        slidesToScroll: 1
+                    }
+                }
+            ]
+        });
+                        
+        /* --------------------------------------------------------
+            13. Isotope Gallery Active  ( Gallery / Portfolio )
+        -------------------------------------------------------- */
+        var $ltnGalleryActive = $('.ltn__gallery-active'),
+            $ltnGalleryFilterMenu = $('.ltn__gallery-filter-menu');
+        /*Filter*/
+        $ltnGalleryFilterMenu.on( 'click', 'button, a', function() {
+            var $this = $(this),
+                $filterValue = $this.attr('data-filter');
+            $ltnGalleryFilterMenu.find('button, a').removeClass('active');
+            $this.addClass('active');
+            $ltnGalleryActive.isotope({ filter: $filterValue });
+        });
+        /*Grid*/
+        $ltnGalleryActive.each(function(){
+            var $this = $(this),
+                $galleryFilterItem = '.ltn__gallery-item';
+            $this.imagesLoaded( function() {
+                $this.isotope({
+                    itemSelector: $galleryFilterItem,
+                    percentPosition: true,
+                    masonry: {
+                        columnWidth: '.ltn__gallery-sizer',
+                    }
+                });
+            });
+        });
 
-                    // Megamenu style
-                    $(".megamenu-fw", this).each(function(){
-                        $(".col-menu", this).each(function(){
-                            $(".title", this).off("click");
-                            $(".title", this).on("click", function(){
-                                $(this).closest(".col-menu").find(".content").stop().toggleClass('active');
-                                $(this).closest(".col-menu").toggleClass("active");
-                                return false;
-                                e.preventDefault();
-                                
-                            });
+        /* --------------------------------------------------------
+            14. LightCase jQuery Active
+        --------------------------------------------------------- */
+        $('a[data-rel^=lightcase]').lightcase({
+            transition: 'elastic', /* none, fade, fadeInline, elastic, scrollTop, scrollRight, scrollBottom, scrollLeft, scrollHorizontal and scrollVertical */
+            swipe: true,
+            maxWidth: 1170,
+            maxHeight: 600,
+        });
 
-                        });
-                    });  
-                    
-                }); 
-            }
-        },
-    };
+        /* --------------------------------------------------------
+            15. Slider One Active 
+        --------------------------------------------------------- */
+        $('.ltn__slide-one-active').slick({
+            autoplay: false,
+            autoplaySpeed: 2000,
+            arrows: true,
+            dots: true,
+            fade: true,
+            cssEase: 'linear',
+            infinite: true,
+            speed: 300,
+            slidesToShow: 1,
+            slidesToScroll: 1,
+            prevArrow: '<a class="slick-prev"><i class="fas fa-arrow-left" alt="Arrow Icon"></i></a>',
+            nextArrow: '<a class="slick-next"><i class="fas fa-arrow-right" alt="Arrow Icon"></i></a>',
+            responsive: [
+                {
+                    breakpoint: 1200,
+                    settings: {
+                        arrows: false,
+                        dots: true,
+                    }
+                }
+            ]
+        }).on('afterChange', function(){
+            new WOW().init();
+        });
+        /* --------------------------------------------------------
+            15-2. Slider Active 2
+        --------------------------------------------------------- */
+        $('.ltn__slide-active-2').slick({
+            autoplay: false,
+            autoplaySpeed: 2000,
+            arrows: false,
+            dots: true,
+            fade: true,
+            cssEase: 'linear',
+            infinite: true,
+            speed: 300,
+            slidesToShow: 1,
+            slidesToScroll: 1,
+            prevArrow: '<a class="slick-prev"><i class="fas fa-arrow-left" alt="Arrow Icon"></i></a>',
+            nextArrow: '<a class="slick-next"><i class="fas fa-arrow-right" alt="Arrow Icon"></i></a>',
+            responsive: [
+                {
+                    breakpoint: 1200,
+                    settings: {
+                        arrows: false,
+                        dots: true,
+                    }
+                }
+            ]
+        }).on('afterChange', function(){
+            new WOW().init();
+        });
 
-    
-    $('.btn-show-menu-mobile').on('click', function(e){
-        $(this).toggleClass('is-active'); 
-        $('.menu-mobile').toggleClass('show'); 
-        return false;
-        e.preventDefault();  
-    });
 
-    // Initialize
-    $(document).ready(function(){
-        menu.initialize();
+        /* --------------------------------------------------------
+            16. Product Slider One
+        --------------------------------------------------------- */
+        $('.ltn__product-slider-one-active').slick({
+            arrows: true,
+            dots: false,
+            infinite: true,
+            speed: 300,
+            slidesToShow: 3,
+            slidesToScroll: 1,
+            prevArrow: '<a class="slick-prev"><i class="fas fa-arrow-left" alt="Arrow Icon"></i></a>',
+            nextArrow: '<a class="slick-next"><i class="fas fa-arrow-right" alt="Arrow Icon"></i></a>',
+            responsive: [
+                {
+                    breakpoint: 992,
+                    settings: {
+                        slidesToShow: 2,
+                        slidesToScroll: 1
+                    }
+                },
+                {
+                    breakpoint: 768,
+                    settings: {
+                        slidesToShow: 2,
+                        slidesToScroll: 1
+                    }
+                },
+                {
+                    breakpoint: 580,
+                    settings: {
+                        slidesToShow: 1,
+                        slidesToScroll: 1
+                    }
+                }
+            ]
+        });
 
-    });
+
+        /* --------------------------------------------------------
+            16. Product Slider One
+        --------------------------------------------------------- */
+        $('.ltn__product-slider-item-four-active').slick({
+            arrows: true,
+            dots: false,
+            infinite: true,
+            speed: 300,
+            slidesToShow: 4,
+            slidesToScroll: 1,
+            prevArrow: '<a class="slick-prev"><i class="fas fa-arrow-left" alt="Arrow Icon"></i></a>',
+            nextArrow: '<a class="slick-next"><i class="fas fa-arrow-right" alt="Arrow Icon"></i></a>',
+            responsive: [
+                {
+                    breakpoint: 992,
+                    settings: {
+                        arrows: false,
+                        dots: true,
+                        slidesToShow: 3,
+                        slidesToScroll: 1
+                    }
+                },
+                {
+                    breakpoint: 768,
+                    settings: {
+                        arrows: false,
+                        dots: true,
+                        slidesToShow: 2,
+                        slidesToScroll: 1
+                    }
+                },
+                {
+                    breakpoint: 580,
+                    settings: {
+                        arrows: false,
+                        dots: true,
+                        slidesToShow: 2,
+                        slidesToScroll: 1
+                    }
+                }
+            ]
+        });
 
 
-    
-    var $bannerSlider = jQuery('.banner_slider');
-    var $bannerFirstSlide = $('div.slide:first-child');
+        /* --------------------------------------------------------
+            16. Product Slider One
+        --------------------------------------------------------- */
+        $('.ltn__related-product-slider-one-active').slick({
+            arrows: true,
+            dots: false,
+            infinite: true,
+            speed: 300,
+            slidesToShow: 4,
+            slidesToScroll: 1,
+            prevArrow: '<a class="slick-prev"><i class="fas fa-arrow-left" alt="Arrow Icon"></i></a>',
+            nextArrow: '<a class="slick-next"><i class="fas fa-arrow-right" alt="Arrow Icon"></i></a>',
+            responsive: [
+                {
+                    breakpoint: 992,
+                    settings: {
+                        slidesToShow: 3,
+                        slidesToScroll: 1
+                    }
+                },
+                {
+                    breakpoint: 768,
+                    settings: {
+                        arrows: false,
+                        dots: true,
+                        slidesToShow: 2,
+                        slidesToScroll: 1
+                    }
+                },
+                {
+                    breakpoint: 580,
+                    settings: {
+                        arrows: false,
+                        dots: true,
+                        slidesToShow: 2,
+                        slidesToScroll: 1
+                    }
+                }
+            ]
+        });
 
-    $bannerSlider.on('init', function (e, slick) {
-      var $firstAnimatingElements = $bannerFirstSlide.find('[data-animation]');
-      slideanimate($firstAnimatingElements);
-    });
-    $bannerSlider.on('beforeChange', function (e, slick, currentSlide, nextSlide) {
-      var $animatingElements = $('div.slick-slide[data-slick-index="' + nextSlide + '"]').find('[data-animation]');
-      slideanimate($animatingElements);
-    });
-    $bannerSlider.slick({
-      slidesToShow: 1,
-      slidesToScroll: 1,
-      arrows: true,
-      fade: true,
-      dots: false,
-      swipe: true,
-      adaptiveHeight: true,
-      responsive: [
+        /* --------------------------------------------------------
+            17. Tab Product Slider One
+        --------------------------------------------------------- */
+        $('.ltn__tab-product-slider-one-active').slick({
+            arrows: true,
+            dots: false,
+            infinite: true,
+            speed: 300,
+            slidesToShow: 4,
+            slidesToScroll: 1,
+            prevArrow: '<a class="slick-prev"><i class="fas fa-arrow-left" alt="Arrow Icon"></i></a>',
+            nextArrow: '<a class="slick-next"><i class="fas fa-arrow-right" alt="Arrow Icon"></i></a>',
+            responsive: [
+                {
+                    breakpoint: 1200,
+                    settings: {
+                        slidesToShow: 3,
+                        slidesToScroll: 1
+                    }
+                },
+                {
+                    breakpoint: 992,
+                    settings: {
+                        arrows: false,
+                        dots: true,
+                        slidesToShow: 2,
+                        slidesToScroll: 1
+                    }
+                },
+                {
+                    breakpoint: 768,
+                    settings: {
+                        arrows: false,
+                        dots: true,
+                        slidesToShow: 2,
+                        slidesToScroll: 1
+                    }
+                },
+                {
+                    breakpoint: 580,
+                    settings: {
+                        arrows: false,
+                        dots: true,
+                        slidesToShow: 2,
+                        slidesToScroll: 1
+                    }
+                }
+            ]
+        });
+        /* --------------------------------------------------------
+            17. Small Product Slider One
+        --------------------------------------------------------- */
+        $('.ltn__small-product-slider-active').slick({
+            arrows: false,
+            dots: true,
+            infinite: true,
+            speed: 300,
+            slidesToShow: 1,
+            slidesToScroll: 1,
+            prevArrow: '<a class="slick-prev"><i class="fas fa-arrow-left" alt="Arrow Icon"></i></a>',
+            nextArrow: '<a class="slick-next"><i class="fas fa-arrow-right" alt="Arrow Icon"></i></a>',
+            responsive: [
+                {
+                    breakpoint: 1200,
+                    settings: {
+                        slidesToShow: 1,
+                        slidesToScroll: 1
+                    }
+                },
+                {
+                    breakpoint: 992,
+                    settings: {
+                        arrows: false,
+                        dots: true,
+                        slidesToShow: 1,
+                        slidesToScroll: 1
+                    }
+                },
+                {
+                    breakpoint: 768,
+                    settings: {
+                        arrows: false,
+                        dots: true,
+                        slidesToShow: 1,
+                        slidesToScroll: 1
+                    }
+                },
+                {
+                    breakpoint: 580,
+                    settings: {
+                        arrows: false,
+                        dots: true,
+                        slidesToShow: 1,
+                        slidesToScroll: 1
+                    }
+                }
+            ]
+        });
 
-        {
-            breakpoint: 1200,
-            settings: {
-                arrows: false
-            }
-        },
-        {
-            breakpoint: 767,
-                settings: {
-                slidesToShow: 1,
+        /* --------------------------------------------------------
+            18. Blog Slider One
+        --------------------------------------------------------- */
+        $('.ltn__blog-slider-one-active').slick({
+            arrows: true,
+            dots: false,
+            infinite: true,
+            speed: 300,
+            slidesToShow: 3,
+            slidesToScroll: 1,
+            prevArrow: '<a class="slick-prev"><i class="fas fa-arrow-left" alt="Arrow Icon"></i></a>',
+            nextArrow: '<a class="slick-next"><i class="fas fa-arrow-right" alt="Arrow Icon"></i></a>',
+            responsive: [
+                {
+                    breakpoint: 1200,
+                    settings: {
+                        slidesToShow: 2,
+                        slidesToScroll: 1,
+                        arrows: false,
+                        dots: true
+                    }
+                },
+                {
+                    breakpoint: 992,
+                    settings: {
+                        slidesToShow: 2,
+                        slidesToScroll: 1,
+                        arrows: false,
+                        dots: true
+                    }
+                },
+                {
+                    breakpoint: 768,
+                    settings: {
+                        slidesToShow: 1,
+                        slidesToScroll: 1,
+                        arrows: false,
+                        dots: true
+                    }
+                },
+                {
+                    breakpoint: 580,
+                    settings: {
+                        arrows: false,
+                        dots: true,
+                        slidesToShow: 1,
+                        slidesToScroll: 1
+                    }
+                }
+            ]
+        });
+
+        /* --------------------------------------------------------
+            19. Testimonial Slider - 1
+        --------------------------------------------------------- */
+        $('.ltn__testimonial-slider-active').slick({
+            arrows: true,
+            dots: true,
+            infinite: true,
+            speed: 300,
+            slidesToShow: 1,
+            slidesToScroll: 1,
+            prevArrow: '<a class="slick-prev"><i class="fas fa-arrow-left" alt="Arrow Icon"></i></a>',
+            nextArrow: '<a class="slick-next"><i class="fas fa-arrow-right" alt="Arrow Icon"></i></a>',
+            responsive: [
+                {
+                    breakpoint: 992,
+                    settings: {
+                        slidesToShow: 1,
+                        slidesToScroll: 1
+                    }
+                },
+                {
+                    breakpoint: 768,
+                    settings: {
+                        arrows: false,
+                        slidesToShow: 1,
+                        slidesToScroll: 1
+                    }
+                },
+                {
+                    breakpoint: 580,
+                    settings: {
+                        arrows: false,
+                        slidesToShow: 1,
+                        slidesToScroll: 1
+                    }
+                }
+            ]
+        });
+
+
+        /* --------------------------------------------------------
+            20. Testimonial Slider - 2
+        --------------------------------------------------------- */
+        $('.ltn__testimonial-slider-2-active').slick({
+            arrows: true,
+            dots: false,
+            infinite: true,
+            speed: 300,
+            slidesToShow: 3,
+            slidesToScroll: 1,
+            prevArrow: '<a class="slick-prev"><i class="fas fa-arrow-left" alt="Arrow Icon"></i></a>',
+            nextArrow: '<a class="slick-next"><i class="fas fa-arrow-right" alt="Arrow Icon"></i></a>',
+            responsive: [
+                {
+                    breakpoint: 1200,
+                    settings: {
+                        slidesToShow: 2,
+                        slidesToScroll: 1
+                    }
+                },
+                {
+                    breakpoint: 992,
+                    settings: {
+                        slidesToShow: 2,
+                        slidesToScroll: 1
+                    }
+                },
+                {
+                    breakpoint: 768,
+                    settings: {
+                        slidesToShow: 2,
+                        slidesToScroll: 1
+                    }
+                },
+                {
+                    breakpoint: 580,
+                    settings: {
+                        arrows: false,
+                        dots: true,
+                        slidesToShow: 1,
+                        slidesToScroll: 1
+                    }
+                }
+            ]
+        });
+
+        /* --------------------------------------------------------
+            21. Testimonial Slider - 3
+        --------------------------------------------------------- */
+        $('.ltn__testimonial-slider-3-active').slick({
+            arrows: true,
+            centerMode: true,
+            centerPadding: '80px',
+            dots: false,
+            infinite: true,
+            speed: 300,
+            slidesToShow: 3,
+            slidesToScroll: 1,
+            prevArrow: '<a class="slick-prev"><i class="fas fa-arrow-left" alt="Arrow Icon"></i></a>',
+            nextArrow: '<a class="slick-next"><i class="fas fa-arrow-right" alt="Arrow Icon"></i></a>',
+            responsive: [
+                {
+                    breakpoint: 1600,
+                    settings: {
+                        slidesToShow: 2,
+                        slidesToScroll: 1
+                    }
+                },
+                {
+                    breakpoint: 1200,
+                    settings: {
+                        slidesToShow: 1,
+                        slidesToScroll: 1
+                    }
+                },
+                {
+                    breakpoint: 992,
+                    settings: {
+                        slidesToShow: 1,
+                        slidesToScroll: 1
+                    }
+                },
+                {
+                    breakpoint: 768,
+                    settings: {
+                        arrows: false,
+                        slidesToShow: 1,
+                        slidesToScroll: 1
+                    }
+                },
+                {
+                    breakpoint: 580,
+                    settings: {
+                        centerMode: false,
+                        slidesToShow: 1,
+                        slidesToScroll: 1
+                    }
+                }
+            ]
+        });
+
+        /* --------------------------------------------------------
+            22. Category Slider
+        --------------------------------------------------------- */
+        $('.ltn__category-slider-active').slick({
+            arrows: true,
+            dots: false,
+            infinite: true,
+            speed: 300,
+            slidesToShow: 4,
+            slidesToScroll: 1,
+            prevArrow: '<a class="slick-prev"><i class="fas fa-arrow-left" alt="Arrow Icon"></i></a>',
+            nextArrow: '<a class="slick-next"><i class="fas fa-arrow-right" alt="Arrow Icon"></i></a>',
+            responsive: [
+                {
+                    breakpoint: 1200,
+                    settings: {
+                        slidesToShow: 3,
+                        slidesToScroll: 1
+                    }
+                },
+                {
+                    breakpoint: 992,
+                    settings: {
+                        arrows: false,
+                        dots: true,
+                        slidesToShow: 3,
+                        slidesToScroll: 1
+                    }
+                },
+                {
+                    breakpoint: 768,
+                    settings: {
+                        arrows: false,
+                        dots: true,
+                        slidesToShow: 2,
+                        slidesToScroll: 1
+                    }
+                },
+                {
+                    breakpoint: 580,
+                    settings: {
+                        arrows: false,
+                        dots: true,
+                        slidesToShow: 2,
+                        slidesToScroll: 1
+                    }
+                },
+                {
+                    breakpoint: 375,
+                    settings: {
+                        arrows: false,
+                        dots: true,
+                        slidesToShow: 1,
+                        slidesToScroll: 1
+                    }
+                }
+            ]
+        });
+
+        /* --------------------------------------------------------
+            22. Category Slider
+        --------------------------------------------------------- */
+        $('.ltn__category-slider-active-six').slick({
+            arrows: true,
+            dots: false,
+            infinite: true,
+            speed: 300,
+            slidesToShow: 7,
+            slidesToScroll: 3,
+            prevArrow: '<a class="slick-prev"><i class="fas fa-arrow-left" alt="Arrow Icon"></i></a>',
+            nextArrow: '<a class="slick-next"><i class="fas fa-arrow-right" alt="Arrow Icon"></i></a>',
+            responsive: [
+                {
+                    breakpoint: 1200,
+                    settings: {
+                        slidesToShow: 5,
+                        slidesToScroll: 1
+                    }
+                },
+                {
+                    breakpoint: 992,
+                    settings: {
+                        arrows: false,
+                        dots: true,
+                        slidesToShow: 4,
+                        slidesToScroll: 1
+                    }
+                },
+                {
+                    breakpoint: 768,
+                    settings: {
+                        arrows: false,
+                        dots: true,
+                        slidesToShow: 3,
+                        slidesToScroll: 1
+                    }
+                },
+                {
+                    breakpoint: 580,
+                    settings: {
+                        arrows: false,
+                        dots: true,
+                        slidesToShow: 2,
+                        slidesToScroll: 1
+                    }
+                },
+                {
+                    breakpoint: 375,
+                    settings: {
+                        arrows: false,
+                        dots: true,
+                        slidesToShow: 2,
+                        slidesToScroll: 1
+                    }
+                }
+            ]
+        });
+
+
+        /* --------------------------------------------------------
+            23. Image Slide  - 1 (Screenshot) 
+        --------------------------------------------------------- */
+        $('.ltn__image-slider-1-active').slick({
+            arrows: true,
+            dots: false,
+            infinite: true,
+            speed: 300,
+            slidesToShow: 5,
+            slidesToScroll: 1,
+            centerMode: true,
+            centerPadding: '0px',
+            prevArrow: '<a class="slick-prev"><i class="fas fa-arrow-left" alt="Arrow Icon"></i></a>',
+            nextArrow: '<a class="slick-next"><i class="fas fa-arrow-right" alt="Arrow Icon"></i></a>',
+            responsive: [
+                {
+                    breakpoint: 992,
+                    settings: {
+                        slidesToShow: 3,
+                        slidesToScroll: 1
+                    }
+                },
+                {
+                    breakpoint: 768,
+                    settings: {
+                        slidesToShow: 2,
+                        slidesToScroll: 1,
+                        arrows: false,
+                        dots: true
+                    }
+                },
+                {
+                    breakpoint: 580,
+                    settings: {
+                        slidesToShow: 1,
+                        slidesToScroll: 1
+                    }
+                }
+            ]
+        });
+
+        /* --------------------------------------------------------
+            24. Image Slide - 2
+        --------------------------------------------------------- */
+        $('.ltn__image-slider-2-active').slick({
+            rtl: false,
+            arrows: true,
+            dots: false,
+            infinite: true,
+            speed: 300,
+            slidesToShow: 3,
+            slidesToScroll: 1,
+            centerMode: true,
+            centerPadding: '80px',
+            prevArrow: '<a class="slick-prev"><i class="fas fa-arrow-left" alt="Arrow Icon"></i></a>',
+            nextArrow: '<a class="slick-next"><i class="fas fa-arrow-right" alt="Arrow Icon"></i></a>',
+            responsive: [
+                {
+                    breakpoint: 992,
+                    settings: {
+                        arrows: false,
+                        dots: true,
+                        slidesToShow: 2,
+                        slidesToScroll: 1
+                    }
+                },
+                {
+                    breakpoint: 768,
+                    settings: {
+                        arrows: false,
+                        dots: true,
+                        slidesToShow: 2,
+                        slidesToScroll: 1,
+                        centerPadding: '50px'
+                    }
+                },
+                {
+                    breakpoint: 580,
+                    settings: {
+                        arrows: false,
+                        dots: true,
+                        slidesToShow: 1,
+                        slidesToScroll: 1,
+                        centerPadding: '50px'
+                    }
+                }
+            ]
+        });
+
+        /* --------------------------------------------------------
+            25. Image Slide - 3
+        --------------------------------------------------------- */
+        $('.ltn__image-slider-3-active').slick({
+            rtl: false,
+            arrows: true,
+            dots: false,
+            infinite: true,
+            speed: 300,
+            slidesToShow: 3,
+            slidesToScroll: 1,
+            centerMode: true,
+            centerPadding: '0px',
+            prevArrow: '<a class="slick-prev"><i class="fas fa-arrow-left" alt="Arrow Icon"></i></a>',
+            nextArrow: '<a class="slick-next"><i class="fas fa-arrow-right" alt="Arrow Icon"></i></a>',
+            responsive: [
+                {
+                    breakpoint: 992,
+                    settings: {
+                        arrows: false,
+                        dots: true,
+                        slidesToShow: 2,
+                        slidesToScroll: 1
+                    }
+                },
+                {
+                    breakpoint: 768,
+                    settings: {
+                        arrows: false,
+                        dots: true,
+                        slidesToShow: 2,
+                        slidesToScroll: 1,
+                    }
+                },
+                {
+                    breakpoint: 580,
+                    settings: {
+                        arrows: false,
+                        dots: true,
+                        slidesToShow: 1,
+                        slidesToScroll: 1
+                    }
+                }
+            ]
+        });
+
+
+        /* --------------------------------------------------------
+            26. Image Slide - 4 
+        --------------------------------------------------------- */
+        $('.ltn__image-slider-4-active').slick({
+            rtl: false,
+            arrows: true,
+            dots: false,
+            infinite: true,
+            speed: 300,
+            slidesToShow: 4,
+            slidesToScroll: 1,
+            centerMode: true,
+            centerPadding: '0px',
+            prevArrow: '<a class="slick-prev"><i class="fas fa-arrow-left" alt="Arrow Icon"></i></a>',
+            nextArrow: '<a class="slick-next"><i class="fas fa-arrow-right" alt="Arrow Icon"></i></a>',
+            responsive: [
+                {
+                    breakpoint: 1200,
+                    settings: {
+                        slidesToShow: 3,
+                        slidesToScroll: 1
+                    }
+                },
+                {
+                    breakpoint: 992,
+                    settings: {
+                        arrows: false,
+                        dots: true,
+                        slidesToShow: 2,
+                        slidesToScroll: 1
+                    }
+                },
+                {
+                    breakpoint: 768,
+                    settings: {
+                        arrows: false,
+                        dots: true,
+                        slidesToShow: 2,
+                        slidesToScroll: 1,
+                    }
+                },
+                {
+                    breakpoint: 580,
+                    settings: {
+                        arrows: false,
+                        dots: true,
+                        slidesToShow: 1,
+                        slidesToScroll: 1,
+                    }
+                }
+            ]
+        });
+
+
+        /* --------------------------------------------------------
+            27. Brand Logo
+        --------------------------------------------------------- */
+        if($('.ltn__brand-logo-active').length){
+            $('.ltn__brand-logo-active').slick({
+                rtl: false,
+                arrows: false,
+                dots: false,
+                infinite: true,
+                speed: 300,
+                slidesToShow: 5,
                 slidesToScroll: 1,
-                arrows: false,                
-                autoplay: false,
-                autoplaySpeed: 4000,
-                swipe: true } 
-            }] });
-
-    function slideanimate(elements) {
-      var animationEndEvents = 'webkitAnimationEnd mozAnimationEnd MSAnimationEnd oanimationend animationend';
-      elements.each(function () {
-        var $this = $(this);
-        var $animationDelay = $this.data('delay');
-        var $animationType = 'animated ' + $this.data('animation');
-        $this.css({
-          'animation-delay': $animationDelay,
-          '-webkit-animation-delay': $animationDelay });
-
-        $this.addClass($animationType).one(animationEndEvents, function () {
-          $this.removeClass($animationType);
-        });
-      });
-    }
- 
-
-/*------------------------------------------------------------------------------*/
-/* Animation on scroll: Number rotator
-/*------------------------------------------------------------------------------*/
-    
-    $("[data-appear-animation]").each(function() {
-    var self      = $(this);
-    var animation = self.data("appear-animation");
-    var delay     = (self.data("appear-animation-delay") ? self.data("appear-animation-delay") : 0);
-        
-        if( $(window).width() > 959 ) {
-            self.html('0');
-            self.waypoint(function(direction) {
-                if( !self.hasClass('completed') ){
-                    var from     = self.data('from');
-                    var to       = self.data('to');
-                    var interval = self.data('interval');
-                    self.numinate({
-                        format: '%counter%',
-                        from: from,
-                        to: to,
-                        runningInterval: 2000,
-                        stepUnit: interval,
-                        onComplete: function(elem) {
-                            self.addClass('completed');
+                prevArrow: '<a class="slick-prev"><i class="fas fa-arrow-left" alt="Arrow Icon"></i></a>',
+                nextArrow: '<a class="slick-next"><i class="fas fa-arrow-right" alt="Arrow Icon"></i></a>',
+                responsive: [
+                    {
+                        breakpoint: 992,
+                        settings: {
+                            slidesToShow: 4,
+                            slidesToScroll: 1
                         }
-                    });
-                }
-            }, { offset:'85%' });
-        } else {
-            if( animation == 'animateWidth' ) {
-                self.css('width', self.data("width"));
-            }
-        }
-    });
-
-
-   
-/*------------------------------------------------------------------------------*/
-/* Skillbar
-/*------------------------------------------------------------------------------*/
-    
-    $('.ttm-progress-bar').each(function() {
-        $(this).find('.progress-bar').width(0);
-    });
-
-    $('.ttm-progress-bar').each(function() {
-
-        $(this).find('.progress-bar').animate({
-            width: $(this).attr('data-percent')
-        }, 2000);
-    });
-
-
-    // Part of the code responsible for loading percentages:
-
-    $('.progress-bar-percent[data-percentage]').each(function () {
-
-        var progress = $(this);
-        var percentage = Math.ceil($(this).attr('data-percentage'));
-
-            $({countNum: 0}).animate({countNum: percentage}, {
-                duration: 2000,
-                easing:'linear',
-                step: function() {
-                // What todo on every count
-                    var pct = '';
-                    if(percentage === "0"){
-                        pct = Math.floor(this.countNum) + '%';
-                    }else{
-                        pct = Math.floor(this.countNum+1) + '%';
+                    },
+                    {
+                        breakpoint: 768,
+                        settings: {
+                            slidesToShow: 3,
+                            slidesToScroll: 1,
+                            arrows: false,
+                        }
+                    },
+                    {
+                        breakpoint: 580,
+                        settings: {
+                            slidesToShow: 2,
+                            slidesToScroll: 1
+                        }
                     }
-                    progress.text(pct);
-                }
-            });
-    });
-
-
-
-
-     jQuery(".ttm-circle-box").each(function () {
-
-        var circle_box = jQuery(this);
-        var fill_val = circle_box.data("fill");
-        var emptyFill_val = circle_box.data("emptyfill");
-        var thickness_val = circle_box.data("thickness");
-        var linecap_val = circle_box.data("linecap")
-        var fill_gradient = circle_box.data("gradient");
-        var startangle_val = (-Math.PI / 4) * 1.5;
-        if (fill_gradient != "") {
-            fill_gradient = fill_gradient.split("|");
-            fill_val = { gradient: [fill_gradient[0], fill_gradient[1]] };
-        }
-        if (typeof jQuery.fn.circleProgress == "function") {
-            var digit = circle_box.data("digit");
-            var before = circle_box.data("before");
-            var after = circle_box.data("after");
-            var digit = Number(digit);
-            var short_digit = digit / 100;
-            var size_val = circle_box.data("size");
-            jQuery(".ttm-circle", circle_box)
-                .circleProgress({ value: 0, duration: 8000, size: size_val, startAngle: startangle_val, 
-                    thickness: thickness_val, linecap:linecap_val, emptyFill: emptyFill_val, fill: fill_val })
-                .on("circle-animation-progress", function (event, progress, stepValue) {
-                    
-                    circle_box.find(".ttm-fid-number").html(before + Math.round(stepValue * 100) + after);
-                });
-        }
-        circle_box.waypoint(
-            function (direction) {
-
-                if (!circle_box.hasClass("completed")) {
-                    if (typeof jQuery.fn.circleProgress == "function") {
-                        jQuery(".ttm-circle", circle_box).circleProgress({ value: short_digit });
-                    }
-                    circle_box.addClass("completed");
-                }
-            },
-            { offset: "90%" }
-        );
-    });
-
-/*------------------------------------------------------------------------------*/
-/* Tab
-/*------------------------------------------------------------------------------*/ 
-
-    $('.ttm-tabs > .tabs').children('li').on('click', function(e) {  
-
-        var tab = $(this).closest('.ttm-tabs > .tabs > .tab'), 
-
-        index = $(this).closest('.ttm-tabs > .tabs > li').index();
-
-        $(this).parents('.ttm-tabs').children('.tabs').children('li.active ').removeClass('active'); 
-
-        $(this).addClass('active'); 
-        $(this).addClass('active').parents('.ttm-tabs').children('.content-tab').find('.content-inner').not('.content-inner:eq(' + index + ')').slideUp();
-        $(this).addClass('active').parents('.ttm-tabs').children('.content-tab').find('.content-inner:eq(' + index + ')').slideDown();
-
-        e.preventDefault();
-    });
-
-
-/*------------------------------------------------------------------------------*/
-/* Accordion
-/*------------------------------------------------------------------------------*/
-    $('.toggle').eq(0).addClass('active').find('.toggle-content').css('display','block');
-    $('.accordion .toggle-title').click(function(){
-        $(this).siblings('.toggle-content').slideToggle('fast');
-        $(this).parent().toggleClass('active');
-        $(this).parent().siblings().children('.toggle-content:visible').slideUp('fast');
-        $(this).parent().siblings().children('.toggle-content:visible').parent().removeClass('active');
-    });
-
-/*------------------------------------------------------------------------------*/
-/* Isotope
-/*------------------------------------------------------------------------------*/
-
-   $(function () {
-
-        if ( $().isotope ) {           
-            var $container = $('.isotope-project');
-            $container.imagesLoaded(function(){
-                $container.isotope({
-                    itemSelector: '',
-                    transitionDuration: '1s',
-                });
-            });
-
-            $('.portfolio-filter li').on('click',function() {                           
-                var selector = $(this).find("a").attr('data-filter');
-                $('.portfolio-filter li').removeClass('active');
-                $(this).addClass('active');
-                $container.isotope({ filter: selector });
-                return false;
+                ]
             });
         };
 
-   });
+        /* --------------------------------------------------------
+            28. Blog Gallery (Blog Page )
+        --------------------------------------------------------- */
+        if($('.ltn__blog-gallery-active').length){
+            $('.ltn__blog-gallery-active').slick({
+                rtl: false,
+                arrows: true,
+                dots: false,
+                infinite: true,
+                speed: 300,
+                slidesToShow: 1,
+                slidesToScroll: 1,
+                prevArrow: '<a class="slick-prev"><i class="fas fa-arrow-left" alt="Arrow Icon"></i></a>',
+                nextArrow: '<a class="slick-next"><i class="fas fa-arrow-right" alt="Arrow Icon"></i></a>'
+            });
+        };
+
+        /* --------------------------------------------------------
+            29. Countdown
+        --------------------------------------------------------- */
+        $('[data-countdown]').each(function () {
+
+            var $this = $(this),
+                finalDate = $(this).data('countdown');
+            if (!$this.hasClass('countdown-full-format')) {
+                $this.countdown(finalDate, function (event) {
+                    $this.html(event.strftime('<div class="single"><h1>%D</h1><p>Days</p></div> <div class="single"><h1>%H</h1><p>Hrs</p></div> <div class="single"><h1>%M</h1><p>Mins</p></div> <div class="single"><h1>%S</h1><p>Secs</p></div>'));
+                });
+            } else {
+                $this.countdown(finalDate, function (event) {
+                    $this.html(event.strftime('<div class="single"><h1>%Y</h1><p>Years</p></div> <div class="single"><h1>%m</h1><p>Months</p></div> <div class="single"><h1>%W</h1><p>Weeks</p></div> <div class="single"><h1>%d</h1><p>Days</p></div> <div class="single"><h1>%H</h1><p>Hrs</p></div> <div class="single"><h1>%M</h1><p>Mins</p></div> <div class="single"><h1>%S</h1><p>Secs</p></div>'));
+                });
+            }
+
+        });
 
 
-    
-/*------------------------------------------------------------------------------*/
-/* Prettyphoto
-/*------------------------------------------------------------------------------*/
-    $(function () {
+        /* --------------------------------------------------------
+            30. Counter Up
+        --------------------------------------------------------- */
+        // $('.ltn__counter').counterUp();
 
-         // Normal link
-        jQuery('a[href*=".jpg"], a[href*=".jpeg"], a[href*=".png"], a[href*=".gif"]').each(function(){
-            if( jQuery(this).attr('target')!='_blank' && !jQuery(this).hasClass('prettyphoto') && !jQuery(this).hasClass('modula-lightbox') ){
-                var attr = $(this).attr('data-gal');
-                if (typeof attr !== typeof undefined && attr !== false && attr!='prettyPhoto' ) {
-                    jQuery(this).attr('data-rel','prettyPhoto');
+        $('.counter').counterUp({
+          delay: 10,
+          time: 2000
+        });
+        $('.counter').addClass('animated fadeInDownBig');  
+        $('h3').addClass('animated fadeIn');
+        
+
+        /* --------------------------------------------------------
+            31. Instagram Feed
+        --------------------------------------------------------- */
+        if($('.ltn__instafeed').length){
+            $.instagramFeed({
+                'username': 'envato',
+                'container': ".ltn__instafeed",
+                'display_profile': false,
+                'display_biography': false,
+                'display_gallery': true,
+                'styling': false,
+                'items': 12,
+                "image_size": "600", /* 320 */
+            });
+            $('.ltn__instafeed').on("DOMNodeInserted", function (e) {
+                if (e.target.className == 'instagram_gallery') {
+                    $('.ltn__instafeed-slider-2 .' + e.target.className).slick({
+                        infinite: true,
+                        slidesToShow: 3,
+                        slidesToScroll: 1,
+                        prevArrow: '<a class="slick-prev"><i class="fas fa-arrow-left" alt="Arrow Icon"></i></a>',
+                        nextArrow: '<a class="slick-next"><i class="fas fa-arrow-right" alt="Arrow Icon"></i></a>',
+                        responsive: [{
+                            breakpoint: 767,
+                            settings: {
+                                slidesToShow: 2
+                            }
+                        }, {
+                            breakpoint: 575,
+                            settings: {
+                                slidesToShow: 1
+                            }
+                        }]
+                    })
+                    $('.ltn__instafeed-slider-1 .' + e.target.className).slick({
+                        infinite: true,
+                        slidesToShow: 5,
+                        slidesToScroll: 1,
+                        prevArrow: '<a class="slick-prev"><i class="fas fa-arrow-left" alt="Arrow Icon"></i></a>',
+                        nextArrow: '<a class="slick-next"><i class="fas fa-arrow-right" alt="Arrow Icon"></i></a>',
+                        responsive: [{
+                            breakpoint: 119,
+                            settings: {
+                                slidesToShow: 4
+                            }
+                        }, {
+                            breakpoint: 991,
+                            settings: {
+                                slidesToShow: 3
+                            }
+                        }, {
+                            breakpoint: 767,
+                            settings: {
+                                slidesToShow: 2
+                            }
+                        }, {
+                            breakpoint: 575,
+                            settings: {
+                                slidesToShow: 1
+                            }
+                        }]
+                    });
+                }
+            });
+        };
+
+
+        /* ---------------------------------------------------------
+            32. Price Slider
+        --------------------------------------------------------- */
+        $( ".slider-range" ).slider({
+            range: true,
+            min: 50,
+            max: 5000,
+            values: [ 50, 1500 ],
+            slide: function( event, ui ) {
+                $( ".amount" ).val( "$" + ui.values[ 0 ] + " - $" + ui.values[ 1 ] );
+            }
+        });
+        $( ".amount" ).val( "$" + $( ".slider-range" ).slider( "values", 0 ) +
+        " - $" + $( ".slider-range" ).slider( "values", 1 ) ); 
+
+
+        /* --------------------------------------------------------
+            33. Quantity plus minus
+        -------------------------------------------------------- */
+        $(".cart-plus-minus").prepend('<div class="dec qtybutton">-</div>');
+        $(".cart-plus-minus").append('<div class="inc qtybutton">+</div>');
+        $(".qtybutton").on("click", function() {
+            var $button = $(this);
+            var oldValue = $button.parent().find("input").val();
+            if ($button.text() == "+") {
+                var newVal = parseFloat(oldValue) + 1;
+            } 
+            else {
+                if (oldValue > 0) {
+                    var newVal = parseFloat(oldValue) - 1;
+                } 
+                else {
+                    newVal = 0;
                 }
             }
-        });     
-
-        jQuery('a[data-gal^="prettyPhoto"]').prettyPhoto();
-        jQuery('a.ttm_prettyphoto').prettyPhoto();
-        jQuery('a[data-gal^="prettyPhoto"]').prettyPhoto();
-        jQuery("a[data-gal^='prettyPhoto']").prettyPhoto({hook: 'data-gal'})
-
-    });
-    $(document).ready(function() {
-   
-});
-    
-
-/*------------------------------------------------------------------------------*/
-/* Slick_slider
-/*------------------------------------------------------------------------------*/
-    $(".slick_slider").slick({
-        speed: 1000,
-        infinite: true,
-        arrows: false,
-        dots: false,                   
-        autoplay: false,
-        centerMode : false,
-
-        responsive: [{
-
-            breakpoint: 1360,
-            settings: {
-            slidesToShow: 3,
-            slidesToScroll: 3
-            }
-        },
-        {
-            breakpoint: 1024,
-            settings: {
-            slidesToShow: 3,
-            slidesToScroll: 3
-            }
-        },
-        {
-            breakpoint: 680,
-            settings: {
-                slidesToShow: 2,
-                slidesToScroll: 2
-            }
-        },
-        {
-            breakpoint: 575,
-            settings: {
-                slidesToShow: 1,
-                slidesToScroll: 1
-            }
-        }]
-    });
-
-
-
-/*------------------------------------------------------------------------------*/
-/* One Page setting
-/*------------------------------------------------------------------------------*/  
-
-
-jQuery( document ).ready(function($) { 
-
-    if( jQuery('body').hasClass('ttm-one-page-site') ){
-    var sections = jQuery('.ttm-row, #ttm-home'),
-    nav          = jQuery('.site-header-menu, div.menu'),
-    nav_height   = jQuery('#site-navigation').data('sticky-height')-1;
-    
-        
-        jQuery(window).on('scroll', function () {
-                if( jQuery('body').scrollTop() < 5 ){
-                    nav.find('a').parent().removeClass('active');  
-                }                          
-                var cur_pos = jQuery(this).scrollTop(); 
-                sections.each(function() {
-                    var top = jQuery(this).offset().top - (nav_height+1),
-                    bottom = top + jQuery(this).outerHeight(); 
-                    if (cur_pos >= top && cur_pos <= bottom) {                        
-                        if( typeof jQuery(this) != 'undefined' && typeof jQuery(this).attr('id')!='undefined' && jQuery(this).attr('id')!='' ){
-                            var mainThis = jQuery(this);                            
-                            nav.find('a').removeClass('active');                       
-                            jQuery(this).addClass('active');
-                            var arr = mainThis.attr('id');                          
-                            
-                            // Applying active class
-                            nav.find('a').parent().removeClass('active');
-                            nav.find('a').each(function(){
-                                var menuAttr = jQuery(this).attr('href').split('#')[1];                     
-                                if( menuAttr == arr ){
-                                    jQuery(this).parent().addClass('active');
-                                }
-                            })
-                        }
-                    }
-                });
-            //}
+            $button.parent().find("input").val(newVal);
         });
-        
-        nav.find('a').on('click', function () {
-            var $el = jQuery(this), 
-            id = $el.attr('href');
-            var arr=id.split('#')[1];     
-            jQuery('html, body').animate({
-                scrollTop: jQuery('#'+ arr).offset().top - nav_height
-            }, 500);  
-            return false;
+
+
+	    /* --------------------------------------------------------
+            34. scrollUp active
+        -------------------------------------------------------- */
+        $.scrollUp({
+            scrollText: '<i class="fa fa-angle-up"></i>',
+            easingType: 'linear',
+            scrollSpeed: 900,
+            animation: 'fade'
         });
-        
-    }
-    
-} ); // END of  document.ready
 
-/*------------------------------------------------------------------------------*/
-/* Back to top
-/*------------------------------------------------------------------------------*/
-    
-    // ===== Scroll to Top ==== 
-    jQuery('#totop').hide();
 
-    $(window).on("scroll",function(){
-        if (jQuery(this).scrollTop() >= 500) {        // If page is scrolled more than 50px
-            jQuery('#totop').fadeIn(200);    // Fade in the arrow
-            jQuery('#totop').addClass('top-visible');
-        } else {
-            jQuery('#totop').fadeOut(200);   // Else fade out the arrow
-            jQuery('#totop').removeClass('top-visible');
+	    /* --------------------------------------------------------
+            35. Parallax active ( About Section  )
+        -------------------------------------------------------- */
+        /* 
+        > 1 page e 2 ta call korle 1 ta kaj kore 
+        */
+        if($('.ltn__parallax-effect-active').length){
+            var scene = $('.ltn__parallax-effect-active').get(0);
+            var parallaxInstance = new Parallax(scene);
         }
+
+
+	    /* --------------------------------------------------------
+            36. Testimonial Slider 4
+        -------------------------------------------------------- */
+        var ltn__testimonial_quote_slider = $('.ltn__testimonial-slider-4-active');
+        ltn__testimonial_quote_slider.slick({
+            autoplay: true,
+            autoplaySpeed: 3000,
+            dots: false,
+            arrows: true,
+            fade: true,
+            speed: 1500,
+            slidesToShow: 1,
+            slidesToScroll: 1,
+            prevArrow: '<a class="slick-prev"><i class="fas fa-arrow-left" alt="Arrow Icon"></i></a>',
+            nextArrow: '<a class="slick-next"><i class="fas fa-arrow-right" alt="Arrow Icon"></i></a>',
+            responsive: [
+                {
+                    breakpoint: 992,
+                    settings: {
+                        autoplay: false,
+                        slidesToShow: 1,
+                        slidesToScroll: 1,
+                        dots: true,
+                        arrows: false,
+                    }
+                },
+                {
+                    breakpoint: 768,
+                    settings: {
+                        autoplay: false,
+                        slidesToShow: 1,
+                        slidesToScroll: 1,
+                        dots: true,
+                        arrows: false,
+                    }
+                },
+                {
+                    breakpoint: 580,
+                    settings: {
+                        autoplay: false,
+                        slidesToShow: 1,
+                        slidesToScroll: 1,
+                        dots: true,
+                        arrows: false,
+                    }
+                }
+            ]
+        });
+
+        /* have to write code for bind it with static images */
+        ltn__testimonial_quote_slider.on('beforeChange', function (event, slick, currentSlide, nextSlide) {
+            var liIndex = nextSlide + 1;
+            var slideImageliIndex = (slick.slideCount == liIndex) ? liIndex - 1 : liIndex;
+            var cart = $('.ltn__testimonial-slider-4 .slick-slide[data-slick-index="' + slideImageliIndex + '"]').find('.ltn__testimonial-image');
+            var imgtodrag = $('.ltn__testimonial-quote-menu li:nth-child(' + liIndex + ')').find("img").eq(0);
+            if (imgtodrag) {
+                AnimateTestimonialImage(imgtodrag, cart)
+            }
+        });
+
+        /* have to write code for bind static image to slider accordion to slide index of images */
+        $(document).on('click', '.ltn__testimonial-quote-menu li', function (e) {
+            var el = $(this);
+            var elIndex = el.prevAll().length;
+            ltn__testimonial_quote_slider.slick('slickGoTo', elIndex);
+            var cart = $('.ltn__testimonial-slider-4 .slick-slide[data-slick-index="' + elIndex + '"]').find('.ltn__testimonial-image');
+            var imgtodrag = el.find("img").eq(0);
+            if (imgtodrag) {
+                AnimateTestimonialImage(imgtodrag, cart)
+            }
+
+        });
+
+
+
+        function AnimateTestimonialImage(imgtodrag, cart) {
+            var imgclone = imgtodrag.clone().offset({
+                top: imgtodrag.offset().top,
+                left: imgtodrag.offset().left
+            }).css({
+                'opacity': '0.5',
+                'position': 'absolute',
+                'height': '130px',
+                'width': '130px',
+                'z-index': '100'
+            }).addClass('quote-animated-image').appendTo($('body')).animate({
+                'top': cart.offset().top + 10,
+                'left': cart.offset().left + 10,
+                'width': 130,
+                'height': 130
+            }, 300);
+
+
+            imgclone.animate({
+                'visibility': 'hidden',
+                'opacity': '0'
+            }, function () {
+                $(this).remove()
+            });
+        }
+
+
+        /* --------------------------------------------------------
+            Newsletter Popup
+        -------------------------------------------------------- */
+        $('#ltn__newsletter_popup').modal('show');
+
+
+
+
     });
 
-    jQuery('#totop').on("click",function() {      // When arrow is clicked
-        jQuery('body,html').animate({
-            scrollTop : 0                       // Scroll to top of body
-        }, 500);
-        return false;
+
+    /* --------------------------------------------------------
+        36. Header menu sticky
+    -------------------------------------------------------- */
+    $(window).on('scroll',function() {    
+        var scroll = $(window).scrollTop();
+        if (scroll < 445) {
+            $(".ltn__header-sticky").removeClass("sticky-active");
+        } else {
+            $(".ltn__header-sticky").addClass("sticky-active");
+        }
+    }); 
+
+
+    $(window).on('load',function(){
+        /*-----------------
+            preloader
+        ------------------*/
+        if($('#preloader').length){
+            var preLoder = $("#preloader");
+            preLoder.fadeOut(1000);
+
+        };
+
+
     });
 
 
-
-});
+  
+})(jQuery);
