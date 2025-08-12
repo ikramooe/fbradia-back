@@ -39,12 +39,11 @@ class Index extends Template
 
                             Flexible::make('Slider')
                                 ->addLayout('item','item', [
-                                    Text::make('Title')
-                                        ->translatable(),
+                                    Text::make('Title'),    
+                                       
                                         
 
-                                    Trix::make('Description')
-                                        ->translatable(),
+                                    Trix::make('Description'),
                                       
 
                                     Image::make('Image')
@@ -57,112 +56,73 @@ class Index extends Template
                         ]),
 
                         Tab::make('About Section', [
-                            Text::make('Title 1','title1')
-                                ->translatable(),
+                            Text::make('Title 1','title_about_1'),
                                 
 
-                            Text::make('Title 2','title2')
-                                ->translatable(),
+                            Text::make('Title 2','title_about_2'),
                                 
 
-                            Trix::make('Text','text')
-                                ->translatable(),
+                            Trix::make('Text','text_about'),
                                 
 
-                            Image::make('Image 1','image1')
+                            Image::make('Image 1','image_about')
                                 ->disk('public')
                                 ->path('about-images')
                                 ->rules('image'),
 
-                            Image::make('Image 2','image2')
-                                ->disk('public')
-                                ->path('about-images')
-                                ->rules('image'),
+                           
                         ]),
 
-                        Tab::make('Partners Section', [
+                        Tab::make('Pourquoi nous choisir Section', [
 
-                            Text::make('Title','titlepartners')
-                                ->translatable(),
+                            Text::make('Title','title_choisir_nous'),
                             
-                            Flexible::make('Partners')
-                                ->addLayout('Partner', 'partner', [
-                                    Text::make('Name')
+                            Trix::make('Text','text_choisir_nous'),
+                            Image::make('Image','image_choisir_nous1')
+                                ->disk('public')
+                                ->path('choisir-nous-images')
+                                ->rules('image'),
+
+                            Image::make('Image','image_choisir_nous2')
+                                ->disk('public')
+                                ->path('choisir-nous-images')
+                                ->rules('image'),
+                            
+                            Flexible::make('features')
+                                ->addLayout('feature', 'feature', [
+                                    Text::make('Title')
                                        ,
 
-                                    Text::make('Link'),
+                                    Text::make('Description'),
                                        
 
-                                    Image::make('Logo')
+                                    Image::make('Image')
                                         ->disk('public')
-                                        ->path('partners-logos')
+                                        ->path('choisir-nous-images')
                                         ->rules('image'),
-                                ])
-                               
-                                ->button('Add Partner'),
-                        ]),
-
-                        Tab::make('Features Section', [
-                            Text::make('Title 1','titlefeatures')
-                                ->translatable(),
-                                
-
-                            Text::make('Title 2','titlefeatures2')
-                                ->translatable(),
-                                
-
-                            Trix::make('Text','textfeatures')
-                                ->translatable(),
-                                
-
-                            Image::make('Main Image','mainimagefeatures')
-                                ->disk('public')
-                                ->path('features-images')
-                                ->rules('image'),
-
-                            Flexible::make('Features','features')
-                                ->addLayout('Feature', 'feature', [
-                                    Text::make('Title')
-                                        ->translatable(),
-                                        
-
-                                    Trix::make('Description')
-                                        ->translatable(),
-                                        
                                 ])
                                
                                 ->button('Add Feature'),
                         ]),
 
-                        Tab::make('Content Section', [
-                            Text::make('Section Title','sectiontitle')
-                                ->translatable(),
-                                
+                      
 
-                            Trix::make('Section Text','sectiontext')
-                                ->translatable(),
-                                
-
-                            Image::make('Section Image','sectionimage')
-                                ->disk('public')
-                                ->path('content-section-images')
-                                ->rules('image'),
-                        ]),
+                     
 
                         Tab::make('Services Section', [
                             Text::make('Title','title_section_services')
-                                ->translatable(),
+                               ,
                                 
                             Trix::make('Text','text_section_services')
-                                ->translatable(),
+                               ,
                                 
                             Flexible::make('Services','services')
                                 ->addLayout('Service', 'service', [
-                                    Text::make('Title','title_service')
-                                        ->translatable(),
+                                    Text::make('Title','title_service'),
+                                       
                                          
-                                    Trix::make('Description','description_service')
-                                        ->translatable(),
+                                    Trix::make('Description','description_service'),
+                                       
 
                                     Image::make('Image','image_service')
                                         ->disk('public')
@@ -172,6 +132,29 @@ class Index extends Template
                                 ])
                                
                                 ->button('Add Service'),
+                        ]),
+
+                        
+                        Tab::make('Partners Section', [
+                            Text::make('Title','title_section_partners')
+                               ,
+                                
+                          
+                                
+                            Flexible::make('Partners','partners')
+                                ->addLayout('Partner', 'partner', [
+                                    Text::make('Title','title_partner'),
+                                       
+                                
+                
+                                    Image::make('Image','image_partner')
+                                        ->disk('public')
+                                        ->path('partners-images')
+                                        ->rules('image'),
+                                        
+                                ])
+                               
+                                ->button('Add Partner'),
                         ]),
                     ])
                 ];

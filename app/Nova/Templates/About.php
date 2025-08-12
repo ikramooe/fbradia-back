@@ -28,11 +28,11 @@ class About extends Template {
     
                 'Main Content' => [
                     Text::make('Title')
-                        ->translatable()
+                       
                         ->rules('required'),
     
                     Trix::make('Text')
-                        ->translatable()
+                        
                         ->rules('required'),
     
                     Image::make('Image')
@@ -41,23 +41,30 @@ class About extends Template {
                         ->rules('required', 'image'),
                 ],
     
-                'Team Section' => [
-                    Flexible::make('Team Members')
-                        ->addLayout('Team Member', 'team-member', [
-                            Text::make('Name')
-                                ->translatable()
+                
+                'Services Section' => [
+                    Text::make('Title','title_services')
+                        ->rules('required'),
+                
+                    Text::make('Title','title_services_2')
+                        ->rules('required'),
+
+                    Flexible::make('Services')
+                        ->addLayout('Service', 'service', [
+                            Text::make('Title')
+                                
                                 ->rules('required'),
     
-                            Text::make('Position')
-                                ->translatable()
+                            Trix::make('Description')
+                                
                                 ->rules('required'),
     
-                            Image::make('Profile Image')
+                            Image::make('Image')
                                 ->disk('public')
-                                ->path('team-images')
+                                ->path('services-images')
                                 ->rules('required', 'image'),
                         ])
-                        ->button('Add Team Member'),
+                        ->button('Add Service'),
                 ],
             ]),
         ];

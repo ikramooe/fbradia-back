@@ -1,421 +1,533 @@
-<!DOCTYPE html>
-<html lang="{{ app()->getLocale() }}" dir="{{ app()->getLocale() === 'ar' ? 'rtl' : 'ltr' }}">
+<!doctype html>
+<html class="no-js" lang="zxx">
 
-<!-- Mirrored from themetechmount.com/html/invess/header-classic.html by HTTrack Website Copier/3.x [XR&CO'2014], Sun, 11 May 2025 22:57:08 GMT -->
-<!-- Added by HTTrack -->
-<meta http-equiv="content-type" content="text/html;charset=UTF-8" /><!-- /Added by HTTrack -->
 
+<!-- Mirrored from tunatheme.com/tf/html/autixir-preview/autixir/index-3.html by HTTrack Website Copier/3.x [XR&CO'2014], Tue, 29 Jul 2025 10:07:15 GMT -->
 <head>
     <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="keywords" content="HTML5 Template" />
-    <meta name="keywords"
-        content=" Invess - Accounting & Finance Consulting Html Template, Invess - Accounting & Finance Consulting WordPress theme, Axacus - Business Agency WordPress Theme, Axacus - Business Agency HTML Template, Zippco - Business and Finance Consulting WordPress Theme, Fondex - Business and Finance Consulting Html Template, unlimited colors available, ui/ux, ui/ux design, best html template, html template, html, woocommerce, shopify, prestashop, eCommerce, react js, react template, JavaScript, best CSS theme,css3, elementor theme, latest premium themes 2024, latest premium templates 2024, Preyan Technosys Pvt.Ltd, cymol themes, themetech mount, Web 3.0, multi-theme, website theme and template, woocommerce, bootstrap template, web templates, responsive theme, business, accountant, advisor, advisory, agency, broker, business, consulting, corporate, elementor theme, finance, insurance, investment, consulting firms, business advisors, corporate website, finance insurance, investment agency, accounting service, business and finance, finance services, legal adviser, Marketing advisors, multipurpose template, professional services">
-    <meta name="description" content="Invess - HTML Template" />
-    <meta name="author" content="https://www.themetechmount.com/" />
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Ordre National Des Experts Comptables</title>
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <title>FBRadiateurs</title>
+    <meta name="robots" content="noindex, follow" />
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
-    <!-- favicon icon -->
-    <link rel="shortcut icon" href="images/favicon-32x32.png" />
-
-    <!-- bootstrap -->
-    <link rel="stylesheet" type="text/css" href="{{ asset('css/bootstrap.min.css') }}" />
-
-    <!-- animate -->
-    <link rel="stylesheet" type="text/css" href="{{ asset('css/animate.css') }}" />
-
-    <!-- flaticon -->
-    <link rel="stylesheet" type="text/css" href="{{ asset('css/flaticon.css') }}" />
-
-    <!-- fontawesome -->
-    <link rel="stylesheet" type="text/css" href="{{ asset('css/font-awesome.css') }}" />
-
-    <!-- themify -->
-    <link rel="stylesheet" type="text/css" href="{{ asset('css/themify-icons.css') }}" />
-
-    <!-- slick -->
-    <link rel="stylesheet" type="text/css" href="{{ asset('css/slick.css') }}">
-
-    <!-- prettyphoto -->
-    <link rel="stylesheet" type="text/css" href="{{ asset('css/prettyPhoto.css') }}">
-
-    <!-- shortcodes -->
-    <link rel="stylesheet" type="text/css" href="{{ asset('css/shortcode.css') }}" />
-
-    <!-- main -->
-    <link rel="stylesheet" type="text/css" href="{{ asset('css/main.css') }}" />
-
-    <!-- megamenu -->
-    <link rel="stylesheet" type="text/css" href="{{ asset('css/megamenu.css') }}" />
-
-    <!-- responsive -->
-    <link rel="stylesheet" type="text/css" href="{{ asset('css/responsive.css') }}" />
-    <!-- language switcher -->
-    <link rel="stylesheet" type="text/css" href="{{ asset('css/language-switcher.css') }}" />
-
-    <!--Start of Tawk.to Script-->
-<script type="text/javascript">
-    var Tawk_API=Tawk_API||{}, Tawk_LoadStart=new Date();
-    (function(){
-    var s1=document.createElement("script"),s0=document.getElementsByTagName("script")[0];
-    s1.async=true;
-    s1.src='https://embed.tawk.to/628a2914b0d10b6f3e7372be/1g3lr0un0';
-    s1.charset='UTF-8';
-    s1.setAttribute('crossorigin','*');
-    s0.parentNode.insertBefore(s1,s0);
-    })();
-    </script>
-    <!--End of Tawk.to Script-->
-
-    <script src="https://cdn.counter.dev/script.js" data-id="aecb578a-d265-4cff-b542-e48431114713" data-utcoffset="1"></script>
-
+    <!-- Place favicon.png in the root directory -->
+    <link rel="shortcut icon" href="img/logo.jpg" type="image/x-icon" />
+    <!-- Font Icons css -->
+    <link rel="stylesheet" href="css/font-icons.css">
+    <!-- plugins css -->
+    <link rel="stylesheet" href="css/plugins.css">
+    <!-- Main Stylesheet -->
+    <link rel="stylesheet" href="css/style.css">
+    <!-- Responsive css -->
+    <link rel="stylesheet" href="css/responsive.css">
 </head>
 
 <body>
-    <!--page start-->
-    <div class="page">
-        <!-- preloader start -->
-        <div id="preloader" class="blobs-wrapper">
-            <div class="ttm-bgcolor-skincolor loader"></div>
-        </div>
-        <!-- preloader end -->
+    <!--[if lte IE 9]>
+        <p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="https://browsehappy.com/">upgrade your browser</a> to improve your experience and security.</p>
+    <![endif]-->
 
-        <!-- Popup Modal -->
-        @php
-            $popup = Page::option('popup');
-        @endphp
+    <!-- Add your site or application content here -->
 
-        @if ($popup && $popup->afficher)
-            <div class="popup-modal" id="popupModal">
-                <div class="popup-content">
-                    <span class="close-popup">&times;</span>
-                    <div class="popup-image">
-                        @if ($popup->image)
-                            <img src="{{ asset('storage/' . $popup->image) }}" alt="Popup Image">
-                        @endif
-                    </div>
-                    <div class="popup-text">
-                        <?php echo json_decode($popup->text)->$locale; ?>
-                    </div>
-                    @if ($popup->link)
-                        <div class="popup-button">
-                            <a href="{{ $popup->link }}"
-                                class="ttm-btn ttm-btn-size-md ttm-btn-shape-rounded ttm-btn-style-fill ttm-btn-color-skincolor">
-                                @lang('Learn More')
-                            </a>
+<!-- Body main wrapper start -->
+<div class="body-wrapper">
+
+    <!-- HEADER AREA START (header-4) -->
+    <header class="ltn__header-area ltn__header-4 ltn__header-6 ltn__header-transparent gradient-color-2">
+        <!-- ltn__header-top-area start -->
+        <div class="ltn__header-top-area top-area-color-white">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-7">
+                        <div class="ltn__top-bar-menu">
+                            <ul>
+                                <li><a href="mailto:info@webmail.com?Subject=Flower%20greetings%20to%20you"><i class="icon-mail"></i> info@webmail.com</a></li>
+                                <li><a href="locations.html"><i class="icon-placeholder"></i> 15/A, Nest Tower, NYC</a></li>
+                            </ul>
                         </div>
-                    @endif
+                    </div>
+                    <div class="col-md-5">
+                        <div class="top-bar-right text-end">
+                            <div class="ltn__top-bar-menu">
+                                <ul>
+                                    <li>
+                                        <!-- ltn__language-menu -->
+                                       
+                                    </li>
+                                    <li>
+                                        <!-- ltn__social-media -->
+                                        <div class="ltn__social-media">
+                                            <ul>
+                                                <li><a href="#" title="Facebook"><i class="fab fa-facebook-f"></i></a></li>
+                                                <li><a href="#" title="Twitter"><i class="fab fa-twitter"></i></a></li>
+                                                
+                                                <li><a href="#" title="Instagram"><i class="fab fa-instagram"></i></a></li>
+                                                <li><a href="#" title="Dribbble"><i class="fab fa-dribbble"></i></a></li>
+                                            </ul>
+                                        </div>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
-
-            <style>
-                .popup-modal {
-                    display: none;
-                    position: fixed;
-                    top: 0;
-                    left: 0;
-                    width: 100%;
-                    height: 100%;
-                    background-color: rgba(0, 0, 0, 0.8);
-                    z-index: 9999;
-                }
-
-                .popup-content {
-                    position: relative;
-                    background-color: white;
-                    margin: 15% auto;
-                    padding: 20px;
-                    width: 80%;
-                    max-width: 600px;
-                    border-radius: 8px;
-                    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-                }
-
-                .close-popup {
-                    position: absolute;
-                    right: 10px;
-                    top: 5px;
-                    font-size: 28px;
-                    font-weight: bold;
-                    cursor: pointer;
-                    color: #666;
-                }
-
-                .popup-image {
-                    text-align: center;
-                    margin-bottom: 20px;
-                }
-
-                .popup-image img {
-                    max-width: 100%;
-                    height: auto;
-                    border-radius: 4px;
-                }
-
-                .popup-text {
-                    margin-bottom: 20px;
-                }
-
-                .popup-button {
-                    text-align: center;
-                }
-            </style>
-
-            <script>
-                // Show modal when page loads
-                document.addEventListener('DOMContentLoaded', function() {
-                    document.getElementById('popupModal').style.display = 'block';
-                });
-
-                // Close modal when clicking the X
-                document.querySelector('.close-popup').addEventListener('click', function() {
-                    document.getElementById('popupModal').style.display = 'none';
-                });
-
-                // Close modal when clicking outside
-                window.onclick = function(event) {
-                    var modal = document.getElementById('popupModal');
-                    if (event.target == modal) {
-                        modal.style.display = 'none';
-                    }
-                };
-            </script>
-
-        @endif
-
-        <!--header start-->
-        <header id="masthead" class="header ttm-header-style-02">
-            <!-- ttm-topbar-wrapper -->
-            <div class="top_bar ttm-bgcolor-darkgrey clearfix">
-                <div class="container">
-                    <div class="row no-gutters">
-                        <div class="col-md-12 d-flex flex-row align-items-center justify-content-center">
-                            <!-- Language Switcher -->
-                            <div class="language-switcher mr-auto">
-                                <select class="form-control" onchange="window.location.href=this.value"
-                                    style="color: white; border:1px solid white">
-                                    <option value="{{ route('locale', ['locale' => 'en']) }}"
-                                        {{ app()->getLocale() === 'en' ? 'selected' : '' }} style="color: white;">
-                                        English</option>
-                                    <option value="{{ route('locale', ['locale' => 'ar']) }}"
-                                        {{ app()->getLocale() === 'ar' ? 'selected' : '' }} style="color: white;">
-                                        العربية</option>
-                                    <option value="{{ route('locale', ['locale' => 'fr']) }}"
-                                        {{ app()->getLocale() === 'fr' ? 'selected' : '' }} style="color: white;">
-                                        Français</option>
-                                </select>
-                            </div>
-                            <div class="top_bar_contact_item font-weight-bold padding_left15">
-                                <div class="top_bar_icon"><i class="fa fa-map-o"></i>
-                                </div>@lang('Adresse'): <span
-                                    class="font-weight-500 text-white">{{ isset(json_decode(Page::option('contact')->address)->$locale) ? json_decode(Page::option('contact')->address)->$locale : '' }}</span>
-                            </div>
-                            <div class="top_bar_contact_item font-weight-bold">
-                                <div class="top_bar_icon ttm-highlight-right"><i class="ti ti-email"></i></div>
-                                @lang('Email'): <a href="mailto:{{ Page::option('contact')->email ?? '' }}"
-                                    class="font-weight-500 text-white">{{ Page::option('contact')->email ?? '' }}</a>
-                            </div>
-
-                        </div>
-                    </div>
-                </div>
-            </div><!-- ttm-topbar end -->
-
-            <!-- site-header-menu -->
-            <div id="site-header-menu" class="site-header-menu ttm-bgcolor-transpatant">
-                <div class="site-header-menu-inner ttm-stickable-header ">
-                    <div class="container">
-                        <div class="row">
-                            <div class="col">
-                                <!--site-navigation -->
-                                <div class="site-navigation d-flex flex-row align-items-center">
-                                    <!-- site-branding -->
-                                    <div class="site-branding mr-auto">
-                                        <a class="home-link" href="/" title="EC" rel="home">
-                                            <img id="logo-img" class="img-center standardlogo"
-                                                src="{{ asset('images/logo.png') }}" alt="logo-img">
-                                        </a>
-                                    </div>
-
-
-
-                                    <div class="btn-show-menu-mobile menubar menubar--squeeze">
-                                        <span class="menubar-box">
-                                            <span class="menubar-inner"></span>
-                                        </span>
-                                    </div>
-                                    <!-- menu -->
-                                    <nav class="main-menu menu-mobile" id="menu">
-                                        <ul class="menu">
-                                            @foreach (App\Models\Menu::all() as $item)
-                                                @php
-                                                    $pages = $item->pages;
-                                                @endphp
-
-                                                <li
-                                                    class="mega-menu-item {{ request()->url() === url($item->url) ? 'active' : '' }}">
-                                                    @if (!empty($pages) && count($pages) === 1)
-                                                        {{-- Only one page: link directly to it --}}
-                                                        <a href="/pages/{{ $pages[0]->getTranslation('title', 'fr') }}"
-                                                            class="mega-menu-link">
-                                                            {{ $item->title }}
-                                                        </a>
-                                                    @elseif (!empty($pages) && count($pages) > 1)
-                                                        {{-- Multiple pages: show dropdown --}}
-                                                        <a href="#"
-                                                            class="mega-menu-link">{{ $item->title }}</a>
-                                                        <ul class="mega-submenu">
-                                                            @foreach ($pages as $page)
-                                                                <li>
-                                                                    <a
-                                                                        href="/pages/{{ $page->getTranslation('title', 'fr') }}">{{ $page->title }}</a>
-                                                                </li>
-                                                            @endforeach
-                                                        </ul>
-                                                    @else
-                                                        {{-- No pages: link to the item URL --}}
-                                                        <a href="{{ $item->url }}"
-                                                            class="mega-menu-link">{{ $item->title }}</a>
-                                                    @endif
-                                                </li>
-                                            @endforeach
-
-                                        </ul>
-                                    </nav>
-
-
-                                </div><!-- site-navigation end-->
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div><!-- site-header-menu end-->
-        </header>
-        <!-- Banner -->
-        @yield('content')
-        <!--footer start-->
-        <footer class="footer widget-footer ttm-bgcolor-darkgrey ttm-bg clearfix">
-            <div class="ttm-row-wrapper-bg-layer ttm-bg-layer"></div>
+        </div>
+        <!-- ltn__header-top-area end -->
+        <!-- ltn__header-middle-area start -->
+        <div class="ltn__header-middle-area ltn__header-sticky ltn__sticky-bg-black ltn__logo-right-menu-option">
             <div class="container">
-
-                <div class="second-footer">
-                    <div class="row">
-                        <div class="widget-area col-xs-12 col-sm-6 col-md-6 col-lg-4">
-                            <div class="widget widget_text  clearfix">
-                                <div class="footer-logo">
-                                    <img id="logo-img-1" class="img-center standardlogo"
-                                        src="{{ asset('images/logo.png') }}" alt="logo-img">
-                                </div>
-                                <p>Invess offers an extensive range of professional services and a high degree of
-                                    spe-cialization. We serves both private & public traded companies. We bring over 35
-                                    years of experience.</p>
+                <div class="row">
+                    <div class="col">
+                        <div class="site-logo-wrap">
+                            <div class="site-logo">
+                                <a href="index.html"><img src="img/logo.jpg" alt="Logo" style="width: 300px;"></a>
                             </div>
-                            <div class="widget d-flex padding_top15 res-575-margin_bottom20">
-                                <h3 class="widget-title margin_right10">@lang('Social Share'):</h3>
-                                <div class="social-icons">
-                                    <ul class="list-inline d-flex">
-                                        <li>
-                                            <a class="tooltip-top" target="_blank"
-                                                href="{{ Page::option('contact')->facebook ?? '' }}"
-                                                data-tooltip="Facebook"><i class="fa fa-facebook"></i></a>
-                                        </li>
-                                        <li>
-                                            <a class="tooltip-top" target="_blank"
-                                                href="{{ Page::option('contact')->twitter ?? '' }}"
-                                                data-tooltip="Twitter"><i class="fa fa-twitter"></i></a>
-                                        </li>
-                                        <li>
-                                            <a class=" tooltip-top" target="_blank"
-                                                href="{{ Page::option('contact')->instagram ?? '' }}"
-                                                data-tooltip="instagram"><i class="fa fa-instagram"></i></a>
-                                        </li>
-
+                            <div class="get-support clearfix get-support-color-white">
+                                <div class="get-support-icon">
+                                    <i class="icon-call"></i>
+                                </div>
+                                <div class="get-support-info">
+                                  
+                                    <h4><a href="tel:+123456789">123-456-789-10</a></h4>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col header-menu-column menu-color-white">
+                        <div class="header-menu d-none d-xl-block">
+                            <nav>
+                                <div class="ltn__main-menu">
+                                    <ul>
+                                        <li class="menu-icon"><a href="/index.html">Home</a></li>
+                                        <li class="menu-icon"><a href="/about.html">About</a></li>
+                                        <li class="menu-icon"><a href="/shop.html">Shop</a></li>
+                                        <li class="menu-icon"><a href="/contact.html">Contact</a></li>
+                                        <li class="special-link"><a href="/contact.html">GET APPOINTMENT</a></li>
                                     </ul>
                                 </div>
-                            </div>
+                            </nav>
                         </div>
-                        <div class="widget-area col-xs-12 col-sm-6 col-md-6 col-lg-4">
-                            <div class="widget widget_nav_menu clearfix">
-                                <h3 class="widget-title">Explore</h3>
-                                <ul class="menu-footer-quick-links">
-                                    <li><a href="about-us-2.html">@lang('About Us')</a></li>
-                                    <li><a href="/blog">@lang('Blog')</a></li>
-                                    <li><a href="/contact">@lang('Contact Us')</a></li>
+                    </div>
+                    <!-- Mobile Menu Button -->
+                    <div class="mobile-menu-toggle menu-btn-white menu-btn-border--- d-xl-none">
+                        <a href="#ltn__utilize-mobile-menu" class="ltn__utilize-toggle">
+                            <svg viewBox="0 0 800 600">
+                                <path d="M300,220 C300,220 520,220 540,220 C740,220 640,540 520,420 C440,340 300,200 300,200" id="top"></path>
+                                <path d="M300,320 L540,320" id="middle"></path>
+                                <path d="M300,210 C300,210 520,210 540,210 C740,210 640,530 520,410 C440,330 300,190 300,190" id="bottom" transform="translate(480, 320) scale(1, -1) translate(-480, -318) "></path>
+                            </svg>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- ltn__header-middle-area end -->
+    </header>
+    <!-- HEADER AREA END -->
+
+    <!-- Utilize Cart Menu Start -->
+    <div id="ltn__utilize-cart-menu" class="ltn__utilize ltn__utilize-cart-menu">
+        <div class="ltn__utilize-menu-inner ltn__scrollbar">
+            <div class="ltn__utilize-menu-head">
+                <span class="ltn__utilize-menu-title">Cart</span>
+                <button class="ltn__utilize-close">×</button>
+            </div>
+            <div class="mini-cart-product-area ltn__scrollbar">
+                <div class="mini-cart-item clearfix">
+                    <div class="mini-cart-img">
+                        <a href="#"><img src="img/product/1.png" alt="Image"></a>
+                        <span class="mini-cart-item-delete"><i class="icon-cancel"></i></span>
+                    </div>
+                    <div class="mini-cart-info">
+                        <h6><a href="#">Wheel Bearing Retainer</a></h6>
+                        <span class="mini-cart-quantity">1 x $65.00</span>
+                    </div>
+                </div>
+                <div class="mini-cart-item clearfix">
+                    <div class="mini-cart-img">
+                        <a href="#"><img src="img/product/2.png" alt="Image"></a>
+                        <span class="mini-cart-item-delete"><i class="icon-cancel"></i></span>
+                    </div>
+                    <div class="mini-cart-info">
+                        <h6><a href="#">Brake Conversion Kit</a></h6>
+                        <span class="mini-cart-quantity">1 x $85.00</span>
+                    </div>
+                </div>
+                <div class="mini-cart-item clearfix">
+                    <div class="mini-cart-img">
+                        <a href="#"><img src="img/product/3.png" alt="Image"></a>
+                        <span class="mini-cart-item-delete"><i class="icon-cancel"></i></span>
+                    </div>
+                    <div class="mini-cart-info">
+                        <h6><a href="#">OE Replica Wheels</a></h6>
+                        <span class="mini-cart-quantity">1 x $92.00</span>
+                    </div>
+                </div>
+                <div class="mini-cart-item clearfix">
+                    <div class="mini-cart-img">
+                        <a href="#"><img src="img/product/4.png" alt="Image"></a>
+                        <span class="mini-cart-item-delete"><i class="icon-cancel"></i></span>
+                    </div>
+                    <div class="mini-cart-info">
+                        <h6><a href="#">Shock Mount Insulator</a></h6>
+                        <span class="mini-cart-quantity">1 x $68.00</span>
+                    </div>
+                </div>
+            </div>
+            <div class="mini-cart-footer">
+                <div class="mini-cart-sub-total">
+                    <h5>Subtotal: <span>$310.00</span></h5>
+                </div>
+                <div class="btn-wrapper">
+                    <a href="cart.html" class="theme-btn-1 btn btn-effect-1">View Cart</a>
+                    <a href="cart.html" class="theme-btn-2 btn btn-effect-2">Checkout</a>
+                </div>
+                <p>Free Shipping on All Orders Over $100!</p>
+            </div>
+
+        </div>
+    </div>
+    <!-- Utilize Cart Menu End -->
+
+    <!-- Utilize Mobile Menu Start -->
+    <div id="ltn__utilize-mobile-menu" class="ltn__utilize ltn__utilize-mobile-menu">
+        <div class="ltn__utilize-menu-inner ltn__scrollbar">
+            <div class="ltn__utilize-menu-head">
+                <div class="site-logo">
+                    <a href="index.html"><img src="img/logo.jpg" alt="Logo"></a>
+                </div>
+                <button class="ltn__utilize-close">×</button>
+            </div>
+            <div class="ltn__utilize-menu-search-form">
+                <form action="#">
+                    <input type="text" placeholder="Search...">
+                    <button><i class="fas fa-search"></i></button>
+                </form>
+            </div>
+            <div class="ltn__utilize-menu">
+                <ul>
+                    <li><a href="#">Home</a>
+                        <ul class="sub-menu">
+                            <li><a href="index.html">Home Style - 01</a></li>
+                            <li><a href="index-2.html">Home Style - 02</a></li>
+                            <li><a href="index-3.html">Home Style - 03</a></li>
+                            <li><a href="index-4.html">Home Style - 04</a></li>
+                            <li><a href="index-5.html">Home Style - 05 <span class="menu-item-badge">video</span></a></li>
+                            <li><a href="index-6.html">Home Style - 06</a></li>
+                            <li><a href="index-7.html">Home Style - 07</a></li>
+                            <li><a href="index-8.html">Home Style - 08 <span class="menu-item-badge">Map</span></a></li>
+                            <li><a href="index-9.html">Home Style - 09</a></li>
+                            <li><a href="index-10.html">Home Style - 10</a></li>
+                            <li><a href="index-11.html">Home Style - 11</a></li>
+                            <li><a href="index-12.html">Home Style - 12</a></li>
+                            <li><a href="index-13.html">Home Style - 13</a></li>
+                            <li><a href="index-14.html">Home Style - 14</a></li>
+                            <li><a href="index-15.html">Home Style - 15</a></li>
+                            <li><a href="index-16.html">Home Style - 16</a></li>
+                        </ul>
+                    </li>
+                    <li><a href="#">About</a>
+                        <ul class="sub-menu">
+                            <li><a href="about.html">About</a></li>
+                            <li><a href="service.html">Services</a></li>
+                            <li><a href="service-details.html">Service Details</a></li>
+                            <li><a href="portfolio.html">Portfolio</a></li>
+                            <li><a href="portfolio-2.html">Portfolio - 02</a></li>
+                            <li><a href="portfolio-details.html">Portfolio Details</a></li>
+                            <li><a href="team.html">Team</a></li>
+                            <li><a href="team-details.html">Team Details</a></li>
+                            <li><a href="faq.html">FAQ</a></li>
+                            <li><a href="locations.html">Google Map Locations</a></li>
+                        </ul>
+                    </li>
+                    <li><a href="#">Shop</a>
+                        <ul class="sub-menu">
+                            <li><a href="shop.html">Shop</a></li>
+                            <li><a href="shop-grid.html">Shop Grid</a></li>
+                            <li><a href="shop-left-sidebar.html">Shop Left sidebar</a></li>
+                            <li><a href="shop-right-sidebar.html">Shop right sidebar</a></li>
+                            <li><a href="product-details.html">Shop details </a></li>
+                            <li><a href="product-details-2.html">Shop details 02</a></li>
+                            <li><a href="shop-car-grid.html">Shop Car Grid</a></li>
+                            <li><a href="shop-car-left-sidebar.html">Shop Car Left sidebar</a></li>
+                            <li><a href="shop-car-right-sidebar.html">Shop Car right sidebar</a></li>
+                            <li><a href="product-details-3.html">Shop Car details </a></li>
+                            <li><a href="cart.html">Cart</a></li>
+                            <li><a href="wishlist.html">Wishlist</a></li>
+                            <li><a href="checkout.html">Checkout</a></li>
+                            <li><a href="order-tracking.html">Order Tracking</a></li>
+                            <li><a href="account.html">My Account</a></li>
+                            <li><a href="login.html">Sign in</a></li>
+                            <li><a href="register.html">Register</a></li>
+                        </ul>
+                    </li>
+                    <li><a href="#">News</a>
+                        <ul class="sub-menu">
+                            <li><a href="blog.html">News</a></li>
+                            <li><a href="blog-grid.html">News Grid</a></li>
+                            <li><a href="blog-left-sidebar.html">News Left sidebar</a></li>
+                            <li><a href="blog-right-sidebar.html">News Right sidebar</a></li>
+                            <li><a href="blog-details.html">News details</a></li>
+                        </ul>
+                    </li>
+                    <li><a href="#">Pages</a>
+                        <ul class="sub-menu">
+                            <li><a href="about.html">About</a></li>
+                            <li><a href="service.html">Services</a></li>
+                            <li><a href="service-details.html">Service Details</a></li>
+                            <li><a href="portfolio.html">Portfolio</a></li>
+                            <li><a href="portfolio-2.html">Portfolio - 02</a></li>
+                            <li><a href="portfolio-details.html">Portfolio Details</a></li>
+                            <li><a href="team.html">Team</a></li>
+                            <li><a href="team-details.html">Team Details</a></li>
+                            <li><a href="faq.html">FAQ</a></li>
+                            <li><a href="history.html">History</a></li>
+                            <li><a href="/contact.html">Appointment</a></li>
+                            <li><a href="locations.html">Google Map Locations</a></li>
+                            <li><a href="404.html">404</a></li>
+                            <li><a href="contact.html">Contact</a></li>
+                            <li><a href="coming-soon.html">Coming Soon</a></li>
+                        </ul>
+                    </li>
+                    <li><a href="contact.html">Contact</a></li>
+                </ul>
+            </div>
+            <div class="ltn__utilize-buttons ltn__utilize-buttons-2">
+                <ul>
+                    <li>
+                        <a href="account.html" title="My Account">
+                            <span class="utilize-btn-icon">
+                                <i class="far fa-user"></i>
+                            </span>
+                            My Account
+                        </a>
+                    </li>
+                    <li>
+                        <a href="wishlist.html" title="Wishlist">
+                            <span class="utilize-btn-icon">
+                                <i class="far fa-heart"></i>
+                                <sup>3</sup>
+                            </span>
+                            Wishlist
+                        </a>
+                    </li>
+                    <li>
+                        <a href="cart.html" title="Shoping Cart">
+                            <span class="utilize-btn-icon">
+                                <i class="fas fa-shopping-cart"></i>
+                                <sup>5</sup>
+                            </span>
+                            Shoping Cart
+                        </a>
+                    </li>
+                </ul>
+            </div>
+            <div class="ltn__social-media-2">
+                <ul>
+                    <li><a href="#" title="Facebook"><i class="fab fa-facebook-f"></i></a></li>
+                    <li><a href="#" title="Twitter"><i class="fab fa-twitter"></i></a></li>
+                    <li><a href="#" title="Linkedin"><i class="fab fa-linkedin"></i></a></li>
+                    <li><a href="#" title="Instagram"><i class="fab fa-instagram"></i></a></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    <!-- Utilize Mobile Menu End -->
+
+    <div class="ltn__utilize-overlay"></div>
+
+    @yield('content')
+
+
+     <!-- FOOTER AREA START (ltn__footer-2 ltn__footer-color-1) -->
+     <footer class="ltn__footer-area ltn__footer-2 ltn__footer-color-1">
+        <div class="footer-top-area section-bg-2">
+            <div class="container">
+                <div class="row">
+                    <!-- Time Schedule -->
+                    <div class="col-xl-4 col-md-5">
+                        <div class="footer-widget ltn__footer-timeline-widget ltn__footer-timeline-widget-1 bg-image bg-overlay-theme-black-90" data-bs-bg="img/bg/4.jpg">
+                            <h6 class="ltn__secondary-color text-uppercase">// Horaires d’ouverture</h6>
+                            <h4 class="footer-title">Rencontrez-nous aux horaires suivants.</h4>
+                            <ul>
+                                <li>Lundi <span>07:00 - 20:00</span></li>
+                                <li>Mardi <span>07:00 - 20:00</span></li>
+                                <li>Mercredi <span>07:00 - 20:00</span></li>
+                                <li>Jeudi <span>07:00 - 20:00</span></li>
+                                <li>Vendredi <span>07:00 - 20:00</span></li>
+                                <li>Samedi <span>07:00 - 20:00</span></li>
+                                <li>Dimanche <span>Fermé</span></li>
+                            </ul>
+                        </div>
+                    </div>
+    
+                    <!-- Services -->
+                    <div class="col-xl-5 col-md-7">
+                        <div class="footer-widget footer-menu-widget footer-menu-widget-2-column clearfix">
+                            <h4 class="footer-title">Nos Services.</h4>
+                            <div class="footer-menu">
+                                <ul>
+                                    <li><a href="service.html">Fabrication de radiateurs</a></li>
+                                    <li><a href="service.html">Remplacement de radiateurs</a></li>
+                                    <li><a href="service.html">Soudure & Réparation</a></li>
+                                    <li><a href="service.html">Maintenance préventive</a></li>
+                                    <li><a href="service.html">Filtres automobiles (Groupe Bouali)</a></li>
+                                    <li><a href="service.html">Conseil technique</a></li>
                                 </ul>
                             </div>
-                        </div>
-                        <div class="widget-area col-xs-12 col-sm-6 col-md-6 col-lg-4">
-                            <div class="widget widget-recent-post res-991-margin_top30 clearfix">
-                                <h3 class="widget-title">@lang('Recent Posts')</h3>
-                                @php
-                                    $locale = app()->getLocale();
-                                    $recent_posts = App\Models\Blog::latest()->limit(5)->get();
-                                @endphp
-                                <ul class="widget-post ttm-recent-post-list">
-                                    @foreach ($recent_posts as $item)
-                                        <li>
-                                            <a href="/article/{{ $item->title }}"><img class="img-fluid"
-                                                    src="images/blog/post-001-150x150.jpg" alt="post-img"></a>
-                                            <div class="post-detail">
-                                                <span class="post-date"><i
-                                                        class="fa fa-calendar"></i>{{ $item->created_at }}</span>
-                                                <a href="blog-single.html">{{ $item->title }}</a>
-
-                                            </div>
-                                        </li>
-                                    @endforeach
-
-
+                            <div class="footer-menu">
+                                <ul>
+                                    <li><a href="service.html">Importation de pièces</a></li>
+                                    <li><a href="service.html">Diagnostic thermique</a></li>
+                                    <li><a href="service.html">Nettoyage de radiateurs</a></li>
+                                    <li><a href="service.html">Pièces de rechange multimarques</a></li>
                                 </ul>
                             </div>
                         </div>
                     </div>
-                </div>
-                <div class="bottom-footer-text ">
-                    <div class="row copyright text-center">
-                        <div class="col-lg-12 col-md-12 col-sm-12 d-md-flex d-sm-block justify-content-center">
-                            <span>Copyright &#169; {{ date('Y') }} <a href="/"> ONEC.</a>All Rights
-                                Reserved.</span>
-                            <div id="footer-nav-menu">
-                                <ul class="footer-nav-menu">
-                                    <li><a href="#">Privacy Policy</a></li>
-                                    <li><a href="/contact">Contact Us</a></li>
-
-                                </ul>
+    
+                    <!-- News Feeds -->
+                    <div class="col-xl-3 col-md-6">
+                        <div class="footer-widget footer-blog-widget">
+                            <h4 class="footer-title">Actualités.</h4>
+                            <div class="ltn__footer-blog-item">
+                                <div class="ltn__blog-meta">
+                                    <ul>
+                                        <li class="ltn__blog-date"><i class="far fa-calendar-alt"></i> Juin 01, 2025</li>
+                                    </ul>
+                                </div>
+                                <h4 class="ltn__blog-title"><a href="#">FB Radiateurs lance une nouvelle ligne aluminium.</a></h4>
+                            </div>
+                            <div class="ltn__footer-blog-item">
+                                <div class="ltn__blog-meta">
+                                    <ul>
+                                        <li class="ltn__blog-date"><i class="far fa-calendar-alt"></i> Mai 15, 2025</li>
+                                    </ul>
+                                </div>
+                                <h4 class="ltn__blog-title"><a href="#">Nouveaux partenariats internationaux pour pièces de rechange.</a></h4>
+                            </div>
+                            <div class="ltn__footer-blog-item">
+                                <div class="ltn__blog-meta">
+                                    <ul>
+                                        <li class="ltn__blog-date"><i class="far fa-calendar-alt"></i> Avril 10, 2025</li>
+                                    </ul>
+                                </div>
+                                <h4 class="ltn__blog-title"><a href="#">FB Radiateurs présent au Salon AutoTech Expo.</a></h4>
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
-        </footer><!-- footer end-->
+        </div>
+    
+        <!-- Copyright -->
+        <div class="ltn__copyright-area ltn__copyright-2">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-6 col-12">
+                        <div class="site-logo-wrap">
+                            <div class="site-logo">
+                                <a href="index.html"><img src="img/logo.jpg" alt="FB Radiateurs Logo"></a>
+                            </div>
+                            <div class="get-support ltn__copyright-design clearfix">
+                                <div class="get-support-info">
+                                    <h6>Copyright & Design By</h6>
+                                    <h4>FB Radiateurs © <span class="current-year"></span></h4>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-6 col-12 align-self-center">
+                        <div class="ltn__copyright-menu text-end">
+                            <ul>
+                                <li><a href="#">Conditions générales</a></li>
+                                <li><a href="#">Réclamations</a></li>
+                                <li><a href="#">Politique de confidentialité</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+    
+    <!-- FOOTER AREA END -->
 
-        <!--back-to-top start-->
-        <a id="totop" href="#top">
-            <i class="fa fa-angle-up"></i>
-        </a>
-        <!--back-to-top end-->
+    <!-- MODAL AREA START (Quick View Modal) -->
+   
+    <!-- MODAL AREA END -->
 
+    <!-- MODAL AREA START (Add To Cart Modal) -->
+    <div class="ltn__modal-area ltn__add-to-cart-modal-area">
+        <div class="modal fade" id="add_to_cart_modal" tabindex="-1">
+            <div class="modal-dialog modal-md" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <button type="button" class="close" data-bs-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <div class="modal-body">
+                         <div class="ltn__quick-view-modal-inner">
+                             <div class="modal-product-item">
+                                <div class="row">
+                                    <div class="col-12">
+                                        <div class="modal-product-img">
+                                            <img src="img/product/1.png" alt="#">
+                                        </div>
+                                         <div class="modal-product-info">
+                                            <h5><a href="product-details.html">Brake Conversion Kit</a></h5>
+                                            <p class="added-cart"><i class="fa fa-check-circle"></i>  Successfully added to your Cart</p>
+                                            <div class="btn-wrapper">
+                                                <a href="cart.html" class="theme-btn-1 btn btn-effect-1">View Cart</a>
+                                                <a href="checkout.html" class="theme-btn-2 btn btn-effect-2">Checkout</a>
+                                            </div>
+                                         </div>
+                                         <!-- additional-info -->
+                                         <div class="additional-info d-none">
+                                            <p>We want to give you <b>10% discount</b> for your first order, <br>  Use discount code at checkout</p>
+                                            <div class="payment-method">
+                                                <img src="img/icons/payment.png" alt="#">
+                                            </div>
+                                         </div>
+                                    </div>
+                                </div>
+                             </div>
+                         </div>
+                    </div>
+                </div>
+            </div>
+        </div>
     </div>
+    <!-- MODAL AREA END -->
 
+    <!-- MODAL AREA START (Wishlist Modal) -->
+   
+    <!-- MODAL AREA END -->
 
-    <!-- Javascript -->
-    <script src="{{ asset('js/jquery-3.7.1.min.js') }}"></script>
-    <script src="{{ asset('js/jquery-migrate-3.4.1.min.js') }}"></script>
-    <script src="{{ asset('js/bootstrap.min.js') }}"></script>
-    <script src="{{ asset('js/jquery.easing.js') }}"></script>
-    <script src="{{ asset('js/jquery-waypoints.js') }}"></script>
-    <script src="{{ asset('js/jquery-validate.js') }}"></script>
-    <script src="{{ asset('js/jquery.prettyPhoto.js') }}"></script>
-    <script src="{{ asset('js/slick.min.js') }}"></script>
-    <script src="{{ asset('js/numinate.min.js') }}"></script>
-    <script src="{{ asset('js/circle-progress.min.js') }}"></script>
-    <script src="{{ asset('js/imagesloaded.min.js') }}"></script>
-    <script src="{{ asset('js/jquery-isotope.js') }}"></script>
-    <script src="{{ asset('js/main.js') }}"></script>
+</div>
+<!-- Body main wrapper end -->
 
+    <!-- preloader area start -->
+    <div class="preloader d-none" id="preloader">
+        <div class="preloader-inner">
+            <div class="spinner">
+                <div class="dot1"></div>
+                <div class="dot2"></div>
+            </div>
+        </div>
+    </div>
+    <!-- preloader area end -->
+
+    <!-- All JS Plugins -->
+    <script src="js/plugins.js"></script>
+    <!-- Main JS -->
+    <script src="js/main.js"></script>
+  
 </body>
 
-<!-- Mirrored from themetechmount.com/html/invess/header-classic.html by HTTrack Website Copier/3.x [XR&CO'2014], Sun, 11 May 2025 22:57:32 GMT -->
-
+<!-- Mirrored from tunatheme.com/tf/html/autixir-preview/autixir/index-3.html by HTTrack Website Copier/3.x [XR&CO'2014], Tue, 29 Jul 2025 10:07:49 GMT -->
 </html>
+

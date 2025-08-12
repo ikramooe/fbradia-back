@@ -4,20 +4,30 @@ namespace App\Nova;
 
 use Laravel\Nova\Fields\ID;
 use Laravel\Nova\Fields\Text;
-use Laravel\Nova\Fields\Number;
 use Laravel\Nova\Fields\Select;
+use Laravel\Nova\Fields\Image;
 use Laravel\Nova\Fields\Trix;
 use Laravel\Nova\Fields\BelongsTo;
+use Laravel\Nova\Fields\File;
+use Whitecube\NovaPage\Pages\Template;
+use Whitecube\NovaFlexibleContent\Flexible;
 use Laravel\Nova\Http\Requests\NovaRequest;
+use Eminiarts\Tabs\Traits\HasTabs;
+use Eminiarts\Tabs\Tabs;
+use Eminiarts\Tabs\Tab;
+use Laravel\Nova\Panel;
+use Alexwenzel\DependencyContainer\DependencyContainer;
+use Alexwenzel\DependencyContainer\HasDependencies;
 
-class Menu extends Resource
+class Produit extends Resource
 {
+    use HasDependencies;
     /**
      * The model the resource corresponds to.
      *
-     * @var class-string<\App\Models\Menu>
+     * @var class-string<\App\Models\Produit>
      */
-    public static $model = \App\Models\Menu::class;
+    public static $model = \App\Models\Produit::class;
 
     /**
      * The single value that should be used to represent the resource when being displayed.
@@ -35,7 +45,7 @@ class Menu extends Resource
      * @var array
      */
     public static $search = [
-        'id', 'title', 'url', 'parent_id'
+        'id', 'title'
     ];
 
     /**
@@ -46,38 +56,28 @@ class Menu extends Resource
     public function fields(NovaRequest $request)
     {
         return [
-            ID::make()->sortable(),
 
             Text::make('Title')
-                ->translatable()
-                ->rules('required', 'max:255'),
+            ->translatable()
+            ->rules('required', 'max:255'),
 
-            Text::make('URL')
-                ->rules('required'),
+            Trix::make('Description')
+            ->translatable()
+            ->rules('required'),
+
+            Image::make('Image')
+            ->disk('public')
+            ->path('produits')
+            ->rules('image'),
 
          
 
-          
+     
 
-            Number::make('Order')
-                ->rules('required', 'integer')
-               ->default(0),
-
-        
+         
         ];
     }
-
-    /**
-     * Get the parent menu options for the select field.
-     *
-     * @return array
-     */
-    protected function getParentMenuOptions()
-    {
-        return Menu::whereNull('parent_id')
-            ->pluck('title', 'id')
-            ->toArray();
-    }
+    
 
     /**
      * Get the cards available for the request.
