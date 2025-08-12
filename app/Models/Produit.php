@@ -6,7 +6,7 @@ use Illuminate\Database\Eloquent\Model;
 use Spatie\Translatable\HasTranslations;
 use App\Models\Menu;
 
-class Page extends Model
+class Produit extends Model
 {
   
 

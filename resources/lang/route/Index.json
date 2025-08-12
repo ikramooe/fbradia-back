@@ -1,26 +1,14 @@
 {
     "title": "Index",
     "created_at": "2025-07-19 23:06:48",
-    "updated_at": "2025-07-20 21:35:20",
+    "updated_at": "2025-08-12 12:36:15",
     "attributes": {
         "nova_page_title": "Index",
         "nova_page_created_at": "2025-07-19T23:06:48.000Z",
         "slider_items": "[{\"layout\":\"slider-item\",\"key\":\"c5Vm5Ep8cwh0M4tB\",\"attributes\":{\"title\":{\"en\":\"dqsd\",\"ar\":\"sdqsd\",\"fr\":\"dqsd\"},\"description\":{\"en\":\"<div>dsqd<\\\/div>\",\"ar\":\"<div>QSqdsqd<\\\/div>\",\"fr\":\"<div>sdsqd<\\\/div>\"},\"image\":\"slider-images\\\/4cdNmDYnNNPcpMiLwa1mMkpPwEftnKguiEBOzIpq.jpg\"}}]",
-        "title_1": {
-            "en": null,
-            "ar": null,
-            "fr": null
-        },
-        "title_2": {
-            "en": null,
-            "ar": null,
-            "fr": null
-        },
-        "text": {
-            "en": null,
-            "ar": null,
-            "fr": null
-        },
+        "title_1": "{\"en\":null,\"ar\":null,\"fr\":null}",
+        "title_2": "{\"en\":null,\"ar\":null,\"fr\":null}",
+        "text": "{\"en\":null,\"ar\":null,\"fr\":null}",
         "partners": [],
         "features": [],
         "section_title": "{\"en\":null,\"ar\":null,\"fr\":null}",
@@ -30,49 +18,27 @@
                 "layout": "item",
                 "key": "cSxrmoghrIwpxoy6",
                 "attributes": {
-                    "title": {
-                        "en": "The National Council of Chartered Accountants ",
-                        "ar": "\u0627\u0644\u0647\u064a\u0626\u0629 \u0627\u0644\u0648\u0637\u0646\u064a\u0629 \u0644\u0644\u062e\u0628\u0631\u0627\u0621 \u0627\u0644\u0645\u062d\u0627\u0633\u0628\u064a\u0646",
-                        "fr": "L'ordre national  des experts comptables"
-                    },
-                    "description": {
-                        "en": "",
-                        "ar": "",
-                        "fr": ""
-                    },
-                    "image": "slider-images\/XOfd6iXgA02yfk1yyHHl1rFuwsugUAZSUa4ILiOl.jpg"
+                    "title": "titre 1",
+                    "description": "<div>descriptin&nbsp;<\/div>",
+                    "image": "slider-images\/YU8jgYvYWomPUPJyDTW7JnAsZhYuZSQEWhDNGRAU.jpg"
                 }
             }
         ],
-        "titlepartners": {
-            "en": null,
-            "ar": null,
-            "fr": null
-        },
-        "titlefeatures": {
-            "en": null,
-            "ar": null,
-            "fr": null
-        },
-        "titlefeatures2": {
-            "en": null,
-            "ar": null,
-            "fr": null
-        },
-        "textfeatures": {
-            "en": null,
-            "ar": null,
-            "fr": null
-        },
-        "sectiontitle": {
-            "en": null,
-            "ar": null,
-            "fr": null
-        },
-        "sectiontext": {
-            "en": null,
-            "ar": null,
-            "fr": null
-        }
+        "titlepartners": "{\"en\":null,\"ar\":null,\"fr\":null}",
+        "titlefeatures": "{\"en\":null,\"ar\":null,\"fr\":null}",
+        "titlefeatures2": "{\"en\":null,\"ar\":null,\"fr\":null}",
+        "textfeatures": "{\"en\":null,\"ar\":null,\"fr\":null}",
+        "sectiontitle": "{\"en\":null,\"ar\":null,\"fr\":null}",
+        "sectiontext": "{\"en\":null,\"ar\":null,\"fr\":null}",
+        "title_about_1": "title 1",
+        "title_about_2": "title 2",
+        "text_about": "<div>text&nbsp;<\/div>",
+        "title_choisir_nous": null,
+        "text_choisir_nous": null,
+        "title_section_services": null,
+        "text_section_services": null,
+        "services": [],
+        "title_section_partners": null,
+        "image_about": "about-images\/mRlmQkUK6YQZQ7w30ImvBkJurUADozb1ie1Qu6fj.jpg"
     }
 }

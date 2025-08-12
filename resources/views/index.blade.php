@@ -67,7 +67,7 @@
                         <div class="section-title-area ltn__section-title-2">
                             <h6 class="section-subtitle ltn__secondary-color">{{ Page::get('title_about_1') }}</h6>
                             <h1 class="section-title">{{ Page::get('title_about_2') }}<span>.</span></h1>
-                            <p>{{ Page::get('text_about') }}</p>
+                            <p><?php echo Page::get('text_about') ?></p>
                         </div>
 
                        
@@ -378,7 +378,7 @@
         <div class="container-fluid">
             <div class="row ltn__brand-logo-active">
                 @if(Page::get('partners'))
-                @foreach(Page::get('partners') as $partner)
+                @foreach(json_decode(Page::get('partners')) as $partner)
                 <div class="col-lg-12">
                     <div class="ltn__brand-logo-item">
                         <img src="{{ asset('storage/' . $partner->image) }}" alt="Brand Logo">

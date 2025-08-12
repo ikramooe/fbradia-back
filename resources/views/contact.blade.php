@@ -13,7 +13,7 @@
                         </div>
                         <div class="ltn__breadcrumb-list">
                             <ul>
-                                <li><a href="/">Home</a></li>
+                                <li><a href="/">Accueil</a></li>
                                 <li>Contact</li>
                             </ul>
                         </div>
@@ -52,7 +52,7 @@
                         <div class="ltn__contact-address-icon">
                             <img src="img/icons/12.png" alt="Icon Image">
                         </div>
-                        <h3>Office Address</h3>
+                        <h3>Adresse</h3>
                         <p>{{ Page::option('contact')->address }}</p>
                     </div>
                 </div>

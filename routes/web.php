@@ -34,17 +34,19 @@ Route::get('/about', function () {
 ->name('about');
 
 
-Route::get('/blog', function () {
-    return view('blog');
+Route::get('/shop', function () {
+    $products = App\Models\Produit::orderBy('id','desc')->get();
+    return view('produits',compact('products'));
 })
-->name('blog');
+->name('shop');
 
-Route::get('/blog/{blog}', function ($blog) {
-    $article = App\Models\Blog::where('title->fr', $blog)->first();
-   
-    return view('article', compact('article'));
+
+Route::get('/shop/produits/{id}', function ($id) {
+    $produit = App\Models\Produit::where('id',$d)->firstOrFail();
+    return view('details-produits',compact('produit'));
 })
-->name('blog');
+->name('produit');
+
 
 
 
